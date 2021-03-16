@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Frontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.homepage');
+});
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/signup', function () {
+    return view('pages.signup');
 });
