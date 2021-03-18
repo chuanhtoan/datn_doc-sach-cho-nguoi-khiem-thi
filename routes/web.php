@@ -25,3 +25,11 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
     return view('pages.signup');
 });
+
+Route::get('/categories', function () {
+    return view('pages.categories');
+});
+
+Route::get('/details', function () {
+    return view('pages.details');
+});
