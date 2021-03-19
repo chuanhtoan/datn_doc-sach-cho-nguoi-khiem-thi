@@ -6,48 +6,26 @@
 <section class="hero">
     <div class="container">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Adventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"
-                                ><span>Watch Now</span> <i class="fa fa-angle-right"></i
-                            ></a>
+            @foreach ($novels as $novel)
+                <div style="background-position: center 25%;" class="hero__items set-bg" data-setbg="{{$novel->cover}}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                @foreach ($novel_categories as $nv_ct)
+                                    @foreach ($categories as $category)
+                                        @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
+                                            <div class="label mt-2">{{$category->name}}</div>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                                <h2>{{$novel->title}}</h2>
+                                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$novel->description}}</p>
+                                <a href="novel/{{$novel->id}}"><span>Đọc ngay</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Adventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"
-                                ><span>Watch Now</span> <i class="fa fa-angle-right"></i
-                            ></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="hero__text">
-                            <div class="label">Adventure</div>
-                            <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                            <p>After 30 days of travel across the world...</p>
-                            <a href="#"
-                                ><span>Watch Now</span> <i class="fa fa-angle-right"></i
-                            ></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -88,8 +66,13 @@
                                     </a>
                                     <div class="product__item__text">
                                         <ul>
-                                            <li>Category</li>
-                                            <li>Movie</li>
+                                            @foreach ($novel_categories as $nv_ct)
+                                                @foreach ($categories as $category)
+                                                    @if ($nv_ct->novelID == $trendingNovel->id && $nv_ct->categoryID == $category->id)
+                                                        <li>{{$category->name}}</li>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
                                         </ul>
                                         <h5>
                                             <a href="#">{{$trendingNovel->title}}</a>
@@ -118,24 +101,31 @@
                     <div class="row">
                         @foreach ($popularNovels as $popularNovel)
                             <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="/novel/{{$popularNovel->id}}">
-                                        <div class="product__item__pic set-bg" data-setbg="{{$popularNovel->cover}}">
-                                            <div class="ep">18 / 18</div>
-                                            <div class="comment">
-                                                <i class="fa fa-comments"></i> 11
+                                <a href="/novel/{{$popularNovel->id}}">
+                                    <div class="product__item">
+                                        <a href="/novel/{{$popularNovel->id}}">
+                                            <div class="product__item__pic set-bg" data-setbg="{{$popularNovel->cover}}">
+                                                <div class="ep">18 / 18</div>
+                                                <div class="comment">
+                                                    <i class="fa fa-comments"></i> 11
+                                                </div>
+                                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                             </div>
-                                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                        </a>
+                                        <div class="product__item__text">
+                                            <ul>
+                                                @foreach ($novel_categories as $nv_ct)
+                                                    @foreach ($categories as $category)
+                                                        @if ($nv_ct->novelID == $popularNovel->id && $nv_ct->categoryID == $category->id)
+                                                            <li>{{$category->name}}</li>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+                                            </ul>
+                                            <h5><a href="/novel/{{$popularNovel->id}}">{{$popularNovel->title}}</a></h5>
                                         </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="/novel/{{$popularNovel->id}}">{{$popularNovel->title}}</a></h5>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -158,22 +148,29 @@
                     <div class="row">
                         @foreach ($recentlyAdds as $recentlyAdd)
                             <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="{{$recentlyAdd->cover}}">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment">
-                                            <i class="fa fa-comments"></i> 11
+                                <a href="/novel/{{$recentlyAdd->id}}">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg" data-setbg="{{$recentlyAdd->cover}}">
+                                            <div class="ep">18 / 18</div>
+                                            <div class="comment">
+                                                <i class="fa fa-comments"></i> 11
+                                            </div>
+                                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                         </div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                        <div class="product__item__text">
+                                            <ul>
+                                                @foreach ($novel_categories as $nv_ct)
+                                                    @foreach ($categories as $category)
+                                                        @if ($nv_ct->novelID == $recentlyAdd->id && $nv_ct->categoryID == $category->id)
+                                                            <li>{{$category->name}}</li>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+                                            </ul>
+                                            <h5><a href="#">{{$recentlyAdd->title}}</a></h5>
+                                        </div>
                                     </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">{{$recentlyAdd->title}}</a></h5>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>
@@ -196,25 +193,32 @@
                     <div class="row">
                         @foreach ($liveActions as $liveAction)
                             <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div
-                                        class="product__item__pic set-bg"
-                                        data-setbg="{{$liveAction->cover}}"
-                                    >
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment">
-                                            <i class="fa fa-comments"></i> 11
+                                <a href="/novel/{{$liveAction->id}}">
+                                    <div class="product__item">
+                                        <div
+                                            class="product__item__pic set-bg"
+                                            data-setbg="{{$liveAction->cover}}"
+                                        >
+                                            <div class="ep">18 / 18</div>
+                                            <div class="comment">
+                                                <i class="fa fa-comments"></i> 11
+                                            </div>
+                                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                         </div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                        <div class="product__item__text">
+                                            <ul>
+                                                @foreach ($novel_categories as $nv_ct)
+                                                    @foreach ($categories as $category)
+                                                        @if ($nv_ct->novelID == $liveAction->id && $nv_ct->categoryID == $category->id)
+                                                            <li>{{$category->name}}</li>
+                                                        @endif
+                                                    @endforeach
+                                                @endforeach
+                                            </ul>
+                                            <h5><a href="/novel/{{$liveAction->id}}">{{$liveAction->title}}</a></h5>
+                                        </div>
                                     </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">{{$liveAction->title}}</a></h5>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                     </div>

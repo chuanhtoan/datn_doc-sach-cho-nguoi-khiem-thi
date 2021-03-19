@@ -20,13 +20,15 @@ class PageController extends Controller
      */
     public function index()
     {
-        $novels = Novel::orderBy('id', 'DESC')->paginate(12);
+        $novels = Novel::all();
         $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(6);
-        $popularNovels = Novel::orderBy('id', 'DESC')->paginate(6);
+        $popularNovels = Novel::orderBy('id', 'ASC')->paginate(6);
         $recentlyAdds = Novel::orderBy('id', 'DESC')->paginate(6);
-        $liveActions = Novel::orderBy('id', 'DESC')->paginate(6);
+        $liveActions = Novel::orderBy('id', 'ASC')->paginate(6);
+        $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
         $categories = Category::all();
-        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,'categories'=>$categories,'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions]);
+        $novel_categories = Novel_Category::all();
+        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,'categories'=>$categories,'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,'topViewsNvs'=>$topViewsNvs,'novel_categories'=>$novel_categories]);
     }
 
     /**
