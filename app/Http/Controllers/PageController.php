@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Novel;
+use App\Model\Account;
+use App\Model\Comment;
 use App\Model\Category;
 use App\Model\Novel_Category;
 use App\Model\Chapter;
@@ -28,7 +30,9 @@ class PageController extends Controller
         $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
         $categories = Category::all();
         $novel_categories = Novel_Category::all();
-        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,'categories'=>$categories,'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,'topViewsNvs'=>$topViewsNvs,'novel_categories'=>$novel_categories]);
+        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,'categories'=>$categories,
+        'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,'topViewsNvs'=>$topViewsNvs,
+        'novel_categories'=>$novel_categories]);
     }
 
     /**
@@ -44,7 +48,10 @@ class PageController extends Controller
         $categories = Category::all();
         $novel_categories = DB::table('novel_category')->where('novelID',$id)->get();
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
-        return view('pages.details',['novel'=>$novel,'categories'=>$categories,'novel_categories'=>$novel_categories,'novels'=>$novels,'chapters'=>$chapters]);
+        $accounts = Account::all();
+        $comments = DB::table('comment')->where('novelID',$id)->get();
+        return view('pages.details',['novel'=>$novel,'categories'=>$categories,'novel_categories'=>$novel_categories,
+        'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments]);
     }
 
     /**
@@ -123,5 +130,17 @@ class PageController extends Controller
         $chapter->save();
 
         return redirect("/")->with('Lưu chương thành công!');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createComment(Request $request)
+    {
+        $comment = Comment::create($request->input());
+        return response()->json($comment);
     }
 }

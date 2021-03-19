@@ -20,6 +20,8 @@ Route::get('novel/{novelID}/{chapterNum}','PageController@read');
 Route::get('write/{novelID}/{chapterNum}','PageController@write');
 
 Route::post('write/','PageController@store');
+// Comment
+Route::post('/comment','PageController@createComment');
 
 //login && signup
 Route::get('login','UserController@getLogin');

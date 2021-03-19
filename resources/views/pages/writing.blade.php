@@ -2,7 +2,6 @@
 
 @section('content')
 <script src={{ url('ckeditor/ckeditor.js') }}></script>
-<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 
 <!-- Blog Details Section Begin -->
 <section class="blog-details spad" id="blog-details">

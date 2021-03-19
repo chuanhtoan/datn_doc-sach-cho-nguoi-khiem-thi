@@ -86,70 +86,29 @@
                     <div class="section-title">
                         <h5>Reviews</h5>
                     </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-1.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                            <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                            "demons" LOL</p>
-                        </div>
-                    </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-2.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                            <p>Finally it came out ages ago</p>
-                        </div>
-                    </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-3.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                            <p>Where is the episode 15 ? Slow update! Tch</p>
-                        </div>
-                    </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-4.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                            <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                            "demons" LOL</p>
-                        </div>
-                    </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-5.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                            <p>Finally it came out ages ago</p>
-                        </div>
-                    </div>
-                    <div class="anime__review__item">
-                        <div class="anime__review__item__pic">
-                            <img src="img/anime/review-6.jpg" alt="">
-                        </div>
-                        <div class="anime__review__item__text">
-                            <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                            <p>Where is the episode 15 ? Slow update! Tch</p>
-                        </div>
-                    </div>
+                    @foreach ($comments as $comment)
+                        @foreach ($accounts as $account)
+                            @if ($comment->accUsername == $account->id)
+                                <div class="anime__review__item">
+                                    <div class="anime__review__item__pic">
+                                        <img src="{{$account->avatar}}" alt="avatar">
+                                    </div>
+                                    <div class="anime__review__item__text">
+                                        <h6>{{$account->name}}</h6>
+                                        <p>{{$comment->content}}</p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endforeach
                 </div>
                 <div class="anime__details__form">
                     <div class="section-title">
-                        <h5>Your Comment</h5>
+                        <h5>Bình Luận</h5>
                     </div>
-                    <form action="#">
-                        <textarea placeholder="Your Comment"></textarea>
-                        <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                    <form id="commentForm">
+                        <textarea id="comment" placeholder="Nhập bình luận của bạn"></textarea>
+                        <button type="submit"><i class="fa fa-location-arrow"></i> Gửi</button>
                     </form>
                 </div>
             </div>
@@ -173,5 +132,43 @@
     </div>
 </section>
 <!-- Anime Section End -->
+
+<script>
+$(document).ready(function(){
+    $("#commentForm").submit(function(e){
+        e.preventDefault();
+        thucHienAjax();
+    });
+    function thucHienAjax(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
+
+        var formData = {
+            novelID: {!! $novel->id !!},
+            accUsername: 6,
+            content: $('#comment').val(),
+        }
+
+        var state = 'create';
+        var type = "POST";
+        var my_url = '/comment';
+        $.ajax({
+            type: type,
+            url: my_url,
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                console.log('Succsess')
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    }
+});
+</script>
 
 @endsection

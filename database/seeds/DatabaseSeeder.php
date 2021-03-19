@@ -16,10 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(Novel_CategorySeeder::class);
         $this->call(Chapter::class);
-
-        // $this->call(FollowList::class);
-        // $this->call(Comment::class);
-        // $this->call(AnotherTitle::class);
+        $this->call(AnotherTitle::class);
+        $this->call(Comment::class);
+        $this->call(FollowList::class);
     }
 }
 
@@ -1716,34 +1715,66 @@ class Account extends Seeder{
     {
         DB::table('account')->insert([
             ['username'=>'admin','password'=>'admin','name'=>'admin',
-            'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1']
+            'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
+            ['username'=>'hieu','password'=>'admin','name'=>'Hiếu',
+            'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2018/07/anh-dai-dien-boy-cam-kiem-samurai-kyo-520x390.jpg'],
+            ['username'=>'tieuanh','password'=>'admin','name'=>'Tiểu Ánh',
+            'avatar'=>'https://anhdephd.com/wp-content/uploads/2019/10/anh-avatar-ngau-chat-cho-con-gai.jpg'],
+            ['username'=>'phungthetai','password'=>'admin','name'=>'Phùng Thế Tài',
+            'avatar'=>'https://anhdephd.com/wp-content/uploads/2019/07/hinh-anh-avatar-chibi-cute-de-thuong-dep-nhat-cho-facebook-1-575x560.png'],
+            ['username'=>'cuong','password'=>'admin','name'=>'Cường',
+            'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2019/08/avatar-cap-doi-de-thuong-cute.jpg'],
+            ['username'=>'minhem','password'=>'admin','name'=>'Minh Em',
+            'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-avatar-hai-nguoi.jpg'],
+            ['username'=>'minhanh','password'=>'admin','name'=>'Minh Anh',
+            'avatar'=>'https://i.pinimg.com/564x/e6/57/55/e65755e73d8085e30aedfa21fde07f1b.jpg'],
         ]);
     }
 }
 
-// class Comment extends Seeder{
-//     public function run()
-//     {
-//         DB::table('comment')->insert([
-//             ['novelID'=>1,'accUsername'=>'admin','content'=>'Truyện hay quá'],
-//         ]);
-//     }
-// }
+class Comment extends Seeder{
+    public function run()
+    {
+        for ($i=1; $i <= 10; $i++) {
+            DB::table('comment')->insert([
+                ['novelID'=>$i,'accUsername'=>7,'content'=>'Truyện hay quá ad ơi!'],
+                ['novelID'=>$i,'accUsername'=>2,'content'=>'MÌNH VẪN ĐANG ĐỢI 252 ĐẾN 259 NHA ADD…'],
+                ['novelID'=>$i,'accUsername'=>3,'content'=>'Lâu quá ad ơi, 252 – 259 vẫn chưa thấy đâu :(('],
+                ['novelID'=>$i,'accUsername'=>4,'content'=>'Cho em xin hởi là ở chương bao nhiêu thì sung jin woo cưới cha hae in vậy ? Mong ad giúp!'],
+                ['novelID'=>$i,'accUsername'=>5,'content'=>'Sao lúc đánh nhau với thomas lại ko có cảnh báo từ hệ thống ?'],
+                ['novelID'=>$i,'accUsername'=>6,'content'=>'Mọi người cho mình hỏi là chap 102 trong manga thì là chương bao nhiêu vậy'],
+            ]);
+        }
+    }
+}
 
 class FollowList extends Seeder{
     public function run()
     {
         DB::table('follow_list')->insert([
-            ['novelID'=>1,'accUsername'=>'admin'],
+            ['novelID'=>1,'accUsername'=>1],
+            ['novelID'=>3,'accUsername'=>1],
+            ['novelID'=>5,'accUsername'=>1],
+            ['novelID'=>7,'accUsername'=>1],
+            ['novelID'=>9,'accUsername'=>1],
         ]);
     }
 }
 
-// class AnotherTitle extends Seeder{
-//     public function run()
-//     {
-//         DB::table('comment')->insert([
-//             ['novelID'=>1,'accUsername'=>'admin','conent'=>'Truyện hay quá'],
-//         ]);
-//     }
-// }
+class AnotherTitle extends Seeder{
+    public function run()
+    {
+        DB::table('another_title')->insert([
+            ['novelID'=>1,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>2,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>3,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>4,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>5,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>6,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>7,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>8,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>9,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>10,'title'=>'フェイト／ステイナイト'],
+        ]);
+    }
+}
