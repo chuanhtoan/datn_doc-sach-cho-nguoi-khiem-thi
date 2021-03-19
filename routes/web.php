@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','PageController@index');
 Route::get('novel/{novelID}','PageController@show');
 Route::get('novel/{novelID}/{chapterNum}','PageController@read');
+Route::get('write/{novelID}/{chapterNum}','PageController@write');
+
+Route::post('write/','PageController@store');
 
 //login && signup
 Route::get('login','UserController@getLogin');
