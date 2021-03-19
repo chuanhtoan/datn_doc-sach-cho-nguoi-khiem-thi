@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Novel;
+use App\Model\AnotherTitle;
 use App\Model\Account;
 use App\Model\Comment;
 use App\Model\Category;
@@ -51,13 +52,15 @@ class PageController extends Controller
     public function show($id)
     {
         $novel = Novel::find($id);
+        $another_title = DB::table('another_title')->where('novelID',$id)->first();
         $novels = Novel::orderBy('id', 'DESC')->paginate(4);
         $novel_categories = DB::table('novel_category')->where('novelID',$id)->get();
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
         $accounts = Account::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
-        'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments]);
+        'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments,
+        'another_title'=>$another_title]);
     }
 
     /**

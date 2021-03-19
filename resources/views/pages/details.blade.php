@@ -17,7 +17,7 @@
                     <div class="anime__details__text">
                         <div class="anime__details__title">
                             <h3>{{$novel->title}}</h3>
-                            <span>フェイト／ステイナイト</span>
+                            <span>{{$another_title->title}}</span>
                         </div>
                         {{-- <div class="anime__details__rating">
                             <div class="rating">
