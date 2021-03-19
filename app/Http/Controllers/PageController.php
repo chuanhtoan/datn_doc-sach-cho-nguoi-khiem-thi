@@ -10,11 +10,20 @@ use App\Model\Category;
 use App\Model\Novel_Category;
 use App\Model\Chapter;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 use function Psy\debug;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+      $categories = Category::all();
+      $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
+      View::share('categories', $categories);
+      View::share('topViewsNvs',$topViewsNvs);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,11 +36,9 @@ class PageController extends Controller
         $popularNovels = Novel::orderBy('id', 'ASC')->paginate(6);
         $recentlyAdds = Novel::orderBy('id', 'DESC')->paginate(6);
         $liveActions = Novel::orderBy('id', 'ASC')->paginate(6);
-        $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
-        $categories = Category::all();
         $novel_categories = Novel_Category::all();
-        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,'categories'=>$categories,
-        'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,'topViewsNvs'=>$topViewsNvs,
+        return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
+        'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,
         'novel_categories'=>$novel_categories]);
     }
 
@@ -45,12 +52,11 @@ class PageController extends Controller
     {
         $novel = Novel::find($id);
         $novels = Novel::orderBy('id', 'DESC')->paginate(4);
-        $categories = Category::all();
         $novel_categories = DB::table('novel_category')->where('novelID',$id)->get();
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
         $accounts = Account::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
-        return view('pages.details',['novel'=>$novel,'categories'=>$categories,'novel_categories'=>$novel_categories,
+        return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
         'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments]);
     }
 
@@ -66,9 +72,8 @@ class PageController extends Controller
         $chapter = DB::table('chapter')
             ->where('novelID',$novelID)
             ->where('number',$chapterNum)->first();
-        $categories = Category::all();
         $novel_categories = DB::table('novel_category')->where('novelID',$novelID)->get();
-        return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,'categories'=>$categories,'novel_categories'=>$novel_categories]);
+        return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,'novel_categories'=>$novel_categories]);
     }
 
     public function write($novelID, $chapterNum)
@@ -133,14 +138,29 @@ class PageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function createComment(Request $request)
     {
         $comment = Comment::create($request->input());
         return response()->json($comment);
+    }
+
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function categorySearch($id)
+    {
+        $novels = Novel::all();
+        $novel_categories = DB::table('novel_category')->where('categoryID',$id)->get();
+        $novel_categories_all = Novel_Category::all();
+        $category = Category::find($id);
+        return view('pages.categories',['novels'=>$novels,'novel_categories'=>$novel_categories,'category'=>$category,
+        'novel_categories_all'=>$novel_categories_all]);
     }
 }

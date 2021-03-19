@@ -14,7 +14,9 @@
                                 @foreach ($novel_categories as $nv_ct)
                                     @foreach ($categories as $category)
                                         @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
-                                            <div class="label mt-2">{{$category->name}}</div>
+                                            <div class="label mt-2">
+                                                <a href="/category/{{$category->id}}">{{$category->name}}</a>
+                                            </div>
                                         @endif
                                     @endforeach
                                 @endforeach
@@ -69,13 +71,13 @@
                                             @foreach ($novel_categories as $nv_ct)
                                                 @foreach ($categories as $category)
                                                     @if ($nv_ct->novelID == $trendingNovel->id && $nv_ct->categoryID == $category->id)
-                                                        <li>{{$category->name}}</li>
+                                                        <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                     @endif
                                                 @endforeach
                                             @endforeach
                                         </ul>
                                         <h5>
-                                            <a href="#">{{$trendingNovel->title}}</a>
+                                            <a href="/novel/{{$trendingNovel->id}}">{{$trendingNovel->title}}</a>
                                         </h5>
                                     </div>
                                 </div>
@@ -117,7 +119,7 @@
                                                 @foreach ($novel_categories as $nv_ct)
                                                     @foreach ($categories as $category)
                                                         @if ($nv_ct->novelID == $popularNovel->id && $nv_ct->categoryID == $category->id)
-                                                            <li>{{$category->name}}</li>
+                                                            <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                         @endif
                                                     @endforeach
                                                 @endforeach
@@ -162,7 +164,7 @@
                                                 @foreach ($novel_categories as $nv_ct)
                                                     @foreach ($categories as $category)
                                                         @if ($nv_ct->novelID == $recentlyAdd->id && $nv_ct->categoryID == $category->id)
-                                                            <li>{{$category->name}}</li>
+                                                            <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                         @endif
                                                     @endforeach
                                                 @endforeach
@@ -210,7 +212,7 @@
                                                 @foreach ($novel_categories as $nv_ct)
                                                     @foreach ($categories as $category)
                                                         @if ($nv_ct->novelID == $liveAction->id && $nv_ct->categoryID == $category->id)
-                                                            <li>{{$category->name}}</li>
+                                                            <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                         @endif
                                                     @endforeach
                                                 @endforeach

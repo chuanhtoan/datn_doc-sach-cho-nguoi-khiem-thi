@@ -5,11 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Model\Account;
+use App\Model\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+      $categories = Category::all();
+      View::share('categories', $categories);
+    }
+
     /**
      * Display a listing of the resource.
      *

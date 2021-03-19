@@ -23,6 +23,9 @@ Route::post('write/','PageController@store');
 // Comment
 Route::post('/comment','PageController@createComment');
 
+// Search
+Route::get('category/{categoryID}','PageController@categorySearch');
+
 //login && signup
 Route::get('login','UserController@getLogin');
 // Route::post('login','UserController@postLogin');

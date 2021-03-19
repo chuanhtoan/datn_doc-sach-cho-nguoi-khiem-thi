@@ -467,6 +467,12 @@ ol {
     -webkit-transition: all, 0.2s;
     -o-transition: all, 0.2s;
     transition: all, 0.2s;
+    box-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.hero__text .label a {
+    color: inherit;
 }
 
 .hero__text h2 {
@@ -830,7 +836,7 @@ ol {
 .product__sidebar__comment__item__pic {
     float: left;
     margin-right: 15px;
-    width: 90px
+    width: 90px;
 }
 
 .product__sidebar__comment__item__text {
@@ -2367,6 +2373,13 @@ ol {
 .chapters__list--item a {
     text-decoration: none;
     color: white;
+}
+
+.dropdown-categories {
+    white-space: nowrap;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .dropdown-options {

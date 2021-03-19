@@ -8,6 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="_token" content="{{ csrf_token() }}" />
         <title>Utako</title>
+        <link rel="icon" href="{{asset('img/utako/icon.png')}}">
 
 		<!-- Google Font -->
 		<link
