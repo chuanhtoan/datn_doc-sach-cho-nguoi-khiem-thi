@@ -14,22 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Frontend
-Route::get('/', function () {
-    return view('pages.homepage');
-});
+Route::get('/','PageController@index');
+Route::get('novel/{novelID}','PageController@show');
+Route::get('novel/{novelID}/{chapterNum}','PageController@read');
 
-Route::get('/login', function () {
-    return view('pages.login');
-});
-
-Route::get('/signup', function () {
-    return view('pages.signup');
-});
-
-Route::get('/categories', function () {
-    return view('pages.categories');
-});
-
-Route::get('/details', function () {
-    return view('pages.details');
-});
+//login && signup
+Route::get('login','UserController@getLogin');
+// Route::post('login','UserController@postLogin');
+// Route::get('logout','UserController@getLogout');
+Route::get('signup','UserController@getSignup');
+// Route::post('signup','UserController@postSignup');

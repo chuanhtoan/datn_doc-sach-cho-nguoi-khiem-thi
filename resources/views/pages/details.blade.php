@@ -2,198 +2,175 @@
 
 @section('content')
 
-<!-- Blog Details Section Begin -->
-<section class="blog-details spad">
+<!-- Anime Section Begin -->
+<section class="anime-details spad">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-8">
-                <div class="blog__details__title">
-                    <h6>Action, Magic <span>- March 08, 2020</span></h6>
-                    <h2>Anime for Beginners: 20 Pieces of Essential Viewing</h2>
-                    <div class="blog__details__social">
-                        <a href="#" class="facebook"
-                            ><i class="fa fa-facebook-square"></i> Facebook</a
-                        >
-                        <a href="#" class="pinterest"
-                            ><i class="fa fa-pinterest"></i> Pinterest</a
-                        >
-                        <a href="#" class="linkedin"
-                            ><i class="fa fa-linkedin-square"></i> Linkedin</a
-                        >
-                        <a href="#" class="twitter"
-                            ><i class="fa fa-twitter-square"></i> Twitter</a
-                        >
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="anime__details__pic set-bg" data-setbg="{{$novel->cover}}">
+                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="blog__details__pic">
-                    <img src="img/blog/details/blog-details-pic.jpg" alt="" />
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="blog__details__content">
-                    <div class="blog__details__text">
-                        <p>
-                            As a result the last couple of eps haven’t been super exciting
-                            for me, because they’ve been more like settling into a
-                            familiar and comfortable routine.  We’re seeing character
-                            growth here but it’s subtle (apart from Shouyou, arguably).  I
-                            mean, Tobio being an asshole is nothing new – it’s kind of the
-                            foundation of his entire character arc.  Confronting whether
-                            his being an asshole is a problem for the Crows this directly
-                            is a bit of an evolution, and probably an overdue one at that,
-                            but the overall dynamic with Kageyama is basically unchanged.
-                        </p>
-                    </div>
-                    <div class="blog__details__item__text">
-                        <h4>Tobio-Nishinoya showdown:</h4>
-                        <img src="img/blog/details/bd-item-1.jpg" alt="" />
-                        <p>
-                            In Japan the idea of a first-year speaking to a senior the way
-                            Kageyama did to Asahi is a lot more shocking than it would be
-                            in the West, but Tobio calling out teammates in genuinely rude
-                            fashion in the middle of a match is what got him isolated in
-                            the first place.  It’s better for the Crows to sort this out
-                            in practice matches than the real deal, but this is really on
-                            Tobio – he has to figure out how to co-exist with others in a
-                            team environment.
-                        </p>
-                    </div>
-                    <div class="blog__details__item__text">
-                        <h4>Nanatsu no Taizai: Kamigami No Gekirin</h4>
-                        <img src="img/blog/details/bd-item-2.jpg" alt="" />
-                        <p>
-                            In Japan the idea of a first-year speaking to a senior the way
-                            Kageyama did to Asahi is a lot more shocking than it would be
-                            in the West, but Tobio calling out teammates in genuinely rude
-                            fashion in the middle of a match is what got him isolated in
-                            the first place.  It’s better for the Crows to sort this out
-                            in practice matches than the real deal, but this is really on
-                            Tobio – he has to figure out how to co-exist with others in a
-                            team environment.
-                        </p>
-                    </div>
-                    <div class="blog__details__item__text">
-                        <h4>ID:Ianvaded:</h4>
-                        <img src="img/blog/details/bd-item-3.jpg" alt="" />
-                        <p>
-                            In Japan the idea of a first-year speaking to a senior the way
-                            Kageyama did to Asahi is a lot more shocking than it would be
-                            in the West, but Tobio calling out teammates in genuinely rude
-                            fashion in the middle of a match is what got him isolated in
-                            the first place.  It’s better for the Crows to sort this out
-                            in practice matches than the real deal, but this is really on
-                            Tobio – he has to figure out how to co-exist with others in a
-                            team environment.
-                        </p>
-                    </div>
-                    <div class="blog__details__tags">
-                        <a href="#">Healthfood</a>
-                        <a href="#">Sport</a>
-                        <a href="#">Game</a>
-                    </div>
-                    <div class="blog__details__btns">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog__details__btns__item">
-                                    <h5>
-                                        <a href="#"
-                                            ><span class="arrow_left"></span> Building a Better
-                                            LiA...</a
-                                        >
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="blog__details__btns__item next__btn">
-                                    <h5>
-                                        <a href="#"
-                                            >Mugen no Juunin: Immortal – 21
-                                            <span class="arrow_right"></span
-                                        ></a>
-                                    </h5>
-                                </div>
-                            </div>
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3>{{$novel->name}}</h3>
+                            <span>フェイト／ステイナイト, Feito／sutei naito</span>
                         </div>
-                    </div>
-                    <div class="blog__details__comment">
-                        <h4>3 Comments</h4>
-                        <div class="blog__details__comment__item">
-                            <div class="blog__details__comment__item__pic">
-                                <img src="img/blog/details/comment-1.png" alt="" />
+                        <div class="anime__details__rating">
+                            <div class="rating">
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star-half-o"></i></a>
                             </div>
-                            <div class="blog__details__comment__item__text">
-                                <span>Sep 08, 2020</span>
-                                <h5>John Smith</h5>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                    amet, consectetur, adipisci velit, sed quia non numquam
-                                    eius modi
-                                </p>
-                                <a href="#">Like</a>
-                                <a href="#">Reply</a>
-                            </div>
+                            <span>1.029 Votes</span>
                         </div>
-                        <div
-                            class="blog__details__comment__item blog__details__comment__item--reply"
-                        >
-                            <div class="blog__details__comment__item__pic">
-                                <img src="img/blog/details/comment-2.png" alt="" />
-                            </div>
-                            <div class="blog__details__comment__item__text">
-                                <span>Sep 08, 2020</span>
-                                <h5>Elizabeth Perry</h5>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                    amet, consectetur, adipisci velit, sed quia non numquam
-                                    eius modi
-                                </p>
-                                <a href="#">Like</a>
-                                <a href="#">Reply</a>
-                            </div>
-                        </div>
-                        <div class="blog__details__comment__item">
-                            <div class="blog__details__comment__item__pic">
-                                <img src="img/blog/details/comment-3.png" alt="" />
-                            </div>
-                            <div class="blog__details__comment__item__text">
-                                <span>Sep 08, 2020</span>
-                                <h5>Adrian Coleman</h5>
-                                <p>
-                                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                                    amet, consectetur, adipisci velit, sed quia non numquam
-                                    eius modi
-                                </p>
-                                <a href="#">Like</a>
-                                <a href="#">Reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blog__details__form">
-                        <h4>Leave A Commnet</h4>
-                        <form action="#">
+                        <p class="mt-5">{{$novel->description}}</p>
+                        <div class="anime__details__widget">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" placeholder="Name" />
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span>Tác giả:</span> {{$novel->author}}</li>
+                                        <li><span>Tình trạng:</span> {{$novel->status}}</li>
+                                        <li><span>Loại:</span> {{$novel->type}}</li>
+                                        <li><span>Năm sản xuất:</span> {{$novel->publishYear}}</li>
+                                        <li><span>Ngôn ngữ:</span> {{$novel->language}}</li>
+                                        <li><span>Xếp loại:</span> {{$novel->rating}}</li>
+                                    </ul>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
-                                    <input type="text" placeholder="Email" />
-                                </div>
-                                <div class="col-lg-12">
-                                    <textarea placeholder="Message"></textarea>
-                                    <button type="submit" class="site-btn">
-                                        Send Message
-                                    </button>
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li>
+                                            <span>Thể loại:</span>
+                                            @foreach ($novel_categories as $novel_category)
+                                                @foreach ($categories as $category)
+                                                    @if ($category->id == $novel_category->categoryID)
+                                                        {{$category->name}},
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="anime__details__btn">
+                            <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Theo Dõi</a>
+                            <a href="#" class="watch-btn"><span>Đọc ngay</span> <i
+                                class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="anime__details__widget">
+                        <div class="section-title">
+                            <h5>Chương</h5>
+                        </div>
+                        <div class="chapters__list--wrap">
+                            <ul class="chapters__list">
+                                @foreach ($chapters as $chapter)
+                                    <li class="chapters__list--item"><a href="/read/{{$chapter->id}}">
+                                        Chương {{$chapter->number}} @if ($chapter->title!=null) {{'-'}} @endif {{$chapter->title}}
+                                    </a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="anime__details__review">
+                        <div class="section-title">
+                            <h5>Reviews</h5>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-1.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                "demons" LOL</p>
+                            </div>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-2.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                <p>Finally it came out ages ago</p>
+                            </div>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-3.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                                <p>Where is the episode 15 ? Slow update! Tch</p>
+                            </div>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-4.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                "demons" LOL</p>
+                            </div>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-5.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                <p>Finally it came out ages ago</p>
+                            </div>
+                        </div>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="img/anime/review-6.jpg" alt="">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                                <p>Where is the episode 15 ? Slow update! Tch</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime__details__form">
+                        <div class="section-title">
+                            <h5>Your Comment</h5>
+                        </div>
+                        <form action="#">
+                            <textarea placeholder="Your Comment"></textarea>
+                            <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
                         </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="anime__details__sidebar">
+                        <div class="section-title">
+                            <h5>bạn có thể thích...</h5>
+                        </div>
+                        @foreach ($novels as $nl)
+                            <div class="product__sidebar__view__item set-bg" data-setbg="{{$nl->cover}}">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">{{$nl->title}}</a></h5>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Blog Details Section End -->
+    </section>
+<!-- Anime Section End -->
 
 @endsection
