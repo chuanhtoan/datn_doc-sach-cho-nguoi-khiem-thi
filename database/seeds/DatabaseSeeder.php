@@ -1713,7 +1713,7 @@ class Chapter extends Seeder{
 class Account extends Seeder{
     public function run()
     {
-        DB::table('account')->insert([
+        DB::table('users')->insert([
             ['username'=>'admin','password'=>'admin','name'=>'admin',
             'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
             ['username'=>'hieu','password'=>'admin','name'=>'Hiếu',

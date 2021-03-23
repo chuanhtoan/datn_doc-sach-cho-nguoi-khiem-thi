@@ -166,4 +166,12 @@ class PageController extends Controller
         return view('pages.categories',['novels'=>$novels,'novel_categories'=>$novel_categories,'category'=>$category,
         'novel_categories_all'=>$novel_categories_all]);
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $novels = DB::table('novel')->orderBy('id', 'DESC')->where('title','like','%'.$search.'%')->get();
+        $novel_categories = Novel_Category::all();
+        return view('pages.search',['novels'=>$novels,'novel_categories'=>$novel_categories]);
+    }
 }

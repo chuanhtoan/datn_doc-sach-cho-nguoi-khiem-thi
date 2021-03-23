@@ -16,7 +16,7 @@ class CreateFollowListTable extends Migration
         Schema::create('follow_list', function (Blueprint $table) {
             $table->id();
             $table->foreignId('novelID')->constrained('novel')->onDelete('cascade');
-            $table->foreignId('accUsername')->constrained('account')->onDelete('cascade');
+            $table->foreignId('accUsername')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

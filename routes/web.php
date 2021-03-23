@@ -25,10 +25,11 @@ Route::post('/comment','PageController@createComment');
 
 // Search
 Route::get('category/{categoryID}','PageController@categorySearch');
+Route::get('search','PageController@search');
 
 //login && signup
 Route::get('login','UserController@getLogin');
-// Route::post('login','UserController@postLogin');
+Route::post('login','UserController@postLogin');
 // Route::get('logout','UserController@getLogout');
 Route::get('signup','UserController@getSignup');
 // Route::post('signup','UserController@postSignup');

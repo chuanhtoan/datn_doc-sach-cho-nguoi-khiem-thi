@@ -95,6 +95,22 @@ class UserController extends Controller
         return view('pages.login');
     }
 
+    public function postLogin(Request $request)
+    {
+        $arr = [
+            'username' => $request->username,
+            'password' => $request->password
+        ];
+
+        if(Auth::attempt($arr)){
+            dd('ok');
+            return \redirect('/');
+        }else{
+            dd('not ok');
+            return view('pages.login')->with(['error'=>true]);
+        }
+    }
+
     public function getLogout()
     {
         // Auth::logout();

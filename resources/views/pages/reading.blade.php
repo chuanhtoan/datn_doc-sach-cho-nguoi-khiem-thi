@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.reading_layout')
 
 @section('content')
 

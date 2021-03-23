@@ -19,7 +19,7 @@
                         <li class="active"><a href="./index.html">Trang Chủ</a></li>
                         <li><a href="./categories.html">Thể Loại</a></li>
                         <li><a href="./blog.html">Theo Dõi</a></li>
-                        <li><a href="#">Tùy Chỉnh</a></li>
+                        <li><a href="#">Về Chúng Tôi</a></li>
                     </ul>
                 </div>
             </div>

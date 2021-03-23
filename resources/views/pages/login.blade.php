@@ -24,13 +24,19 @@
             <div class="col-lg-6">
                 <div class="login__form">
                     <h3>Đăng Nhập</h3>
-                    <form action="#">
+                    <form method="POST" action="/login">
+                        @csrf
+                        {{-- Thong Bao Dang Nhap Loi --}}
+                        @if (isset($error))
+                            <div class="text-danger">Tài khoản hoặc mật khẩu sai</div>
+                        @endif
+
                         <div class="input__item">
-                            <input type="text" placeholder="Tên đăng nhập">
+                            <input name="username" type="text" placeholder="Tên đăng nhập">
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input type="text" placeholder="Mật khẩu">
+                            <input name="password" type="password" placeholder="Mật khẩu">
                             <span class="icon_lock"></span>
                         </div>
                         <button type="submit" class="site-btn">Đăng Nhập</button>

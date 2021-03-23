@@ -17,7 +17,7 @@ class CreateCommentTable extends Migration
             $table->id();
             $table->string('content', 3000);
             $table->foreignId('novelID')->constrained('novel')->onDelete('cascade');
-            $table->foreignId('accUsername')->constrained('account')->onDelete('cascade');
+            $table->foreignId('accUsername')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
