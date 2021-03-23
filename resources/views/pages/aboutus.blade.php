@@ -24,7 +24,7 @@
             <div class="col-lg-12">
                 <div class="login__form">
                     <h3>Utako - website đọc/viết tiểu thuyết</h3>
-                    <h5>Chúng tôi là</h5>
+                    <h5>Đây là website đọc, viết tiểu thuyết - Demo đồ án môn thực tập tốt nghiệp của sinh viên Chu Anh Toàn - CNTT K58</h5>
                 </div>
             </div>
         </div>
