@@ -76,7 +76,10 @@ class PageController extends Controller
             ->where('novelID',$novelID)
             ->where('number',$chapterNum)->first();
         $novel_categories = DB::table('novel_category')->where('novelID',$novelID)->get();
-        return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,'novel_categories'=>$novel_categories]);
+        $comments = DB::table('comment')->where('novelID',$novelID)->get();
+        $accounts = User::all();
+        return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,
+        'novel_categories'=>$novel_categories,'comments'=>$comments,'accounts'=>$accounts]);
     }
 
     public function write($novelID, $chapterNum)

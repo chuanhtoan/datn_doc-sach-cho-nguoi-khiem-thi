@@ -119,10 +119,14 @@ function changeBG(x) {
         // if light
         textColor = "#2B2B2B";
     }
-    document.getElementsByTagName("BODY")[0].style.background = x.value;
+    document.querySelector(".blog-details").style.background = x.value;
     document.querySelector(".blog__details__title h2").style.color = textColor;
     document.querySelector(".blog__details__title h6").style.color = textColor;
     document.querySelector("#novel-content").style.color = textColor;
+    document.querySelector(
+        ".anime__details__review h5"
+    ).style.color = textColor;
+    document.querySelector(".anime__details__form h5").style.color = textColor;
     document.querySelectorAll(".blog__details__tags a").forEach((item) => {
         item.style.background = textColor;
     });
@@ -136,5 +140,5 @@ function changeBG(x) {
 }
 
 function selectFunc(x) {
-    document.getElementById("novel-content").style.fontSize = x.value;
+    document.getElementById("novel-content").style.fontSize = x.value + "px";
 }
