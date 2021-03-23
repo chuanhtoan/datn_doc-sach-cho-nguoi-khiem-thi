@@ -41,7 +41,7 @@
                         </div>
                         <button type="submit" class="site-btn">Đăng Nhập</button>
                     </form>
-                    <a href="#" class="forget_pass">Quên mật khẩu?</a>
+                    {{-- <a href="#" class="forget_pass">Quên mật khẩu?</a> --}}
                 </div>
             </div>
             <div class="col-lg-6">
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="login__social">
+        {{-- <div class="login__social">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6">
                     <div class="login__social__links">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!-- Login Section End -->

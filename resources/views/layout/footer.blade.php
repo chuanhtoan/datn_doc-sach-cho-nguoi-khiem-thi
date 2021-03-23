@@ -16,10 +16,10 @@
             <div class="col-lg-6">
                 <div class="footer__nav">
                     <ul>
-                        <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                        <li><a href="./categories.html">Thể Loại</a></li>
-                        <li><a href="./blog.html">Theo Dõi</a></li>
-                        <li><a href="#">Về Chúng Tôi</a></li>
+                        <li class="active"><a href="/">Trang Chủ</a></li>
+                        <li><a href="#">Thể Loại</a></li>
+                        <li><a href="/follow">Theo Dõi</a></li>
+                        <li><a href="/about">Về Chúng Tôi</a></li>
                     </ul>
                 </div>
             </div>

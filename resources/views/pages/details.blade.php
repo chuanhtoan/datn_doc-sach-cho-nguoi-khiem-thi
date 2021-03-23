@@ -84,7 +84,7 @@
                 </div>
                 <div class="anime__details__review">
                     <div class="section-title">
-                        <h5>Reviews</h5>
+                        <h5>Bình luận</h5>
                     </div>
                     @foreach ($comments as $comment)
                         @foreach ($accounts as $account)

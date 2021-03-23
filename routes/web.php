@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','PageController@index');
 Route::get('novel/{novelID}','PageController@show');
 Route::get('novel/{novelID}/{chapterNum}','PageController@read');
-Route::get('write/{novelID}/{chapterNum}','PageController@write');
+Route::get('/about','PageController@about');
+Route::get('/follow','PageController@follow');
 
+// Write
+Route::get('write/{novelID}/{chapterNum}','PageController@write');
 Route::post('write/','PageController@store');
+
 // Comment
 Route::post('/comment','PageController@createComment');
 

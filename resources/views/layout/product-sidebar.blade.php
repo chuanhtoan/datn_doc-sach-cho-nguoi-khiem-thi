@@ -3,7 +3,7 @@
 <div class="product__sidebar">
     <div class="product__sidebar__view">
         <div class="section-title">
-            <h5>Top Views</h5>
+            <h5>Xem nhiều</h5>
         </div>
         {{-- <ul class="filter__controls">
             <li class="active" data-filter="*">Day</li>
@@ -15,7 +15,7 @@
             @foreach ($topViewsNvs as $topViewsNv)
                 <a href="/novel/{{$topViewsNv->id}}">
                     <div class="product__sidebar__view__item set-bg mix day years" data-setbg="{{$topViewsNv->cover}}">
-                        <div class="ep">18 / ?</div>
+                        <div class="ep">2 / ?</div>
                         <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         <h5>{{$topViewsNv->title}}</h5>
                     </div>
@@ -25,7 +25,7 @@
     </div>
     <div class="product__sidebar__comment">
         <div class="section-title">
-            <h5>New Comment</h5>
+            <h5>Bình luận mới</h5>
         </div>
         @foreach ($topViewsNvs as $topViewsNv)
             <a href="/novel/{{$topViewsNv->id}}">

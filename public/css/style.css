@@ -1915,7 +1915,7 @@ ol {
 }
 
 .signup .login__form:after {
-    height: 450px;
+    height: 0;
 }
 
 .signup .login__form h5 {
@@ -2396,4 +2396,21 @@ ol {
     line-height: 50px;
     margin-top: -50px;
     font-size: 20px;
+}
+
+.small_content {
+    min-height: 100vh;
+}
+
+#btn-save {
+    font-size: 13px;
+    color: #ffffff;
+    background: #e53637;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-radius: 4px 0 0 4px;
+    margin-right: 1px;
 }

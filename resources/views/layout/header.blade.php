@@ -23,8 +23,8 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="#">Theo Dõi</a></li>
-                            <li><a href="#">Về Chúng Tôi</a></li>
+                            <li><a href="/follow">Theo Dõi</a></li>
+                            <li><a href="/about">Về Chúng Tôi</a></li>
                         </ul>
                     </nav>
                 </div>

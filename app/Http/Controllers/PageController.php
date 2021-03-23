@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Novel;
 use App\Model\AnotherTitle;
-use App\Model\Account;
+use App\User;
 use App\Model\Comment;
 use App\Model\Category;
 use App\Model\Novel_Category;
@@ -56,7 +56,7 @@ class PageController extends Controller
         $novels = Novel::orderBy('id', 'DESC')->paginate(4);
         $novel_categories = DB::table('novel_category')->where('novelID',$id)->get();
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
-        $accounts = Account::all();
+        $accounts = User::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
         'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments,
@@ -85,7 +85,7 @@ class PageController extends Controller
         $chapter = DB::table('chapter')
             ->where('novelID',$novelID)
             ->where('number',$chapterNum)->first();
-        return view('pages.writing',['chapter'=>$chapter,'novel'=>$novel]);
+        return view('pages.writing',['chapter'=>$chapter,'novel'=>$novel,'chapterNum'=>$chapterNum]);
     }
 
     /**
@@ -173,5 +173,22 @@ class PageController extends Controller
         $novels = DB::table('novel')->orderBy('id', 'DESC')->where('title','like','%'.$search.'%')->get();
         $novel_categories = Novel_Category::all();
         return view('pages.search',['novels'=>$novels,'novel_categories'=>$novel_categories]);
+    }
+
+    public function about()
+    {
+        return view('pages.aboutus',[]);
+    }
+
+    /**
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function follow()
+    {
+        $novels = Novel::all();
+        $novel_categories = Novel_Category::all();
+        return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories]);
     }
 }
