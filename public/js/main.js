@@ -139,6 +139,26 @@ function changeBG(x) {
         });
 }
 
-function selectFunc(x) {
+function changeFZ(x) {
     document.getElementById("novel-content").style.fontSize = x.value + "px";
+}
+
+function changeLH(x) {
+    document.getElementById("novel-content").style.lineHeight = x.value;
+}
+
+function changePD(x) {
+    if (x.value === "full") {
+        document
+            .querySelector("#blog-details .container")
+            .classList.add("fullKhung");
+    } else {
+        document
+            .querySelector("#blog-details .container")
+            .classList.remove("fullKhung");
+    }
+}
+
+function changeFF(x) {
+    document.getElementById("novel-content").style.fontFamily = x.value + ",sans-serif";
 }
