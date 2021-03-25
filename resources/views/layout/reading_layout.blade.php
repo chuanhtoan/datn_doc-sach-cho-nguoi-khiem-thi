@@ -123,7 +123,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group-sm d-flex align-items-center justify-content-between mt-2">
-                                                    <label class="col-sm-2 col-md-5 control-label mt-3" for="changeFFid">Font chữ: </label>
+                                                    <label class="col-sm-2 col-md-5 control-label mt-3" for="changeFFid">Kiểu chữ: </label>
                                                     <div class="col-sm-5 col-md-7">
                                                         <select class="form-control" onchange="changeFF(this)" id="changeFFid">
                                                             <option value="Mulish" selected="">Mulish</option>
