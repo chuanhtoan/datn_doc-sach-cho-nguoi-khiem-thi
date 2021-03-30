@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <button id="btnTalk">click</button>
-    <p id="message"></p>
+@extends('layout.index')
 
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
-    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-    <script>
-        if ("webkitSpeechRecognition" in window) {
+@section('content')
+
+@endsection
+
+@section('js')
+<script>
+    if ("webkitSpeechRecognition" in window) {
             var message = document.querySelector('#message');
 
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -55,6 +48,5 @@
                 }
             });
         }
-    </script>
-</body>
-</html>
+</script>
+@endsection

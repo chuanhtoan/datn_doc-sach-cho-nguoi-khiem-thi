@@ -64,7 +64,6 @@
 		<!-- Search model end -->
 
 		<!-- Js Plugins -->
-        <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
 		<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 		<script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<script src="{{asset('js/player.js')}}"></script>
@@ -73,5 +72,14 @@
 		<script src="{{asset('js/jquery.slicknav.js')}}"></script>
 		<script src="{{asset('js/owl.carousel.min.js')}}"></script>
 		<script src="{{asset('js/main.js')}}"></script>
+
+        <!-- Responsive Voice -->
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
+        <script>
+            responsiveVoice.setDefaultVoice("Vietnamese Female");
+        </script>
+
+        <!-- Section Javascript -->
+        @yield('js')
 	</body>
 </html>
