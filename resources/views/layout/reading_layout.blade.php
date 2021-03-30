@@ -144,7 +144,11 @@
                             <a href="#" class="search-switch"
                                 ><span class="icon_search"></span
                             ></a>
-                            <a href="/login"><span class="icon_profile"></span></a>
+                            @if (isset($user))
+                                <a href="/login"><img style="width: 30px; margin-top: -5px;" src="{{$user->avatar}}"></a>
+                            @else
+                                <a href="/login"><span class="icon_profile"></span></a>
+                            @endif
                         </div>
                     </div>
                 </div>

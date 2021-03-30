@@ -1714,19 +1714,19 @@ class Account extends Seeder{
     public function run()
     {
         DB::table('users')->insert([
-            ['username'=>'admin','password'=>'admin','name'=>'admin',
+            ['email'=>'admin','password'=>'admin','name'=>'admin',
             'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
-            ['username'=>'hieu','password'=>'admin','name'=>'Hiếu',
+            ['email'=>'hieu','password'=>'admin','name'=>'Hiếu',
             'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2018/07/anh-dai-dien-boy-cam-kiem-samurai-kyo-520x390.jpg'],
-            ['username'=>'tieuanh','password'=>'admin','name'=>'Tiểu Ánh',
+            ['email'=>'tieuanh','password'=>'admin','name'=>'Tiểu Ánh',
             'avatar'=>'https://anhdephd.com/wp-content/uploads/2019/10/anh-avatar-ngau-chat-cho-con-gai.jpg'],
-            ['username'=>'phungthetai','password'=>'admin','name'=>'Phùng Thế Tài',
+            ['email'=>'phungthetai','password'=>'admin','name'=>'Phùng Thế Tài',
             'avatar'=>'https://anhdephd.com/wp-content/uploads/2019/07/hinh-anh-avatar-chibi-cute-de-thuong-dep-nhat-cho-facebook-1-575x560.png'],
-            ['username'=>'cuong','password'=>'admin','name'=>'Cường',
+            ['email'=>'cuong','password'=>'admin','name'=>'Cường',
             'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2019/08/avatar-cap-doi-de-thuong-cute.jpg'],
-            ['username'=>'minhem','password'=>'admin','name'=>'Minh Em',
+            ['email'=>'minhem','password'=>'admin','name'=>'Minh Em',
             'avatar'=>'https://thuthuatnhanh.com/wp-content/uploads/2019/08/anh-avatar-hai-nguoi.jpg'],
-            ['username'=>'minhanh','password'=>'admin','name'=>'Minh Anh',
+            ['email'=>'minhanh','password'=>'admin','name'=>'Minh Anh',
             'avatar'=>'https://i.pinimg.com/564x/e6/57/55/e65755e73d8085e30aedfa21fde07f1b.jpg'],
         ]);
     }

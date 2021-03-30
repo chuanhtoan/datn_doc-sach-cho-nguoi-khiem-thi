@@ -418,6 +418,8 @@ ol {
 }
 
 .header__right {
+    display: flex;
+    justify-content: flex-end;
     text-align: right;
     padding: 20px 0 15px;
 }
@@ -2393,7 +2395,7 @@ ol {
 
 #novel-content {
     white-space: pre-line;
-    line-height: 50px;
+    line-height: 2.5;
     margin-top: -50px;
     font-size: 20px;
 }
@@ -2417,4 +2419,43 @@ ol {
 
 .fullKhung {
     max-width: 100%;
+}
+
+#acc-icon:hover .my__dropdown {
+    top: 55px;
+    opacity: 1;
+    visibility: visible;
+}
+
+#acc-icon:hover .my__dropdown li a {
+    background: transparent;
+}
+
+#acc-icon .my__dropdown {
+    position: absolute;
+    right: 0;
+    top: 82px;
+    width: 130px;
+    background: #ffffff;
+    text-align: left;
+    padding: 5px 0;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all, 0.3s;
+    -o-transition: all, 0.3s;
+    transition: all, 0.3s;
+}
+
+#acc-icon .my__dropdown li {
+    display: block;
+    margin-right: 0;
+}
+
+#acc-icon .my__dropdown li a {
+    font-size: 14px;
+    color: #111111;
+    font-weight: 500;
+    padding: 5px 20px;
+    width: 100%;
 }

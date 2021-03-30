@@ -24,13 +24,18 @@
             <div class="col-lg-12">
                 <div class="login__form">
                     <h3>Đăng Ký</h3>
-                    <form action="#">
+                    <form method="POST" action="/signup">
+                        @csrf
                         <div class="input__item">
-                            <input type="text" placeholder="Tên đăng nhập">
+                            <input type="text" placeholder="Tên đăng nhập" name="email">
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input type="text" placeholder="Mật khẩu">
+                            <input type="text" placeholder="Tên hiển thị" name="name">
+                            <span class="icon_mail"></span>
+                        </div>
+                        <div class="input__item">
+                            <input type="password" placeholder="Mật khẩu" name="password">
                             <span class="icon_lock"></span>
                         </div>
                         <button type="submit" class="site-btn">Đăng Ký</button>

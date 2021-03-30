@@ -15,11 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('email')->unique();
             $table->string('password');
             $table->integer('type')->default(0);
-            $table->string('name');
-            $table->string('avatar');
+            $table->string('name')->default('guest');
+            $table->string('avatar')->default('https://thuthuatnhanh.com/wp-content/uploads/2019/08/avatar-cap-doi-de-thuong-cute.jpg');
             $table->date('dateOfBirth')->nullable();
             $table->rememberToken();
             $table->timestamps();

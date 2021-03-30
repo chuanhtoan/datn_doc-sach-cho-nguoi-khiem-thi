@@ -12,6 +12,7 @@ use App\Model\Novel_Category;
 use App\Model\Chapter;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 use function Psy\debug;
 
@@ -19,10 +20,10 @@ class PageController extends Controller
 {
     public function __construct()
     {
-      $categories = Category::all();
-      $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
-      View::share('categories', $categories);
-      View::share('topViewsNvs',$topViewsNvs);
+        $categories = Category::all();
+        $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
+        View::share('categories', $categories);
+        View::share('topViewsNvs',$topViewsNvs);
     }
 
     /**
@@ -32,6 +33,11 @@ class PageController extends Controller
      */
     public function index()
     {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
         $novels = Novel::all();
         $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(6);
         $popularNovels = Novel::orderBy('id', 'ASC')->paginate(6);
@@ -40,7 +46,7 @@ class PageController extends Controller
         $novel_categories = Novel_Category::all();
         return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
         'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,
-        'novel_categories'=>$novel_categories]);
+        'novel_categories'=>$novel_categories,'user'=>$user]);
     }
 
     /**
@@ -51,6 +57,13 @@ class PageController extends Controller
     */
     public function show($id)
     {
+        $user = null;
+        $logged = 0;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+            $logged = $user->id;
+        }
+
         $novel = Novel::find($id);
         $another_title = DB::table('another_title')->where('novelID',$id)->first();
         $novels = Novel::orderBy('id', 'DESC')->paginate(4);
@@ -60,7 +73,7 @@ class PageController extends Controller
         $comments = DB::table('comment')->where('novelID',$id)->get();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
         'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments,
-        'another_title'=>$another_title]);
+        'another_title'=>$another_title,'user'=>$user,'logged'=>$logged]);
     }
 
     /**
@@ -71,6 +84,13 @@ class PageController extends Controller
     */
     public function read($novelID, $chapterNum)
     {
+        $user = null;
+        $logged = 0;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+            $logged = $user->id;
+        }
+
         $novel = Novel::find($novelID);
         $chapter = DB::table('chapter')
             ->where('novelID',$novelID)
@@ -79,16 +99,22 @@ class PageController extends Controller
         $comments = DB::table('comment')->where('novelID',$novelID)->get();
         $accounts = User::all();
         return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,
-        'novel_categories'=>$novel_categories,'comments'=>$comments,'accounts'=>$accounts]);
+        'novel_categories'=>$novel_categories,'comments'=>$comments,
+        'accounts'=>$accounts,'user'=>$user,'logged'=>$logged]);
     }
 
     public function write($novelID, $chapterNum)
     {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
         $novel = Novel::find($novelID);
         $chapter = DB::table('chapter')
             ->where('novelID',$novelID)
             ->where('number',$chapterNum)->first();
-        return view('pages.writing',['chapter'=>$chapter,'novel'=>$novel,'chapterNum'=>$chapterNum]);
+        return view('pages.writing',['chapter'=>$chapter,'novel'=>$novel,'chapterNum'=>$chapterNum,'user'=>$user]);
     }
 
     /**
@@ -153,6 +179,7 @@ class PageController extends Controller
     {
         $comment = Comment::create($request->input());
         return response()->json($comment);
+        // return redirect('/');
     }
 
     /**
@@ -162,25 +189,40 @@ class PageController extends Controller
     */
     public function categorySearch($id)
     {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
         $novels = Novel::all();
         $novel_categories = DB::table('novel_category')->where('categoryID',$id)->get();
         $novel_categories_all = Novel_Category::all();
         $category = Category::find($id);
         return view('pages.categories',['novels'=>$novels,'novel_categories'=>$novel_categories,'category'=>$category,
-        'novel_categories_all'=>$novel_categories_all]);
+        'novel_categories_all'=>$novel_categories_all,'user'=>$user]);
     }
 
     public function search(Request $request)
     {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
         $search = $request->get('search');
         $novels = DB::table('novel')->orderBy('id', 'DESC')->where('title','like','%'.$search.'%')->get();
         $novel_categories = Novel_Category::all();
-        return view('pages.search',['novels'=>$novels,'novel_categories'=>$novel_categories]);
+        return view('pages.search',['novels'=>$novels,'novel_categories'=>$novel_categories,'user'=>$user]);
     }
 
     public function about()
     {
-        return view('pages.aboutus',[]);
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
+        return view('pages.aboutus',['user'=>$user]);
     }
 
     /**
@@ -190,8 +232,13 @@ class PageController extends Controller
     */
     public function follow()
     {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
         $novels = Novel::all();
         $novel_categories = Novel_Category::all();
-        return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories]);
+        return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories,'user'=>$user]);
     }
 }

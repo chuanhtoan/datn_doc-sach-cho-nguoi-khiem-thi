@@ -47,13 +47,15 @@
                         @endforeach
                     </div>
                     <div class="anime__details__form">
-                        <div class="section-title">
-                            <h5>Bình Luận</h5>
-                        </div>
-                        <form id="commentForm">
-                            <textarea id="comment" placeholder="Nhập bình luận của bạn"></textarea>
-                            <button type="submit"><i class="fa fa-location-arrow"></i> Gửi</button>
-                        </form>
+                        @if (isset($user))
+                            <div class="section-title">
+                                <h5>Bình Luận</h5>
+                            </div>
+                            <form id="commentForm">
+                                <textarea id="comment" placeholder="Nhập bình luận của bạn"></textarea>
+                                <button type="submit"><i class="fa fa-location-arrow"></i> Gửi</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -77,7 +79,7 @@ $(document).ready(function(){
 
         var formData = {
             novelID: {!! $novel->id !!},
-            accUsername: 6,
+            accUsername: {!! $logged !!},
             content: $('#comment').val(),
         }
 
@@ -90,7 +92,8 @@ $(document).ready(function(){
             data: formData,
             dataType: 'json',
             success: function (data) {
-                console.log('Succsess')
+                console.log('Success:', data)
+                location.reload()
             },
             error: function (data) {
                 console.log('Error:', data);

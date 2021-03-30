@@ -32,7 +32,7 @@
                         @endif
 
                         <div class="input__item">
-                            <input name="username" type="text" placeholder="Tên đăng nhập">
+                            <input name="email" type="text" placeholder="Tên đăng nhập">
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
