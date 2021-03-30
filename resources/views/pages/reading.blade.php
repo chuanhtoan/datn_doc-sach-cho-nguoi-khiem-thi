@@ -65,6 +65,18 @@
 <!-- Blog Details Section End -->
 
 <script>
+// // Event speak
+// let fired = false
+// $(document).on('keydown', function(e) {
+//     if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
+//         fired = true
+//         responsiveVoice.speak(document.getElementById("novel-content").textContent, "Vietnamese Female");
+//     }
+// }).on('keyup', function(e) {
+//     if (e.keyCode === 96 || e.keyCode === 45) {
+//         fired = false
+//     }
+// });
 $(document).ready(function(){
     $("#commentForm").submit(function(e){
         e.preventDefault();

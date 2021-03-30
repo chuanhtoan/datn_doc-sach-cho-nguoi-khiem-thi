@@ -55,3 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', 'LoginController@logout');
     Route::post('/logout', 'LoginController@logout');
 });
+
+// Test
+Route::get('/test', function () {
+    return view('webspeechapi');
+});

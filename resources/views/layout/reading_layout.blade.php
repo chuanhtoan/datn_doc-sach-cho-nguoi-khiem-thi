@@ -201,6 +201,7 @@
 		<!-- Search model end -->
 
 		<!-- Js Plugins -->
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
 		<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 		<script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<script src="{{asset('js/player.js')}}"></script>
