@@ -23,7 +23,11 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="/follow">Theo Dõi</a></li>
+                            @if (isset($user))
+                                <li><a href="/follow">Theo Dõi</a></li>
+                            @else
+                                <li><a href="/login">Theo Dõi</a></li>
+                            @endif
                             <li><a href="/about">Về Chúng Tôi</a></li>
                         </ul>
                     </nav>

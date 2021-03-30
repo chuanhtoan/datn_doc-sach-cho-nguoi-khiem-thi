@@ -10,6 +10,7 @@ use App\Model\Comment;
 use App\Model\Category;
 use App\Model\Novel_Category;
 use App\Model\Chapter;
+use App\Model\FollowList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
@@ -179,7 +180,6 @@ class PageController extends Controller
     {
         $comment = Comment::create($request->input());
         return response()->json($comment);
-        // return redirect('/');
     }
 
     /**
@@ -232,13 +232,14 @@ class PageController extends Controller
     */
     public function follow()
     {
-        $user = null;
-        if ( Auth::check() )   {
-            $user = Auth::user();
+        if ( !Auth::check() )   {
+            return redirect('/');
         }
 
+        $user = Auth::user();
+        $follow_lists = DB::table('follow_list')->select('novelID')->where('accUsername',$user->id)->get();
         $novels = Novel::all();
         $novel_categories = Novel_Category::all();
-        return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories,'user'=>$user]);
+        return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories,'user'=>$user,'follow_lists'=>$follow_lists]);
     }
 }

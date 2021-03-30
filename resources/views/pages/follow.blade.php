@@ -18,34 +18,38 @@
                         </div>
                     </div>
                     <div class="row">
-                        @foreach ($novels as $novel)
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="/novel/{{$novel->id}}">
-                                        <div class="product__item__pic set-bg" data-setbg="{{$novel->cover}}">
-                                            <div class="ep">2 / ?</div>
-                                            <div class="comment">
-                                                <i class="fa fa-comments"></i> 11
+                        @foreach ($follow_lists as $follow_list)
+                            @foreach ($novels as $novel)
+                                @if ($follow_list->novelID == $novel->id)
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <div class="product__item">
+                                            <a href="/novel/{{$novel->id}}">
+                                                <div class="product__item__pic set-bg" data-setbg="{{$novel->cover}}">
+                                                    <div class="ep">2 / ?</div>
+                                                    <div class="comment">
+                                                        <i class="fa fa-comments"></i> 11
+                                                    </div>
+                                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                                </div>
+                                            </a>
+                                            <div class="product__item__text">
+                                                <ul>
+                                                    @foreach ($novel_categories as $nv_ct)
+                                                        @foreach ($categories as $category)
+                                                            @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
+                                                                <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
+                                                            @endif
+                                                        @endforeach
+                                                    @endforeach
+                                                </ul>
+                                                <h5>
+                                                    <a href="/novel/{{$novel->id}}">{{$novel->title}}</a>
+                                                </h5>
                                             </div>
-                                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                         </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            @foreach ($novel_categories as $nv_ct)
-                                                @foreach ($categories as $category)
-                                                    @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
-                                                        <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
-                                                    @endif
-                                                @endforeach
-                                            @endforeach
-                                        </ul>
-                                        <h5>
-                                            <a href="/novel/{{$novel->id}}">{{$novel->title}}</a>
-                                        </h5>
                                     </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         @endforeach
                     </div>
                 </div>
