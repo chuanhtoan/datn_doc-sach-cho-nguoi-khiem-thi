@@ -18,7 +18,6 @@ Route::get('/','PageController@index');
 Route::get('novel/{novelID}','PageController@show');
 Route::get('novel/{novelID}/{chapterNum}','PageController@read');
 Route::get('/about','PageController@about');
-Route::get('/follow','PageController@follow');
 
 // Comment
 Route::post('/comment','PageController@createComment');
@@ -27,12 +26,10 @@ Route::post('/comment','PageController@createComment');
 Route::get('category/{categoryID}','PageController@categorySearch');
 Route::get('search','PageController@search');
 
-//login && signup
-// Route::get('login','UserController@getLogin');
-// Route::post('login','UserController@postLogin');
-// Route::get('logout','UserController@getLogout');
-// Route::get('signup','UserController@getSignup');
-// Route::post('signup','UserController@postSignup');
+// Follow
+Route::get('/follow','PageController@follow');
+Route::get('follow/{novelID}','PageController@followNovel');
+Route::get('unfollow/{novelID}','PageController@unfollow');
 
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');

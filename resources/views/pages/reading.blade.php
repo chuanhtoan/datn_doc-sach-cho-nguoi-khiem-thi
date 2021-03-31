@@ -67,6 +67,7 @@
 @endsection
 
 @section('js')
+
 <script>
 if ("webkitSpeechRecognition" in window) {
     var message = document.querySelector('#message');

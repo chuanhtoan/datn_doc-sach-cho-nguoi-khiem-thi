@@ -59,8 +59,15 @@
                             </div>
                         </div>
                         <div class="anime__details__btn">
-                            {{-- <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Theo Dõi</a> --}}
-                            {{-- <a href="#" class="watch-btn"><span>Đọc ngay</span> <i class="fa fa-angle-right"></i></a> --}}
+                            @if (isset($follow_lists))
+                                <a href="/unfollow/{{$novel->id}}" class="follow-btn"><i class="fa fa-heart-o"></i> Hủy Theo Dõi</a>
+                            @else
+                                <a href="/follow/{{$novel->id}}" class="follow-btn"><i class="fa fa-heart-o"></i> Theo Dõi</a>
+                            @endif
+
+                            @if (count($chapters) > 0)
+                                <a href="/novel/{{$novel->id}}/{{$chapters[0]->number}}" class="watch-btn"><span>Đọc ngay</span> <i class="fa fa-angle-right"></i></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -122,7 +129,7 @@
                     @foreach ($novels as $nl)
                         <a href="{{$nl->id}}">
                             <div class="product__sidebar__view__item set-bg" data-setbg="{{$nl->cover}}">
-                                <div class="ep">18 / ?</div>
+                                <div class="ep">2 / ?</div>
                                 <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                 <h5>{{$nl->title}}</h5>
                             </div>

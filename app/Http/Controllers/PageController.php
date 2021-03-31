@@ -72,9 +72,13 @@ class PageController extends Controller
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
         $accounts = User::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
+        $follow_lists = DB::table('follow_list')
+                    ->where('accUsername',$user->id)
+                    ->where('novelID',$id)
+                    ->first();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
         'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments,
-        'another_title'=>$another_title,'user'=>$user,'logged'=>$logged]);
+        'another_title'=>$another_title,'user'=>$user,'logged'=>$logged,'follow_lists'=>$follow_lists]);
     }
 
     /**
@@ -241,5 +245,35 @@ class PageController extends Controller
         $novels = Novel::all();
         $novel_categories = Novel_Category::all();
         return view('pages.follow',['novels'=>$novels,'novel_categories'=>$novel_categories,'user'=>$user,'follow_lists'=>$follow_lists]);
+    }
+
+    public function followNovel($id)
+    {
+        if ( !Auth::check() )   {
+            return redirect('/');
+        }
+
+        $user = Auth::user();
+        $follow_list = new FollowList;
+        $follow_list->novelID = $id;
+        $follow_list->accUsername = $user->id;
+        $follow_list->save();
+
+        return redirect("/novel/$id");
+    }
+
+    public function unfollow($id)
+    {
+        if ( !Auth::check() )   {
+            return redirect('/');
+        }
+
+        $user = Auth::user();
+        $follow_lists = DB::table('follow_list')
+                    ->where('novelID',$id)
+                    ->where('accUsername',$user->id)
+                    ->delete();
+
+        return redirect("/novel/$id");
     }
 }
