@@ -205,8 +205,8 @@
 		<div class="search-model">
 			<div class="h-100 d-flex align-items-center justify-content-center">
 				<div class="search-close-switch"><i class="icon_close"></i></div>
-				<form class="search-model-form">
-					<input type="text" id="search-input" placeholder="Search here....." />
+				<form class="search-model-form" method="get" action="/search">
+					<input type="text" id="search" name="search" placeholder="Tìm kiếm....." />
 				</form>
 			</div>
 		</div>

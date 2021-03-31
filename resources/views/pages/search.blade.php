@@ -33,7 +33,7 @@
                                 <div class="product__item">
                                     <a href="/novel/{{$novel->id}}">
                                         <div class="product__item__pic set-bg" data-setbg="{{$novel->cover}}">
-                                            <div class="ep">18 / 18</div>
+                                            <div class="ep">2 / ?</div>
                                             <div class="comment">
                                                 <i class="fa fa-comments"></i> 11
                                             </div>
