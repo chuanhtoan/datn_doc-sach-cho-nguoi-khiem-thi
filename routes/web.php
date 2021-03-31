@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('write/{novelID}/{chapterNum}','PageController@write');
     Route::post('write/','PageController@store');
 
+    // Logout
     Route::get('/logout', 'LoginController@logout');
     Route::post('/logout', 'LoginController@logout');
 });
