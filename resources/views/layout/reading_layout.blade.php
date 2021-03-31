@@ -141,13 +141,25 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="header__right">
-                            <a href="#" class="search-switch"
-                                ><span class="icon_search"></span
-                            ></a>
+                            <a href="#" class="search-switch">
+                                <span class="icon_search"></span>
+                            </a>
                             @if (isset($user))
-                                <a href="/login"><img style="width: 30px; margin-top: -5px;" src="{{$user->avatar}}"></a>
+                                <div id="acc-icon">
+                                    <img style="width: 30px; margin-top: -5px;" src="{{$user->avatar}}">
+                                    <ul class="my__dropdown">
+                                        <li><a href="#">Viết bài</a></li>
+                                        <li><a href="/logout">Đăng xuất</a></li>
+                                    </ul>
+                                </div>
                             @else
-                                <a href="/login"><span class="icon_profile"></span></a>
+                                <div id="acc-icon">
+                                    <a href="/login"><span class="icon_profile"></span></a>
+                                    <ul class="my__dropdown">
+                                        <li><a href="/login">Đăng nhập</a></li>
+                                        <li><a href="/signup">Đăng ký</a></li>
+                                    </ul>
+                                </div>
                             @endif
                         </div>
                     </div>

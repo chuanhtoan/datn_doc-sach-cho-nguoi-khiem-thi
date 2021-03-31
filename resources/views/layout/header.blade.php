@@ -35,9 +35,9 @@
             </div>
             <div class="col-lg-2">
                 <div class="header__right">
-                    <a href="#" class="search-switch"
-                        ><span class="icon_search"></span
-                    ></a>
+                    <a href="#" class="search-switch">
+                        <span class="icon_search"></span>
+                    </a>
                     @if (isset($user))
                         <div id="acc-icon">
                             <img style="width: 30px; margin-top: -5px;" src="{{$user->avatar}}">

@@ -59,9 +59,11 @@ class PageController extends Controller
     public function show($id)
     {
         $user = null;
+        $userid = 0;
         $logged = 0;
         if ( Auth::check() )   {
             $user = Auth::user();
+            $userid = $user->id;
             $logged = $user->id;
         }
 
@@ -73,7 +75,7 @@ class PageController extends Controller
         $accounts = User::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
         $follow_lists = DB::table('follow_list')
-                    ->where('accUsername',$user->id)
+                    ->where('accUsername',$userid)
                     ->where('novelID',$id)
                     ->first();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
