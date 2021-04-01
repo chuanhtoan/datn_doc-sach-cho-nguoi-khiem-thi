@@ -1,12 +1,44 @@
-@extends('layout.index')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v10.0'
+            });
+        };
 
-@section('content')
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Your Chat Plugin code -->
+    <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="101854082014253">
+    </div>
 
-@endsection
+    <!-- Responsive Voice -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
+    <script>
+        responsiveVoice.setDefaultVoice("Vietnamese Female");
+    </script>
 
-@section('js')
-<script>
-    if ("webkitSpeechRecognition" in window) {
+    <script>
+        if ("webkitSpeechRecognition" in window) {
             var message = document.querySelector('#message');
 
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -31,13 +63,16 @@
                 message.textContent = 'Đã có lỗi: ' + event.error;
             }
 
+            // Get chatbot content
+            let messages = document.querySelectorAll('.messages ._4xko._4xkr>span')
+
             // Key event
             let fired = false
             $(document).on('keydown', function(e) {
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
                     console.log('listening...!')
                     fired = true
-                    responsiveVoice.speak("xin chào", "Vietnamese Female")
+                    responsiveVoice.speak(lastMessage[lastMessage.length-1].innerText)
                     recognition.start()
                 }
             }).on('keyup', function(e) {
@@ -48,5 +83,6 @@
                 }
             });
         }
-</script>
-@endsection
+    </script>
+</body>
+</html>
