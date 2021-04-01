@@ -45,6 +45,9 @@ class LoginController extends Controller
         {
             Auth::login($user);
             return redirect('/');
+        } else {
+            $error=1;
+            return view('pages.login',['error'=>$error]);
         }
     }
 
