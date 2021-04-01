@@ -252,7 +252,7 @@ class PageController extends Controller
     public function followNovel($id)
     {
         if ( !Auth::check() )   {
-            return redirect('/');
+            return redirect('/login');
         }
 
         $user = Auth::user();
