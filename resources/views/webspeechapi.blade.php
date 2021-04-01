@@ -66,16 +66,14 @@
                 message.textContent = 'Đã có lỗi: ' + event.error;
             }
 
-            // Get chatbot content
-            let messages = document.querySelectorAll('.messages ._4xko._4xkr>span')
-
             // Key event
             let fired = false
             $(document).on('keydown', function(e) {
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
                     console.log('listening...!')
                     fired = true
-                    responsiveVoice.speak(messages[messages.length-1].innerText)
+                    console.log()
+                    responsiveVoice.speak('Xin chào!')
                     recognition.start()
                 }
             }).on('keyup', function(e) {
