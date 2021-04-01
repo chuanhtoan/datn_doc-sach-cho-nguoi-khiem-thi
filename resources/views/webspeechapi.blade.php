@@ -75,7 +75,7 @@
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
                     console.log('listening...!')
                     fired = true
-                    responsiveVoice.speak(lastMessage[lastMessage.length-1].innerText)
+                    responsiveVoice.speak(messages[messages.length-1].innerText)
                     recognition.start()
                 }
             }).on('keyup', function(e) {
