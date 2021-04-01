@@ -72,7 +72,6 @@
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
                     console.log('listening...!')
                     fired = true
-                    console.log()
                     responsiveVoice.speak('Xin chào!')
                     recognition.start()
                 }
