@@ -81,16 +81,18 @@
             let fired = false
             $(document).on('keydown', function(e) {
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
-                    console.log('listening...!')
                     fired = true
-                    responsiveVoice.speak('Xin chào!')
-                    recognition.start()
+                    console.log('listening...!')
+                    // responsiveVoice.speak('Xin chào!')
+                    // recognition.start()
+                    // typing()
+                    // enterkey()
                 }
             }).on('keyup', function(e) {
                 if (e.keyCode === 96 || e.keyCode === 45) {
-                    console.log('stop listening...!')
                     fired = false
-                    recognition.stop()
+                    console.log('stop listening...!')
+                    // recognition.stop()
                 }
             });
 
@@ -99,6 +101,26 @@
             dfMessenger.addEventListener('df-response-received', function (event) {
                 responsiveVoice.speak(event.detail.response.queryResult.fulfillmentText)
             })
+
+            // Input Typing
+            function typing() {
+                const text = 'xin chào'
+                const inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
+                inputField.value = text
+            }
+
+            // Input Enter Key Press
+            function enterkey() {
+                const ev = document.createEvent('Events');
+                ev.initEvent('keypress', true, true);
+                ev.keyCode = 13;
+                ev.which = 13;
+                ev.charCode = 13;
+                ev.key = 'Enter';
+                ev.code = 'Enter';
+                const inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
+                inputField.dispatchEvent(ev);
+            }
         }
     </script>
 </body>
