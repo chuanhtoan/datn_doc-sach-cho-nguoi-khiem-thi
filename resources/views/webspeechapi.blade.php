@@ -10,7 +10,7 @@
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 </head>
 <body>
-    <!-- Load Facebook SDK for JavaScript -->
+    {{-- <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
         window.fbAsyncInit = function() {
@@ -32,7 +32,17 @@
     <div class="fb-customerchat"
         attribution="setup_tool"
         page_id="101854082014253">
-    </div>
+    </div> --}}
+
+    <!-- Dialogflow -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+    intent="WELCOME"
+    chat-title="Utako Hỗ Trợ"
+    chat-icon="{{asset('img/icon.png')}}"
+    agent-id="8f9fb2d1-f4f7-4010-947e-2124765be88c"
+    language-code="en"
+    ></df-messenger>
 
     <!-- Responsive Voice -->
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
@@ -40,6 +50,7 @@
         responsiveVoice.setDefaultVoice("Vietnamese Female");
     </script>
 
+    <!-- Custom JS -->
     <script>
         if ("webkitSpeechRecognition" in window) {
             var message = document.querySelector('#message');
@@ -82,6 +93,12 @@
                     recognition.stop()
                 }
             });
+
+            // Dialogflow speak
+            const dfMessenger = document.querySelector('df-messenger')
+            dfMessenger.addEventListener('df-response-received', function (event) {
+                responsiveVoice.speak(event.detail.response.queryResult.fulfillmentText)
+            })
         }
     </script>
 </body>
