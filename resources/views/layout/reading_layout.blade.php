@@ -233,7 +233,7 @@
         ></df-messenger>
 
         <!-- Responsive Voice -->
-        <script src="https://code.responsivevoice.org/responsivevoice.js?key=6du6EqaA"></script>
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=CCtXSEMa"></script>
         <script>
             responsiveVoice.setDefaultVoice("Vietnamese Female");
         </script>
