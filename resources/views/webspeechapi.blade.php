@@ -85,8 +85,8 @@
                     console.log('listening...!')
                     // responsiveVoice.speak('Xin chào!')
                     // recognition.start()
-                    // typing()
-                    // enterkey()
+                    typing()
+                    enterkey()
                 }
             }).on('keyup', function(e) {
                 if (e.keyCode === 96 || e.keyCode === 45) {
