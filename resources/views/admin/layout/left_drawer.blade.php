@@ -23,7 +23,7 @@
                     {{-- <li class="drawer-menu-item active "> --}}
                         <a href="/admin/novel">
                             <i class="material-icons">local_movies</i>
-                            <span class="drawer-menu-text"> Tiểu Thuyết</span>
+                            <span class="drawer-menu-text"> Sách</span>
                         </a>
                     </li>
                     <li class="drawer-menu-item">
