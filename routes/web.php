@@ -70,27 +70,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         return redirect('admin/novel');
     });
 
-    Route::get('/novel', function () {
-        return view('admin/baiviet/index');
-    });
-    // Route::get('/category', function () {
-    //     return view('/admin/novel/category');
-    // });
-    // Route::get('/chapter', function () {
-    //     return view('/admin/novel/chapter');
-    // });
-    // Route::get('/another-title', function () {
-    //     return view('/admin/novel/another-title');
-    // });
-    // Route::get('/follow', function () {
-    //     return view('/admin/novel/follow');
-    // });
-    // Route::get('/comment', function () {
-    //     return view('/admin/novel/comment');
-    // });
-    // Route::get('/account', function () {
-    //     return view('/admin/novel/account');
-    // });
+    Route::get('novel', 'NovelController@index');
 
     // //Quan ly hang san xuat
     // Route::group(['prefix' => 'hangsanxuat'], function () {

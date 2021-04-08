@@ -6,9 +6,9 @@
             <nav class="drawer  drawer--dark">
                 <div class="drawer-spacer">
                     <div class="media align-items-center">
-                        <a href="{{route('phim.index')}}"><img alt="Logo" src="{{asset('backend/images/logo_only.png')}}" /></a>
+                        {{-- <a href="{{route('phim.index')}}"><img alt="Logo" src="{{asset('backend/images/logo_only.png')}}" /></a> --}}
                         <div class="media-body" style="padding-left: 14px; margin-top: 10px">
-                            <a href="{{route('phim.index')}}" class="h5 m-0 text-link">Utako | Admin</a>
+                            {{-- <a href="{{route('phim.index')}}" class="h5 m-0 text-link">Utako | Admin</a> --}}
                         </div>
                     </div>
                 </div>
@@ -66,10 +66,10 @@
                         </a>
                     </li>
                     <li class="drawer-menu-item ">
-                        <a href="{{route('user.index')}}">
+                        {{-- <a href="{{route('user.index')}}">
                             <i class="material-icons">account_circle</i>
                             <span class="drawer-menu-text"> Tài Khoản</span>
-                        </a>
+                        </a> --}}
                     </li>
                 </ul>
             </nav>

@@ -56,7 +56,7 @@
         <div class="mdk-drawer-layout__content">
             <!-- header-layout -->
             <div class="mdk-header-layout js-mdk-header-layout  mdk-header--fixed  mdk-header-layout__content--scrollable">
-                
+
                 <!-- begin header -->
                     @include('admin.layout.header')
                     @yield('header')
@@ -74,7 +74,7 @@
             @include('admin.layout.left_drawer')
             @yield('left_drawer')
         <!-- drawer -->
-        
+
         <!-- // END drawer -->
 
         <!-- drawer -->
@@ -130,9 +130,9 @@
                     var selector = e.currentTarget.getAttribute('data-target') || '#default-drawer'
                     var drawer = document.querySelector(selector)
                     if (drawer) {
-                        if (selector == '#default-drawer') {
-                            $('.container-fluid').toggleClass('container--max');
-                        }
+                        // if (selector == '#default-drawer') {
+                        //     $('.container-fluid').toggleClass('container--max');
+                        // }
                         drawer.mdkDrawer.toggle();
                     }
                 })
@@ -151,7 +151,11 @@
     <script src="{{asset('backend/vendor/dataTables.bootstrap4.js')}}"></script>
 
     <script>
-        $('#data-table').dataTable();
+        $('#data-table').dataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json'
+            }
+        });
     </script>
     {{-- /Datatable --}}
 

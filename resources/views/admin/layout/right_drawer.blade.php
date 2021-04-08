@@ -7,7 +7,7 @@
                     <div class="media align-items-center">
                         <img src="{{asset('backend/images/empty.png')}}" class="img-fluid rounded-circle mr-2" width="35" alt="">
                         <div class="media-body">
-                            <a class="h5 m-0"><b>{{Auth::guard('admin')->user()->username}}</b></a>
+                            {{-- <a class="h5 m-0"><b>{{Auth::guard('admin')->user()->username}}</b></a> --}}
                             <div>Quản lý tài khoản</div>
                         </div>
                     </div>
@@ -15,10 +15,10 @@
                 <!-- MENU -->
                 <ul class="drawer-menu" id="userMenu" data-children=".drawer-submenu">
                     <li class="drawer-menu-item">
-                        <a href="{{route('user.index')}}">
+                        {{-- <a href="{{route('user.index')}}">
                             <i class="material-icons">account_circle</i>
                             <span class="drawer-menu-text"> Tài khoản</span>
-                        </a>
+                        </a> --}}
                     </li>
                     <li class="drawer-menu-item">
                         <a href="/admin/logout">
@@ -31,5 +31,5 @@
         </div>
     </div>
 </div>
-    
+
 @endsection

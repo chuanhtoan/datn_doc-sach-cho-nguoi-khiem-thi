@@ -17,10 +17,10 @@
 @section('content')
 
 <div class="mdk-header-layout__content top-navbar mdk-header-layout__content--scrollable h-100">
-    
+
     <!-- main content -->
     <div class="container-fluid">
-        
+
         <h2>Hãng Sản Xuất</h2>
         <p class="lead">
             Quản lý thông tin các hãng sản xuất.
@@ -31,7 +31,7 @@
 
                 {{-- Create Button --}}
                 <div class="btn_add">
-                    <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Add</button>
+                    <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
                 </div>
 
                 {{-- table --}}
@@ -45,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody id="products-list" name="products-list">
-                            @foreach($products as $item)
+                            {{-- @foreach($products as $item)
                                 <tr id="product{{$item->id}}" class="active">
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->ten}}</td>
@@ -56,7 +56,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>
