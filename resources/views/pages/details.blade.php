@@ -9,8 +9,8 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="anime__details__pic set-bg" data-setbg="{{$novel->cover}}">
-                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <div class="comment"><i class="fa fa-comments"></i> {{$commentCount}}</div>
+                        {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -130,7 +130,7 @@
                         <a href="{{$nl->id}}">
                             <div class="product__sidebar__view__item set-bg" data-setbg="{{$nl->cover}}">
                                 <div class="ep">2 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                 <h5>{{$nl->title}}</h5>
                             </div>
                         </a>

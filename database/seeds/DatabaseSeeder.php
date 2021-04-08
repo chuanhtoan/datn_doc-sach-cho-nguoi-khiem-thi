@@ -65,6 +65,55 @@ class NovelSeeder extends Seeder{
             ['title'=>'Dốc Hết Trái Tim','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
             'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/2/e/2e7c4c99c9faceda9e926727bb5cc92a_1.jpg',
             'description'=>'Dốc hết trái tim là một quyển sách hay dành cho doanh nhân và mọi giám đốc hay lãnh đạo công ty. Tác giả đồng thời là người sáng lập của thương hiệu Starbucks, chia sẻ câu chuyện đầy cảm hứng về cuộc đời của ông từ khi còn đi học đến khi trở thành CEO của một thương hiệu nổi tiếng trên toàn thế giới. Độc giả sẽ tìm thấy nơi đây bài học về quản trị rất tuyệt vời, mà giá trị của nó vẫn còn vững vàng trong hiện tại. Những kinh nghiệm của tác giả về xây dựng một công ty có trách nhiệm xã hội đối với nhân viên, với cộng đồng và đối với môi trường sẽ cuốn hút lan truyền cảm hứng đến độc giả để họ áp dụng nó vào cuộc sống và công việc kinh doanh của mình.'],
+
+            ['title'=>'Cuộc Chiến Disney','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/8/9/8936037798967.jpg',
+            'description'=>'Trí nhớ là cái cốt lõi của sự thành công trong học tập cũng như công việc, người có trí nhớ tốt sẽ thuận tiện hơn rất nhiều trong cuộc sống. Tuy nhiên, không phải ai trong chúng ta cũng biết cách làm thế nào để có một trí nhớ tốt?'],
+
+            ['title'=>'Từ Tốt Đến Vĩ Đại','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/n/x/nxbtre_full_09462021_024609.jpg',
+            'description'=>'Tạo Lập Mô Hình Kinh Doanh mang đến cho bạn những kỹ thuật sáng tạo thiết thực đang được các nhà tư vấn kinh doanh và các công ty hàng đầu thế giới sử dụng. Với đối tượng độc giả mục tiêu là những con người hành động, cuốn sách được thiết kế theo hướng trực quan, dễ hiểu, dễ áp dụng. Cuốn sách dành cho những người sẵn sàng vứt bỏ đường lối tư duy cũ để tiếp nhận những mô hình sáng tạo giá trị mới. Do đó, nó phù hợp với các lãnh đạo, cố vấn và các doanh nhân của mọi tổ chức.'],
+
+            ['title'=>'Payback Time','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_30532_1.jpg',
+            'description'=>'Kể từ sau khi quyết định rút ra khỏi vai trò sát thủ kinh tế, John Perkins luôn tích cực tên tiếng và thực hiện các hoạt động cụ thể để bảo vệ môi trường cũng như phản đối sự can thiệp bất lương của các tập đoàn và Chính phủ của các nước lớn vào những quốc gia khác. Ông vận động cho những tộc người bản địa trên khắp địa cầu, tổ chức các đoàn thăm quan đến vùng núi và rừng rậm ở châu Mỹ Latinh để công chúng thấy rõ hơn về những thực tế đau lòng mà con người và những vùng này đang phải đối mặt.'],
+
+            ['title'=>'Thấu Hiểu Tiếp Thị Từ A Đến Z','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/n/x/nxbtre_full_31432020_024333_2_1.jpg',
+            'description'=>'Đây là cuốn sách viết về những người Mỹ làm tốt nhất việc thành lập và phát triển những doanh nghiệp mới. Nó nói về những con người đã phá vỡ những nguyên tắc cũ và tạo ra những nguyên tắc mới, xây dựng nên những thế giới mới, quyết tâm lãnh đạo chứ không chịu bị lãnh đạo, khám phá những công cụ và công nghệ mới khi thời đại của họ mới chỉ mơ hồ ý thức được về chúng để phục vụ cho những thị trường, mà ở chừng mực nào đó, đã được chính họ tạo ra.'],
+
+            ['title'=>'Bí Quyết Đầu Tư Và Kinh Doanh Chứng Khoán','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_215963.jpg',
+            'description'=>'Bạn có 5 đô la và 2 giờ đồng hồ để kinh doanh. Bạn sẽ làm gì? - Đây là một trong những ví dụ minh hoạ được nhắc đến trong cuốn sách Nếu Tôi Biết Được Khi Còn 20. Trả lời cho câu hỏi này có rất nhiều cách và với mỗi cách, tác giả lại chỉ ra những bài học nhỏ thôi nhưng hữu ích.'],
+
+            ['title'=>'Không Bao Giờ Là Thất Bại! Tất Cả Là Thử Thách','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/u/n/untitled_1_2.jpg',
+            'description'=>'Cuốn sách Những kẻ xuất chúng sẽ giúp bạn tìm ra câu trả lời thông qua các phân tích về xã hội, văn hóa và thế hệ của những nhân vật kiệt xuất như Bill Gates, Beatles và Mozart, bên cạnh những thất bại đáng kinh ngạc của một số người khác (ví dụ: Christopher Langan, người có chỉ số IQ cao hơn Einstein nhưng rốt cuộc lại quay về làm việc trong một trại ngựa). Theo đó, cùng với tài năng và tham vọng, những người thành công đều được thừa hưởng một cơ hội đặt biệt để rèn luyện kỹ năng và cho phép họ vượt lên những người cùng trang lứa.'],
+
+            ['title'=>'Sách Lược Đầu Tư Của W. Buffett','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_23432.jpg',
+            'description'=>'36 Kế Trong Kinh Doanh Hiện Đại sắp xếp thông tin từ nhiều nguồn phong phú vào một cấu trúc thực tiễn và cô đọng chúng thành những bài học cụ thể có thể sử dụng được ngay. Mỗi chiến lược bao gồm một điển tích Trung Hoa ngắn gọn, những tình huống kinh doanh phù hợp và những công cụ để áp dụng rất cụ thể. Phần trình bày mỗi kế kết thúc với những câu hỏi suy ngẫm để bạn có thể triễn khai những ý tưởng này một cách hợp lý nhất trong tình huống kinh doanh của riêng bạn. Trí tuệ vượt thời gian trong cuốn sách này sẽ giúp bạn giải phóng tư duy sáng tạo và vượt trội trong cạnh tranh.'],
+
+            ['title'=>'Bí Mật Của Phan Thiên Ân','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_30538.jpg',
+            'description'=>'Think and Grow Rich - Nghĩ giàu và làm giàu là một trong những cuốn sách bán chạy nhất mọi thời đại. Đã hơn 60 triệu bản được phát hành với gần trăm ngôn ngữ trên toàn thế giới và được công nhận là cuốn sách tạo ra nhiều triệu phú, một cuốn sách truyền cảm hứng thành công nhiều hơn bất cứ cuốn sách kinh doanh nào trong lịch sử.'],
+
+            ['title'=>'Những Bài Học Tuyệt Vời Từ Warren Buffett','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_6588_1.jpg',
+            'description'=>'Những “Think and Grow Rich” (Nghĩ giàu làm giàu), “The Law of Success” (Quy luật của thành công), “Outwitting the Devil” (Chiến thắng con quỷ trong bạn)… được viết bởi Napoleon Hill đều là các tác phẩm kinh điển, đóng vai trò như kim chỉ nam cho các lãnh đạo và doanh nhân trên thế giới trong suốt hàng chục năm qua. Ông là một trong những tác giả nổi tiếng nhất hành tinh, được mệnh danh là người tiên phong cho “khoa học của sự thành công”.'],
+
+            ['title'=>'Thói Quen Thành Công Của Những Triệu Phú Tự Thân','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_182444.jpg',
+            'description'=>'Dốc hết trái tim là một quyển sách hay dành cho doanh nhân và mọi giám đốc hay lãnh đạo công ty. Tác giả đồng thời là người sáng lập của thương hiệu Starbucks, chia sẻ câu chuyện đầy cảm hứng về cuộc đời của ông từ khi còn đi học đến khi trở thành CEO của một thương hiệu nổi tiếng trên toàn thế giới. Độc giả sẽ tìm thấy nơi đây bài học về quản trị rất tuyệt vời, mà giá trị của nó vẫn còn vững vàng trong hiện tại. Những kinh nghiệm của tác giả về xây dựng một công ty có trách nhiệm xã hội đối với nhân viên, với cộng đồng và đối với môi trường sẽ cuốn hút lan truyền cảm hứng đến độc giả để họ áp dụng nó vào cuộc sống và công việc kinh doanh của mình.'],
+
+            ['title'=>'Đạo Của Warren Buffett','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_369.jpg',
+            'description'=>'Đây là cuốn sách viết về những người Mỹ làm tốt nhất việc thành lập và phát triển những doanh nghiệp mới. Nó nói về những con người đã phá vỡ những nguyên tắc cũ và tạo ra những nguyên tắc mới, xây dựng nên những thế giới mới, quyết tâm lãnh đạo chứ không chịu bị lãnh đạo, khám phá những công cụ và công nghệ mới khi thời đại của họ mới chỉ mơ hồ ý thức được về chúng để phục vụ cho những thị trường, mà ở chừng mực nào đó, đã được chính họ tạo ra.'],
+
+            ['title'=>'Sinh Ra Để Trở Thành Steve Jobs','author'=>'Howard Schultz, Dori Jones Yang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/8/9/8936037799490.jpg',
+            'description'=>'Cuốn sách Những kẻ xuất chúng sẽ giúp bạn tìm ra câu trả lời thông qua các phân tích về xã hội, văn hóa và thế hệ của những nhân vật kiệt xuất như Bill Gates, Beatles và Mozart, bên cạnh những thất bại đáng kinh ngạc của một số người khác (ví dụ: Christopher Langan, người có chỉ số IQ cao hơn Einstein nhưng rốt cuộc lại quay về làm việc trong một trại ngựa). Theo đó, cùng với tài năng và tham vọng, những người thành công đều được thừa hưởng một cơ hội đặt biệt để rèn luyện kỹ năng và cho phép họ vượt lên những người cùng trang lứa.'],
+
         ]);
     }
 }
@@ -117,7 +166,7 @@ class CategorySeeder extends Seeder{
 class Novel_CategorySeeder extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 10; $i++) {
+        for ($i=1; $i <= 22; $i++) {
             DB::table('novel_category')->insert([
                 ['novelID'=>$i,'categoryID'=>rand(1,10)],
                 ['novelID'=>$i,'categoryID'=>rand(11,20)],
@@ -130,7 +179,7 @@ class Novel_CategorySeeder extends Seeder{
 class Chapter extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 10; $i++) {
+        for ($i=1; $i <= 22; $i++) {
             DB::table('chapter')->insert([
                 ['novelID'=>$i, 'number'=>0, 'title'=>'Đôi Điều Về Trí Nhớ',
                 'content'=>'
@@ -198,7 +247,7 @@ class User extends Seeder{
 class Comment extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 10; $i++) {
+        for ($i=1; $i <= 22; $i++) {
             DB::table('comment')->insert([
                 ['novelID'=>$i,'accUsername'=>7,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
                 ['novelID'=>$i,'accUsername'=>2,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
@@ -214,13 +263,13 @@ class Comment extends Seeder{
 class FollowList extends Seeder{
     public function run()
     {
-        DB::table('follow_list')->insert([
-            ['novelID'=>1,'accUsername'=>1],
-            ['novelID'=>3,'accUsername'=>1],
-            ['novelID'=>5,'accUsername'=>1],
-            ['novelID'=>7,'accUsername'=>1],
-            ['novelID'=>9,'accUsername'=>1],
-        ]);
+        for ($i=1; $i <= 7; $i++) {
+            DB::table('follow_list')->insert([
+                ['accUsername'=>$i,'novelID'=>rand(1,7)],
+                ['accUsername'=>$i,'novelID'=>rand(8,16)],
+                ['accUsername'=>$i,'novelID'=>rand(17,22)],
+            ]);
+        }
     }
 }
 
@@ -228,16 +277,27 @@ class AnotherTitle extends Seeder{
     public function run()
     {
         DB::table('another_title')->insert([
-            ['novelID'=>1,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>2,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>3,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>4,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>5,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>6,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>7,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>8,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>9,'title'=>'フェイト／ステイナイト'],
-            ['novelID'=>10,'title'=>'フェイト／ステイナイト'],
+            ['novelID'=>1,'title'=>'To Have Good Memory'],
+            ['novelID'=>2,'title'=>'Business Model Creation'],
+            ['novelID'=>3,'title'=>'New Confession Of An Economic Assassin'],
+            ['novelID'=>4,'title'=>'The Giants In The Business World'],
+            ['novelID'=>5,'title'=>'If I Know When I Have 20'],
+            ['novelID'=>6,'title'=>'Outliers'],
+            ['novelID'=>7,'title'=>'36 Design In Modern Business'],
+            ['novelID'=>8,'title'=>'Think & Grow Rich'],
+            ['novelID'=>9,'title'=>'Golden Rule Of Napoleon Hill'],
+            ['novelID'=>10,'title'=>'Steeped Heart'],
+            ['novelID'=>11,'title'=>'Disney Wars'],
+            ['novelID'=>12,'title'=>'From Good To Great'],
+            ['novelID'=>14,'title'=>'A to Z Marketing Insights'],
+            ['novelID'=>15,'title'=>'Securities Investment And Trading Secrets'],
+            ['novelID'=>16,'title'=>"It's never failed! All Challenges"],
+            ['novelID'=>17,'title'=>'W. Buffett Investment Strategy'],
+            ['novelID'=>18,'title'=>"Phan Thien An's Secret"],
+            ['novelID'=>19,'title'=>'Great Lessons From Warren Buffett'],
+            ['novelID'=>20,'title'=>'Successful Habits of Self-Made Millionaires'],
+            ['novelID'=>21,'title'=>'The Way Of Warren Buffett'],
+            ['novelID'=>22,'title'=>'Born To Be Steve Jobs'],
         ]);
     }
 }

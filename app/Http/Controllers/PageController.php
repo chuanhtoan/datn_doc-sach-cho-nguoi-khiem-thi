@@ -22,9 +22,11 @@ class PageController extends Controller
     public function __construct()
     {
         $categories = Category::all();
-        $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
+        $topViewsNvs = Novel::all()->random(6);
+        $newComments = Novel::all()->random(6);
         View::share('categories', $categories);
         View::share('topViewsNvs',$topViewsNvs);
+        View::share('newComments',$newComments);
     }
 
     /**
@@ -40,10 +42,10 @@ class PageController extends Controller
         }
 
         $novels = Novel::all();
-        $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(6);
-        $popularNovels = Novel::orderBy('id', 'ASC')->paginate(6);
-        $recentlyAdds = Novel::orderBy('id', 'DESC')->paginate(6);
-        $liveActions = Novel::orderBy('id', 'ASC')->paginate(6);
+        $trendingNovels = Novel::all()->random(6);
+        $popularNovels = Novel::all()->random(6);
+        $recentlyAdds = Novel::all()->random(6);
+        $liveActions = Novel::all()->random(6);
         $novel_categories = Novel_Category::all();
         return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
         'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,
@@ -69,18 +71,20 @@ class PageController extends Controller
 
         $novel = Novel::find($id);
         $another_title = DB::table('another_title')->where('novelID',$id)->first();
-        $novels = Novel::orderBy('id', 'DESC')->paginate(4);
+        $novels = Novel::all()->random(4);
         $novel_categories = DB::table('novel_category')->where('novelID',$id)->get();
         $chapters = DB::table('chapter')->where('novelID',$id)->get();
         $accounts = User::all();
         $comments = DB::table('comment')->where('novelID',$id)->get();
+        $commentCount = DB::table('comment')->where('novelID',$id)->count();
         $follow_lists = DB::table('follow_list')
                     ->where('accUsername',$userid)
                     ->where('novelID',$id)
                     ->first();
         return view('pages.details',['novel'=>$novel,'novel_categories'=>$novel_categories,
         'novels'=>$novels,'chapters'=>$chapters,'accounts'=>$accounts,'comments'=>$comments,
-        'another_title'=>$another_title,'user'=>$user,'logged'=>$logged,'follow_lists'=>$follow_lists]);
+        'another_title'=>$another_title,'user'=>$user,'logged'=>$logged,'follow_lists'=>$follow_lists,
+        'commentCount'=>$commentCount]);
     }
 
     /**

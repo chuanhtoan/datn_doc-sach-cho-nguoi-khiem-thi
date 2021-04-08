@@ -42,7 +42,7 @@
                         <div id="acc-icon">
                             <img style="width: 30px; margin-top: -5px;" src="{{$user->avatar}}">
                             <ul class="my__dropdown">
-                                <li><a href="#">Viết bài</a></li>
+                                {{-- <li><a href="#">Viết bài</a></li> --}}
                                 <li><a href="/logout">Đăng xuất</a></li>
                             </ul>
                         </div>
