@@ -25,10 +25,16 @@ class NovelController extends Controller
             $user = Auth::user();
         }
 
-        $novels = Novel::all();
-        $novel_categories = Novel_Category::all();
-        $categories = Category::all();
-        return view('admin.sach.index',['items'=>$novels,'novel_categories'=>$novel_categories,
-        'categories'=>$categories,'user'=>$user]);
+        if($user && $user->type == 1)
+        {
+            $novels = Novel::all();
+            $novel_categories = Novel_Category::all();
+            $categories = Category::all();
+            return view('admin.sach.index',['items'=>$novels,'novel_categories'=>$novel_categories,
+            'categories'=>$categories,'user'=>$user]);
+        } else {
+            $error=1;
+            return view('admin.login',['error'=>$error]);
+        }
     }
 }
