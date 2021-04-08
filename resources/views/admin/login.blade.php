@@ -30,7 +30,7 @@
 
 		{{-- web icon --}}
 		<link rel="shortcut icon" href="{{asset('backend/images/icon.png')}}" />
-		
+
 	</head>
 
 	<!-- end::Head -->
@@ -56,7 +56,7 @@
 									@endif
 
                                     <div class="input-group">
-										<input class="form-control" type="text" placeholder="Tên tài khoản" name="username" autocomplete="off">
+										<input class="form-control" type="text" placeholder="Tên tài khoản" name="email" autocomplete="off">
 									</div>
 									<div class="input-group">
 										<input class="form-control" type="password" placeholder="Mật khẩu" name="password">

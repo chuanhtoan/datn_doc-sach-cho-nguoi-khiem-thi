@@ -5,40 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Model\Novel;
-use App\Model\Category;
 use App\User;
-use Illuminate\Support\Facades\View;
 
-class LoginController extends Controller
+use function Psy\debug;
+
+class LoginAdminController extends Controller
 {
-    public function __construct()
-    {
-      $categories = Category::all();
-      $topViewsNvs = Novel::orderBy('id', 'ASC')->paginate(5);
-      View::share('categories', $categories);
-      View::share('topViewsNvs',$topViewsNvs);
-    }
-
     public function show()
     {
-        return view('pages.login');
+        return view('admin.login');
     }
 
     public function authenticate(Request $request)
     {
         $user = User::where([
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ])->first();
 
-        if($user)
+        if($user && $user->type == 1)
         {
             Auth::login($user);
-            return redirect('/');
+            return redirect('/admin');
         } else {
             $error=1;
-            return view('pages.login',['error'=>$error]);
+            return view('admin.login',['error'=>$error]);
         }
     }
 
