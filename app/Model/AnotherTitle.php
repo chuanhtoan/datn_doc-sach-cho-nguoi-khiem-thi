@@ -8,5 +8,5 @@ class AnotherTitle extends Model
 {
     protected $table = "another_title";
 
-    protected $fillable = ['content','novelID'];
+    protected $fillable = ['title','novelID'];
 }

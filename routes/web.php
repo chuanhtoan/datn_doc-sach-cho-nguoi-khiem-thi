@@ -103,6 +103,26 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         Route::delete('/{item_id}', 'UserController@destroy');
     });
 
+    //Quan ly tiêu đề khác
+    Route::group(['prefix' => 'anothertitle'], function () {
+        Route::get('/', 'AnotherTitleController@index');
+        Route::get('/{item_id?}', 'AnotherTitleController@show');
+        Route::get('/novel/{item_id?}', 'AnotherTitleController@novel');
+        Route::post('/', 'AnotherTitleController@store');
+        Route::put('/{item_id}', 'AnotherTitleController@update');
+        Route::delete('/{item_id}', 'AnotherTitleController@destroy');
+    });
+
+    //Quan ly chương
+    Route::group(['prefix' => 'chapter'], function () {
+        Route::get('/', 'ChapterController@index');
+        Route::get('/{item_id?}', 'ChapterController@show');
+        Route::get('/novel/{item_id?}', 'ChapterController@novel');
+        Route::post('/', 'ChapterController@store');
+        Route::put('/{item_id}', 'ChapterController@update');
+        Route::delete('/{item_id}', 'ChapterController@destroy');
+    });
+
     // //Quan ly the loai
     // Route::group(['prefix' => 'theloai'], function () {
     //     Route::get('/','TheLoaiController@index')->name('theloai.index'); //Display Index Page

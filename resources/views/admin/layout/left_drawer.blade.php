@@ -15,7 +15,7 @@
 
                 <!-- HEADING -->
                 <div class="py-2 drawer-heading">
-                    Quản lý Tiểu Thuyết
+                    Quản lý Sách
                 </div>
                 <!-- MENU -->
                 <ul class="drawer-menu" id="dasboardMenu" data-children=".drawer-submenu">
@@ -34,13 +34,13 @@
                         </a>
                     </li>
                     <li class="drawer-menu-item ">
-                        <a href="/admin/novel">
+                        <a href="/admin/chapter">
                             <i class="material-icons">store</i>
                             <span class="drawer-menu-text"> Chương</span>
                         </a>
                     </li>
                     <li class="drawer-menu-item ">
-                        <a href="/admin/novel-title">
+                        <a href="/admin/anothertitle">
                             <i class="material-icons">movies</i>
                             <span class="drawer-menu-text"> Tiêu Đề Khác</span>
                         </a>
