@@ -20,8 +20,6 @@ class CreateNovelTable extends Migration
             $table->string('description', 3000);
             $table->string('author');
             $table->string('status');
-            $table->integer('views')->default(0);
-            $table->integer('likes')->default(0);
             $table->string('type');
             $table->integer('publishYear');
             $table->string('language');
