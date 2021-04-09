@@ -21,18 +21,18 @@
     <!-- main content -->
     <div class="container-fluid">
 
-        <h2>Thể Loại</h2>
+        <h2>Bình Luận @isset($novel) của "{{$novel->title}}" @endisset</h2>
         <p class="lead">
-            Quản lý thông tin các thể loại.
+            Quản lý thông tin các bình luận @isset($novel) của sách {{$novel->title}} @endisset.
         </p>
         <hr>
         <div class="card">
             <div class="py-4">
 
                 {{-- Create Button --}}
-                <div class="btn_add">
+                {{-- <div class="btn_add">
                     <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
-                </div>
+                </div> --}}
 
                 {{-- table --}}
                 <div class="table-responsive">
@@ -40,8 +40,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th style="min-width: 100px">Tên Thể Loại</th>
-                                <th>Mô Tả</th>
+                                <th>Nội Dung</th>
+                                <th>Sách</th>
+                                <th style="min-width: 80px;">Tài Khoản</th>
                                 <th style="min-width: 110px;">Thao Tác</th>
                             </tr>
                         </thead>
@@ -49,11 +50,12 @@
                             @foreach($items as $item)
                                 <tr id="product{{$item->id}}" class="active">
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{Str::limit($item->description, 200)}}</td>
+                                    <td>{{Str::limit($item->content, 200)}}</td>
+                                    <td>{{App\Model\Novel::find($item->novelID)->title}}</td>
+                                    <td>{{App\User::find($item->accUsername)->email}}</td>
                                     <td>
                                         <div style="display: inline-block">
-                                            <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
+                                            {{-- <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button> --}}
                                             <button class="btn btn-danger delete-product" value="{{$item->id}}">Xóa</button>
                                         </div>
                                     </td>
@@ -133,7 +135,7 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
     {{-- ajax thêm xóa sửa --}}
-    @include('admin.category.ajaxscript')
+    @include('admin.comment.ajaxscript')
     @yield('ajax')
 
     {{-- alertify --}}

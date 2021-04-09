@@ -21,18 +21,18 @@
     <!-- main content -->
     <div class="container-fluid">
 
-        <h2>Thể Loại</h2>
+        <h2>Tài Khoản</h2>
         <p class="lead">
-            Quản lý thông tin các thể loại.
+            Quản lý thông tin các tài khoản.
         </p>
         <hr>
         <div class="card">
             <div class="py-4">
 
                 {{-- Create Button --}}
-                <div class="btn_add">
+                {{-- <div class="btn_add">
                     <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
-                </div>
+                </div> --}}
 
                 {{-- table --}}
                 <div class="table-responsive">
@@ -40,8 +40,10 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th style="min-width: 100px">Tên Thể Loại</th>
-                                <th>Mô Tả</th>
+                                <th>Tên Đăng Nhập</th>
+                                <th>Tên Hiển Thị</th>
+                                <th>Hình Đại Diện</th>
+                                <th>Loại</th>
                                 <th style="min-width: 110px;">Thao Tác</th>
                             </tr>
                         </thead>
@@ -49,8 +51,10 @@
                             @foreach($items as $item)
                                 <tr id="product{{$item->id}}" class="active">
                                     <td>{{$item->id}}</td>
+                                    <td>{{$item->email}}</td>
                                     <td>{{$item->name}}</td>
-                                    <td>{{Str::limit($item->description, 200)}}</td>
+                                    <td><img style="max-width: 100px;" src="{{$item->avatar}}" alt="avatar"></td>
+                                    <td>@if ($item->type) Admin @else Người dùng @endif</td>
                                     <td>
                                         <div style="display: inline-block">
                                             <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
@@ -74,7 +78,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="margin-bottom: 200px">
             <div class="modal-header">
-                <h4 class="modal-title" id="createEditModalLabel">Thể Loại</h4>
+                <h4 class="modal-title" id="createEditModalLabel">Tài Khoản</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -82,12 +86,17 @@
                 <form id="frmProducts" name="frmProducts" class="form-horizontal classFormUpdate validate-form" novalidate="">
                     <input type="hidden" name="class_id" class="class-id" id="class-id">
                     <div class="form-group">
-                        <label for="name">Tên Thể Loại:</label>
+                        <label for="name">Tên Hiển Thị:</label>
                         <input type="text" name="name" id="name" class="form-control required" placeholder="Tên thể loại">
-                        <p id="textUnique" class="invalid-feedback d-inline text-danger"></p>
                         <br>
-                        <label for="description">Mô Tả:</label>
-                        <textarea type="textarea" name="description" id="description" class="form-control required" placeholder="Mô tả thể loại" rows="4"></textarea>
+                        <label for="avatar">Hình Đại Diện:</label>
+                        <input type="text" name="avatar" id="avatar" class="form-control required" placeholder="Tên thể loại">
+                        <br>
+                        <label for="type">Loại Tài Khoản:</label>
+                        <select name="type" id="type" class="form-control">
+                            <option value="0">Người dùng</option>
+                            <option value="1">Admin</option>
+                        </select>
                         <br>
                     </div>
                 </form>
@@ -133,7 +142,7 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
     {{-- ajax thêm xóa sửa --}}
-    @include('admin.category.ajaxscript')
+    @include('admin.user.ajaxscript')
     @yield('ajax')
 
     {{-- alertify --}}

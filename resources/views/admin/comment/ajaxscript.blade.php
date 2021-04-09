@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('#data-table').DataTable().order([ 0, "desc" ]).draw();
 
     //get base URL *********************
-    var url = '/admin/category';
+    var url = '/admin/comment';
 
 
     //display modal form for creating new product *********************
@@ -104,7 +104,7 @@ $(document).ready(function(){
         var state = $('#btn-save').val();
         var type = "POST"; //for creating new resource
         var product_id = $('#product_id').val();;
-        var my_url = '/admin/category';
+        var my_url = '/admin/comment';
 
         if (state == "update"){
             type = "PUT"; //for updating existing resource
@@ -154,7 +154,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa thể loại "' + product_id + '" ?');
+                $('#lableXoa').html('Xóa bình luận "' + product_id + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {
@@ -170,6 +170,7 @@ $(document).ready(function(){
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         })
+        console.log(url)
         $.ajax({
             type: "DELETE",
             url: url + '/' + product_id,

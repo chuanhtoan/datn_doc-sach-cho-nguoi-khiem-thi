@@ -60,16 +60,16 @@
                         </a>
                     </li>
                     <li class="drawer-menu-item ">
-                        <a href="/admin/novel">
+                        <a href="/admin/comment">
                             <i class="material-icons">announcement</i>
                             <span class="drawer-menu-text"> Bình Luận</span>
                         </a>
                     </li>
                     <li class="drawer-menu-item ">
-                        {{-- <a href="{{route('user.index')}}">
+                        <a href="/admin/user">
                             <i class="material-icons">account_circle</i>
                             <span class="drawer-menu-text"> Tài Khoản</span>
-                        </a> --}}
+                        </a>
                     </li>
                 </ul>
             </nav>

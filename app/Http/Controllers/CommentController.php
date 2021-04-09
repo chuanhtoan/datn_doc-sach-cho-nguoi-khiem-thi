@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Model\Novel;
+use App\Model\Comment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +26,31 @@ class UserController extends Controller
 
         if($user && $user->type == 1)
         {
-            $products = User::all();
-            return view('admin.user.index',['items'=>$products,'user'=>$user]);
+            $products = Comment::all();
+            return view('admin.comment.index',['items'=>$products,'user'=>$user]);
+        } else {
+            $error=1;
+            return view('admin.login',['error'=>$error]);
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function novel($id)
+    {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
+        if($user && $user->type == 1)
+        {
+            $novel = Novel::find($id);
+            $products = DB::table('comment')->where('novelID',$id)->get();
+            return view('admin.comment.index',['items'=>$products,'user'=>$user,'novel'=>$novel]);
         } else {
             $error=1;
             return view('admin.login',['error'=>$error]);
@@ -40,24 +65,7 @@ class UserController extends Controller
      */
     public function show($product_id)
     {
-        $product = User::find($product_id);
-        return response()->json($product);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $product = User::find($id);
-        $product->name = $request->name;
-        $product->avatar = $request->avatar;
-        $product->type = $request->type;
-        $product->save();
+        $product = Comment::find($product_id);
         return response()->json($product);
     }
 
@@ -69,7 +77,7 @@ class UserController extends Controller
      */
     public function destroy($product_id)
     {
-        $product = User::destroy($product_id);
+        $product = Comment::destroy($product_id);
         return response()->json($product);
     }
 }

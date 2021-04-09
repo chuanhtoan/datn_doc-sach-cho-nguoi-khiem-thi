@@ -86,6 +86,23 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         Route::delete('/{item_id}', 'CategoryController@destroy');
     });
 
+    //Quan ly binh luan
+    Route::group(['prefix' => 'comment'], function () {
+        Route::get('/', 'CommentController@index')->name('comment.index');
+        Route::get('/novel/{item_id?}', 'CommentController@novel');
+        Route::get('/{item_id?}', 'CommentController@show');
+        Route::delete('/{item_id}', 'CommentController@destroy');
+    });
+
+    //Quan ly tai khoan
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'UserController@index')->name('user.index');
+        Route::get('/{item_id?}', 'UserController@show');
+        Route::post('/', 'UserController@store');
+        Route::put('/{item_id}', 'UserController@update');
+        Route::delete('/{item_id}', 'UserController@destroy');
+    });
+
     // //Quan ly the loai
     // Route::group(['prefix' => 'theloai'], function () {
     //     Route::get('/','TheLoaiController@index')->name('theloai.index'); //Display Index Page
