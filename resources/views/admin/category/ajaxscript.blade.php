@@ -7,8 +7,7 @@ $(document).ready(function(){
     $('#data-table').DataTable().order([ 0, "desc" ]).draw();
 
     //get base URL *********************
-    // var url = $('#url').val();
-    var url = '/admin/theloai';
+    var url = '/admin/category';
 
 
     //display modal form for creating new product *********************
@@ -16,7 +15,7 @@ $(document).ready(function(){
         $('#btn-save').val("add");
         $('#frmProducts').trigger("reset");
         $('#textUnique').html("");
-        $('#ten').removeClass('is-invalid');
+        $('#name').removeClass('is-invalid');
         $('#createEditModal').modal('show');
     });
 
@@ -26,17 +25,16 @@ $(document).ready(function(){
     $(document).on('click','.open_modal',function(){
         var product_id = $(this).val();
         $('#textUnique').html("");
-        $('#ten').removeClass('is-invalid');
-    
+        $('#name').removeClass('is-invalid');
+
         // Populate Data in Edit Modal Form
         $.ajax({
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                console.log(data);
                 $('#product_id').val(data.id);
-                $('#ten').val(data.ten);
-                $('#moTa').val(data.moTa);
+                $('#name').val(data.name);
+                $('#description').val(data.description);
                 $('#btn-save').val("update");
                 $('#createEditModal').modal('show');
             },
@@ -47,10 +45,10 @@ $(document).ready(function(){
     });
 
 
-    
+
     // create new product / update existing product ***************************
     $("#btn-save").click(function(){
-        var hl = $("#frmProducts").valid();    
+        var hl = $("#frmProducts").valid();
         if(hl){
             thucHienAjax();
         }
@@ -67,24 +65,22 @@ $(document).ready(function(){
             }
         }, onkeyup: false,
         rules: {
-            ten: {
+            name: {
                 required: true,
-                maxlength: 50
             },
-            moTa: {
-                maxlength: 300
+            description: {
+                required: true,
             },
         },
         messages: {
-            ten: {
+            name: {
                 required: 'Bạn phải nhập trường này',
-                maxlength: "Tối đa 50 kí tự"
             },
-            moTa: {
-                maxlength: "Tối đa 300 kí tự"
+            description: {
+                required: 'Bạn phải nhập trường này'
             },
         }, errorPlacement: function (err, elemet) {
-            err.insertAfter(elemet);    
+            err.insertAfter(elemet);
             err.addClass('invalid-feedback d-inline text-danger');
             elemet.addClass('form-control is-invalid');
             $('.focus-input100-1,.focus-input100-2').addClass('hidden');
@@ -98,17 +94,17 @@ $(document).ready(function(){
             }
         })
 
-        // e.preventDefault(); 
+        // e.preventDefault();
         var formData = {
-            ten: $('#ten').val(),
-            moTa: $('#moTa').val(),
+            name: $('#name').val(),
+            description: $('#description').val(),
         }
 
         //used to determine the http verb to use [add=POST], [update=PUT]
         var state = $('#btn-save').val();
         var type = "POST"; //for creating new resource
         var product_id = $('#product_id').val();;
-        var my_url = '/admin/theloai';
+        var my_url = '/admin/category';
 
         if (state == "update"){
             type = "PUT"; //for updating existing resource
@@ -121,8 +117,8 @@ $(document).ready(function(){
             data: formData,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
-                var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>' + data.ten + '</td><td>' + data.moTa;
+                var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
+                + data.name + '</td><td>' + data.description;
                 product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Edit</button>';
                 product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Delete</button></td></tr>';
                 if (state == "add"){ //if user added a new record
@@ -138,27 +134,27 @@ $(document).ready(function(){
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
-                $('#ten').addClass('is-invalid');
-                $('#textUnique').html(JSON.parse(data.responseText).errors.ten[0]);
+                $('#name').addClass('is-invalid');
+                $('#textUnique').html(JSON.parse(data.responseText).errors.name[0]);
                 console.log('Error:', data);
             }
         });
     }
 
 
-    
+
     // delete product and remove it from TABLE list ***************************
     var product_id;
 
     $(document).on('click','.delete-product',function(){
         product_id = $(this).val();
-        
+
         // Populate Data in Delete Modal Form
         $.ajax({
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa thể loại "' + data.ten + '" ?');
+                $('#lableXoa').html('Xóa thể loại "' + product_id + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {
@@ -188,7 +184,7 @@ $(document).ready(function(){
             }
         });
     });
-    
+
     // enter key press submit function
     $(document).keypress(function(e) {
         // disable form enter key press
@@ -197,7 +193,7 @@ $(document).ready(function(){
         }
         // enter key press on modal open
         if ($("#createEditModal").hasClass('show') && (e.keycode == 13 || e.which == 13)) {
-            var hl = $("#frmProducts").valid();    
+            var hl = $("#frmProducts").valid();
             if(hl){
                 thucHienAjax();
             }

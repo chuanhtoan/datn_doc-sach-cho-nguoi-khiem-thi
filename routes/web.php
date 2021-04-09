@@ -72,19 +72,19 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 
     Route::get('novel', 'NovelController@index');
 
-    // //Quan ly hang san xuat
-    // Route::group(['prefix' => 'hangsanxuat'], function () {
-    //     //Display Index Page
-    //     Route::get('/', 'HangSanXuatController@index')->name('hangsanxuat.index');
-    //     // Populate Data in Edit Modal Form
-    //     Route::get('/{hangsanxuat_id?}', 'HangSanXuatController@show');
-    //     //create New Product
-    //     Route::post('/', 'HangSanXuatController@store');
-    //     // update Existing Product
-    //     Route::put('/{hangsanxuat_id}', 'HangSanXuatController@update');
-    //     // delete product
-    //     Route::delete('/{hangsanxuat_id}', 'HangSanXuatController@destroy');
-    // });
+    //Quan ly the loai
+    Route::group(['prefix' => 'category'], function () {
+        //Display Index Page
+        Route::get('/', 'CategoryController@index')->name('category.index');
+        // Populate Data in Edit Modal Form
+        Route::get('/{item_id?}', 'CategoryController@show');
+        // //create New Product
+        Route::post('/', 'CategoryController@store');
+        // // update Existing Product
+        Route::put('/{item_id}', 'CategoryController@update');
+        // // delete product
+        Route::delete('/{item_id}', 'CategoryController@destroy');
+    });
 
     // //Quan ly the loai
     // Route::group(['prefix' => 'theloai'], function () {
