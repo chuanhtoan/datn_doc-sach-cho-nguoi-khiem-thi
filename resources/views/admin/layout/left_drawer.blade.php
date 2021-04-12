@@ -54,7 +54,7 @@
                 <!-- MENU -->
                 <ul class="drawer-menu" id="dasboardMenu" data-children=".drawer-submenu">
                     <li class="drawer-menu-item ">
-                        <a href="/admin/novel">
+                        <a href="/admin/follow">
                             <i class="material-icons">dashboard</i>
                             <span class="drawer-menu-text"> Theo Dõi</span>
                         </a>

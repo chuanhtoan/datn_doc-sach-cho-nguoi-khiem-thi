@@ -7,13 +7,15 @@ $(document).ready(function(){
     $('#data-table').DataTable().order([ 0, "desc" ]).draw();
 
     //get base URL *********************
-    var url = '/admin/chapter';
+    var url = '/admin/follow';
 
 
     //display modal form for creating new product *********************
     $('#btn_add').click(function(){
         $('#btn-save').val("add");
         $('#frmProducts').trigger("reset");
+        // $('#textUnique').html("");
+        // $('#name').removeClass('is-invalid');
         $('#createEditModal').modal('show');
     });
 
@@ -22,6 +24,8 @@ $(document).ready(function(){
     //display modal form for product EDIT ***************************
     $(document).on('click','.open_modal',function(){
         var product_id = $(this).val();
+        // $('#textUnique').html("");
+        // $('#name').removeClass('is-invalid');
 
         // Populate Data in Edit Modal Form
         $.ajax({
@@ -29,8 +33,9 @@ $(document).ready(function(){
             url: url + '/' + product_id,
             success: function (data) {
                 $('#product_id').val(data.id);
-                $('#title').val(data.title);
-                $('#novelID').val(data.novelID);
+                $('#name').val(data.name);
+                $('#avatar').val(data.avatar);
+                $('#type').val(data.type);
                 $('#btn-save').val("update");
                 $('#createEditModal').modal('show');
             },
@@ -61,13 +66,19 @@ $(document).ready(function(){
             }
         }, onkeyup: false,
         rules: {
-            title: {
+            name: {
+                required: true,
+            },
+            description: {
                 required: true,
             },
         },
         messages: {
-            title: {
+            name: {
                 required: 'Bạn phải nhập trường này',
+            },
+            description: {
+                required: 'Bạn phải nhập trường này'
             },
         }, errorPlacement: function (err, elemet) {
             err.insertAfter(elemet);
@@ -86,28 +97,36 @@ $(document).ready(function(){
 
         // e.preventDefault();
         var formData = {
-            title: $('#title').val(),
-            novelID: $('#novelID').val(),
+            name: $('#name').val(),
+            avatar: $('#avatar').val(),
+            type: $('#type').val(),
         }
 
         //used to determine the http verb to use [add=POST], [update=PUT]
         var state = $('#btn-save').val();
         var type = "POST"; //for creating new resource
-        var product_id = $('#product_id').val();
-        var my_url = '/admin/chapter';
+        var product_id = $('#product_id').val();;
+        var my_url = '/admin/follow';
 
         if (state == "update"){
             type = "PUT"; //for updating existing resource
             my_url += '/' + product_id;
         }
+        console.log(formData);
         $.ajax({
             type: type,
             url: my_url,
             data: formData,
             dataType: 'json',
             success: function (data) {
+                var dataType = 'Người dùng';
+                if (data.type == 1) {
+                    dataType = 'Admin';
+                }
                 var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
-                + data.title + '</td><td>' + $('#novelID option:selected').html();
+                + data.email + '</td><td>' + data.name
+                + '</td><td><img style="max-width: 100px;" src="' + data.avatar + '" alt="avatar">'
+                + '</td><td>' + dataType;
                 product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
                 product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
                 if (state == "add"){ //if user added a new record
@@ -123,6 +142,8 @@ $(document).ready(function(){
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
+                // $('#name').addClass('is-invalid');
+                // $('#textUnique').html(JSON.parse(data.responseText).errors.name[0]);
                 console.log('Error:', data);
             }
         });
@@ -141,7 +162,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa chương "' + data.number + '" của sách "' + data.title + '" ?');
+                $('#lableXoa').html('Xóa theo dõi của "' + data.email + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {

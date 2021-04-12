@@ -133,6 +133,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         Route::delete('/{item_id}', 'NovelController@destroy');
     });
 
+    //Quan ly theo doi
+    Route::group(['prefix' => 'follow'], function () {
+        Route::get('/', 'FollowListController@index');
+        Route::get('/{item_id?}', 'FollowListController@show');
+        Route::delete('/{item_id}', 'FollowListController@destroy');
+    });
+
     // //Quan ly the loai
     // Route::group(['prefix' => 'theloai'], function () {
     //     Route::get('/','TheLoaiController@index')->name('theloai.index'); //Display Index Page

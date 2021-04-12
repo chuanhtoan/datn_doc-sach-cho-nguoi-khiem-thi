@@ -154,7 +154,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa thể loại "' + product_id + '" ?');
+                $('#lableXoa').html('Xóa thể loại "' + data.name + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {

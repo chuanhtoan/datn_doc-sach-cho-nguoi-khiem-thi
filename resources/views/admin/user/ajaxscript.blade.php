@@ -162,7 +162,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa tài khoản "' + product_id + '" ?');
+                $('#lableXoa').html('Xóa tài khoản "' + data.email + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {

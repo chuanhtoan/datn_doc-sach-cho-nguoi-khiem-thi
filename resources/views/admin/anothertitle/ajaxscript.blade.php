@@ -141,7 +141,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa tiêu đề khác "' + product_id + '" ?');
+                $('#lableXoa').html('Xóa tiêu đề khác "' + data.title + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {

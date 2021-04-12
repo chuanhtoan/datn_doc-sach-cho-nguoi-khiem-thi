@@ -66,6 +66,7 @@ class CommentController extends Controller
     public function show($product_id)
     {
         $product = Comment::find($product_id);
+        $product['email'] = User::find($product->accUsername)->email;
         return response()->json($product);
     }
 

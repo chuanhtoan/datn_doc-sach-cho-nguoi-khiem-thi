@@ -154,7 +154,7 @@ $(document).ready(function(){
             type: "GET",
             url: url + '/' + product_id,
             success: function (data) {
-                $('#lableXoa').html('Xóa bình luận "' + product_id + '" ?');
+                $('#lableXoa').html('Xóa bình luận của "' + data.email + '" ?');
                 $('#deleteModal').modal('show');
             },
             error: function (data) {
