@@ -11,6 +11,11 @@
             margin-bottom: 7px;
         }
 
+        .btn-anothertitle, .btn-chapter, .btn-comment {
+            width: 111px;
+            margin-top: 10px;
+        }
+
         /* Checkboxs the loai */
         /* Hiding the checkbox, but allowing it to be focused */
         .badgebox
@@ -88,7 +93,7 @@
                             @foreach($items as $item)
                                 <tr id="product{{$item->id}}" class="active">
                                     <td>{{$item->id}}</td>
-                                    <td>{{$item->title}}</td>
+                                    <td style="min-width: 100px">{{$item->title}}</td>
                                     <td><img style="max-width: 100px;" src="{{$item->cover}}" alt="cover"></td>
                                     <td style="min-width: 100px">
                                         @foreach ($novel_categories as $novel_category)
@@ -102,7 +107,7 @@
                                             @endif
                                         @endforeach
                                     </td>
-                                    <td>{{Str::limit($item->description, 100)}}</td>
+                                    <td style="min-width: 100px; max-width: 100px">{{Str::limit($item->description, 50)}}</td>
                                     <td>{{$item->author}}</td>
                                     <td>{{$item->status}}</td>
                                     <td>{{$item->type}}</td>
@@ -113,6 +118,9 @@
                                         <div style="display: inline-block">
                                             <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
                                             <button class="btn btn-danger delete-product" value="{{$item->id}}">Xóa</button>
+                                            <a href="anothertitle/novel/{{$item->id}}" class="btn btn-info btn-anothertitle">Tiêu Đề Khác</a>
+                                            <a href="chapter/novel/{{$item->id}}" class="btn btn-dark btn-chapter" value="{{$item->id}}">Chương</a>
+                                            <a href="comment/novel/{{$item->id}}" class="btn btn-success btn-comment" value="{{$item->id}}">Bình Luận</a>
                                         </div>
                                     </td>
                                 </tr>

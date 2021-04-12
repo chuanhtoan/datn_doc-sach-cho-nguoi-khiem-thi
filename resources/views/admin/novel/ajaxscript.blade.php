@@ -211,35 +211,49 @@ $(document).ready(function(){
             dataType: 'json',
             success: function (data) {
                 console.log('data', data);
-                // // Lay chuoi the loai
-                // var theloaiarray = "";
-                // var hiddenvalue = "";
-                // data.tlarray.forEach(element => {
-                //     theloaiarray += element + ", ";
-                // });
-                // data.tlarray_id.forEach(element => {
-                //     hiddenvalue += '<input type="hidden" class="hiddenvalue hidden_'+data.id+'" value="'+element+'">';
-                // });
+                // Lay chuoi the loai
+                var theloaiarray = "";
+                var hiddenvalue = "";
+                data.tlarray.forEach(element => {
+                    theloaiarray += element + ", ";
+                });
+                data.tlarray_id.forEach(element => {
+                    hiddenvalue += '<input type="hidden" class="hiddenvalue hidden_'+data.id+'" value="'+element+'">';
+                });
 
-                // var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
-                // + data.name + '</td><td>' + data.description;
-                // product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
-                // product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
-                // if (state == "add"){ //if user added a new record
-                //     $('#products-list').prepend(product);
-                //     // alertify
-                //     alertify.success('Thêm thành công');
-                // }else{ //if user updated an existing record
-                //     $("#product" + product_id).replaceWith( product );
-                //     // alertify
-                //     alertify.success('Sửa thành công');
-                // }
+                // Cat string description
+                var description = "";
+                if(data.description.length>50) {
+                    description = data.description.substring(0,50)+'...';
+                } else {
+                    description = data.description;
+                }
+
+                var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
+                + data.title + '</td><td>'
+                + '<img style="max-width: 100px;" src="' + data.cover + '" alt="cover"></>'
+                + '<td style="min-width: 100px">' + theloaiarray + hiddenvalue + '</td>'
+                + '<td style="max-width: 100px">' + description + '</td><td>'
+                + data.author + '</td><td>' + data.status + '</td><td>'
+                + data.type + '</td><td>' + data.publishYear + '</td><td>'
+                + data.language + '</td><td>' + data.rating + '</td>';
+                product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
+                product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
+                if (state == "add"){ //if user added a new record
+                    $('#products-list').prepend(product);
+                    // alertify
+                    alertify.success('Thêm thành công');
+                }else{ //if user updated an existing record
+                    $("#product" + product_id).replaceWith( product );
+                    // alertify
+                    alertify.success('Sửa thành công');
+                }
                 $('#frmProducts').trigger("reset");
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
                 $('#title').addClass('is-invalid');
-                // $('#textUnique').html(JSON.parse(data.responseText).errors.title[0]);
+                $('#textUnique').html(JSON.parse(data.responseText).errors.title[0]);
                 JSON.parse(data.responseText).errors;
                 console.log('Error:', data);
             }

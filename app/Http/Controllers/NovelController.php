@@ -168,8 +168,7 @@ class NovelController extends Controller
             $phim_theloai->save();
         }
 
-        // return response()->json($product);
-        return response()->json($request->theLoaiIDs);
+        return response()->json($product);
     }
 
     /**
