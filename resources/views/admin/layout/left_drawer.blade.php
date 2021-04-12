@@ -6,9 +6,9 @@
             <nav class="drawer  drawer--dark">
                 <div class="drawer-spacer">
                     <div class="media align-items-center">
-                        {{-- <a href="{{route('phim.index')}}"><img alt="Logo" src="{{asset('backend/images/logo_only.png')}}" /></a> --}}
+                        <a href="/admin/novel"><img alt="Logo" src="{{asset('backend/images/logo_only.png')}}" /></a>
                         <div class="media-body" style="padding-left: 14px; margin-top: 10px">
-                            {{-- <a href="{{route('phim.index')}}" class="h5 m-0 text-link">Utako | Admin</a> --}}
+                            <a href="/admin/novel" class="h5 m-0 text-link">Utako | Admin</a>
                         </div>
                     </div>
                 </div>

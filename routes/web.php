@@ -123,6 +123,16 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
         Route::delete('/{item_id}', 'ChapterController@destroy');
     });
 
+    //Quan ly sach
+    Route::group(['prefix' => 'novel'], function () {
+        Route::get('/', 'NovelController@index');
+        Route::get('/{item_id?}', 'NovelController@show');
+        Route::get('/novel/{item_id?}', 'NovelController@novel');
+        Route::post('/', 'NovelController@store');
+        Route::put('/{item_id}', 'NovelController@update');
+        Route::delete('/{item_id}', 'NovelController@destroy');
+    });
+
     // //Quan ly the loai
     // Route::group(['prefix' => 'theloai'], function () {
     //     Route::get('/','TheLoaiController@index')->name('theloai.index'); //Display Index Page

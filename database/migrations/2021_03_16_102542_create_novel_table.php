@@ -24,6 +24,7 @@ class CreateNovelTable extends Migration
             $table->integer('publishYear');
             $table->string('language');
             $table->string('rating');
+            $table->timestamps();
         });
     }
 
