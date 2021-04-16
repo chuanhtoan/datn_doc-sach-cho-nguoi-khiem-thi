@@ -8,8 +8,24 @@
 
     {{-- JQuery --}}
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+
+    {{-- Custom CSS --}}
+    <style>
+        df-messenger {
+            --df-messenger-button-titlebar-color: #E53637;
+        }
+        button#widgetIcon .df-chat-icon {
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
+    <h1>Web Speech API</h1>
+    <p id="OnSpeach">OnSpeach:</p>
+    <p id="OnAudio">OnAudio:</p>
+    <p id="OnSound">OnSound:</p>
+    <p id="OnStart">OnStart:</p>
+    <p id="message">Kết quả:</p>
     <!-- Dialogflow -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
@@ -34,7 +50,13 @@
             var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
             var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 
-            var grammar = '#JSGF V1.0;'
+            var grammar = '#JSGF V1.0; grammar colors; public <color> = xanh | vang '
+                + '| đỏ | alo | xin | chao | brown | chocolate | coral | crimson '
+                + '| cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo '
+                + '| ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin '
+                + '| navy | olive | orange | orchid | peru | pink | plum | purple | red '
+                + '| salmon | sienna | silver | snow | tan | teal | thistle | tomato '
+                + '| turquoise | violet | white | yellow ;'
 
             var recognition = new SpeechRecognition();
             var speechRecognitionList = new SpeechGrammarList();
@@ -53,35 +75,69 @@
                 message.textContent = 'Đã có lỗi: ' + event.error;
             }
 
+            // Test event
+            recognition.onspeechstart = function() {
+                document.querySelector('#OnSpeech').textContent = 'Speech has been detected';
+            }
+            recognition.onspeechend = function() {
+                document.querySelector('#OnSpeech').textContent = 'Speech has stopped being detected';
+            }
+            recognition.onaudiostart = function() {
+                document.querySelector('#OnAudio').textContent = 'Audio capturing started';
+            }
+            recognition.onaudioend = function() {
+                document.querySelector('#OnAudio').textContent = 'Audio capturing ended';
+            }
+            recognition.onsoundstart = function() {
+                document.querySelector('#OnSound').textContent = 'Some sound is being received';
+            }
+            recognition.onsoundend = function() {
+                document.querySelector('#OnSound').textContent = 'Sound has stopped being received';
+            }
+            recognition.onstart = function() {
+                document.querySelector('#OnStart').textContent = 'Start listening';
+            }
+            recognition.onend = function() {
+                document.querySelector('#OnStart').textContent = 'End listening';
+            }
+
+            // Always Listen
+            // recognition.start()
+            // recognition.addEventListener('end', () => recognition.start())
+
             // Key event
             let fired = false
             $(document).on('keydown', function(e) {
                 if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
                     fired = true
-                    console.log('listening...!')
-                    // responsiveVoice.speak('Xin chào!')
-                    // recognition.start()
-                    typing()
-                    enterkey()
+                    recognition.start()
+                    // typing()
+                    // enterkey()
                 }
             }).on('keyup', function(e) {
                 if (e.keyCode === 96 || e.keyCode === 45) {
                     fired = false
-                    console.log('stop listening...!')
-                    // recognition.stop()
+                    recognition.stop()
                 }
             });
 
-            // Dialogflow speak
             const dfMessenger = document.querySelector('df-messenger')
+
+            // Dialogflow speak respone message
             dfMessenger.addEventListener('df-response-received', function (event) {
                 responsiveVoice.speak(event.detail.response.queryResult.fulfillmentText)
+            })
+
+            // Dialogflow change placeholder
+            var inputField = null
+            dfMessenger.addEventListener('df-messenger-loaded', function (event) {
+                inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
+                inputField.placeholder = "Hỏi gì đi..."
             })
 
             // Input Typing
             function typing() {
                 const text = 'xin chào'
-                const inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
                 inputField.value = text
             }
 
@@ -94,7 +150,6 @@
                 ev.charCode = 13;
                 ev.key = 'Enter';
                 ev.code = 'Enter';
-                const inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
                 inputField.dispatchEvent(ev);
             }
         }
