@@ -20,7 +20,7 @@
                 <!-- MENU -->
                 <ul class="drawer-menu" id="dasboardMenu" data-children=".drawer-submenu">
                     <li class="drawer-menu-item">
-                    {{-- <li class="drawer-menu-item active "> --}}
+                    <li class="drawer-menu-item">
                         <a href="/admin/novel">
                             <i class="material-icons">local_movies</i>
                             <span class="drawer-menu-text"> Sách</span>
@@ -30,7 +30,6 @@
                         <a href="/admin/category">
                             <i class="material-icons">dns</i>
                             <span class="drawer-menu-text"> Thể Loại</span>
-                            {{-- <span class="badge badge-pill badge-success ml-1">4</span> --}}
                         </a>
                     </li>
                     <li class="drawer-menu-item ">

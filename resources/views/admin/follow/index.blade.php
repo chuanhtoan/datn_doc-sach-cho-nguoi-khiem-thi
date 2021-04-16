@@ -130,18 +130,9 @@
 
 @section('above_body')
 
-    {{-- datePicker --}}
-
-
-    {{-- validate --}}
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-
     {{-- ajax thêm xóa sửa --}}
     @include('admin.follow.ajaxscript')
     @yield('ajax')
-
-    {{-- alertify --}}
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 @endsection
 

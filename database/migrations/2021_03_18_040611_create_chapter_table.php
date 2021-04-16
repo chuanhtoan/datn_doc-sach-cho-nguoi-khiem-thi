@@ -17,7 +17,7 @@ class CreateChapterTable extends Migration
             $table->id();
             $table->integer('number')->default(0);
             $table->string('title')->nullable();
-            $table->string('content', 13000);
+            $table->string('content', 13000)->default('');
             $table->foreignId('novelID')->constrained('novel')->onDelete('cascade');
             $table->timestamps();
         });

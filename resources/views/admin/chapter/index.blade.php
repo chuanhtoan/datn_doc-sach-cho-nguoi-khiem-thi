@@ -55,6 +55,7 @@
                                     <td>{{App\Model\Novel::find($item->novelID)->title}}</td>
                                     <td>
                                         <div style="display: inline-block">
+                                            <a href="chapter/chapter-details/{{$item->id}}" class="btn btn-info">Xem</a>
                                             <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
                                             <button class="btn btn-danger delete-product" value="{{$item->id}}">Xóa</button>
                                         </div>
@@ -84,6 +85,10 @@
                 <form id="frmProducts" name="frmProducts" class="form-horizontal classFormUpdate validate-form" novalidate="">
                     <input type="hidden" name="class_id" class="class-id" id="class-id">
                     <div class="form-group">
+                        <label for="number">Số chương:</label>
+                        <input type="number" name="number" id="number" class="form-control required" placeholder="Số chương">
+                        <p id="textUnique" class="invalid-feedback d-inline text-danger"></p>
+                        <br>
                         <label for="title">Tiêu Đề:</label>
                         <input type="text" name="title" id="title" class="form-control required" placeholder="Tiêu đề">
                         <br>
@@ -131,18 +136,9 @@
 
 @section('above_body')
 
-    {{-- datePicker --}}
-
-
-    {{-- validate --}}
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-
     {{-- ajax thêm xóa sửa --}}
     @include('admin.chapter.ajaxscript')
     @yield('ajax')
-
-    {{-- alertify --}}
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 @endsection
 

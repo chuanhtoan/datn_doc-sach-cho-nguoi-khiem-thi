@@ -80,8 +80,21 @@ class ChapterController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Chapter::create($request->input());
-        return response()->json($product);
+        // Kiem tra unique
+        $sameNumber = DB::table('chapter')->where('number',$request->number)->get();
+        $count = 0;
+        foreach ($sameNumber as $key => $value) {
+            if ($value->novelID == $request->novelID) {
+                $count += 1;
+            }
+        }
+
+        if ($count > 0) {
+            return response()->json(false);
+        } else {
+            $product = Chapter::create($request->input());
+            return response()->json($product);
+        }
     }
 
     /**
@@ -93,9 +106,40 @@ class ChapterController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Kiem tra unique
+        $sameNumber = DB::table('chapter')->where('number',$request->number)->get();
+        $count = 0;
+        foreach ($sameNumber as $key => $value) {
+            if ($value->novelID == $request->novelID) {
+                if ($value->id != $id) {
+                    $count += 1;
+                }
+            }
+        }
+
+        if ($count > 0) {
+            return response()->json(false);
+        } else {
+            $product = Chapter::find($id);
+            $product->number = $request->number;
+            $product->title = $request->title;
+            $product->novelID = $request->novelID;
+            $product->save();
+            return response()->json($product);
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateContent(Request $request, $id)
+    {
         $product = Chapter::find($id);
-        $product->title = $request->title;
-        $product->novelID = $request->novelID;
+        $product->content = $request->content;
         $product->save();
         return response()->json($product);
     }
@@ -110,5 +154,29 @@ class ChapterController extends Controller
     {
         $product = Chapter::destroy($product_id);
         return response()->json($product);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details($product_id)
+    {
+        $user = null;
+        if ( Auth::check() )   {
+            $user = Auth::user();
+        }
+
+        if($user && $user->type == 1)
+        {
+            $chapter = Chapter::find($product_id);
+            $novel = Novel::find($chapter->novelID);
+            return view('admin.chapter.details',['chapter'=>$chapter,'user'=>$user,'novel'=>$novel]);
+        } else {
+            $error=1;
+            return view('admin.login',['error'=>$error]);
+        }
     }
 }

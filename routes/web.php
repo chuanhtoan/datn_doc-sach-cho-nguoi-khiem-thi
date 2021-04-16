@@ -115,11 +115,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
 
     //Quan ly chương
     Route::group(['prefix' => 'chapter'], function () {
-        Route::get('/', 'ChapterController@index');
+        Route::get('/', 'ChapterController@index')->name('chapter.index');
         Route::get('/{item_id?}', 'ChapterController@show');
+        Route::get('/chapter-details/{item_id?}', 'ChapterController@details');
         Route::get('/novel/{item_id?}', 'ChapterController@novel');
         Route::post('/', 'ChapterController@store');
-        Route::put('/{item_id}', 'ChapterController@update');
+        Route::put('/{item_id}', 'ChapterController@update')->name('chapter.update');
+        Route::put('/updateContent/{item_id}', 'ChapterController@updateContent');
         Route::delete('/{item_id}', 'ChapterController@destroy');
     });
 

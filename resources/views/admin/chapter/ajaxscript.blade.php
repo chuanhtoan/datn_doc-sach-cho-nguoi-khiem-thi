@@ -14,6 +14,8 @@ $(document).ready(function(){
     $('#btn_add').click(function(){
         $('#btn-save').val("add");
         $('#frmProducts').trigger("reset");
+        $('#textUnique').html("");
+        $('#number').removeClass('is-invalid');
         $('#createEditModal').modal('show');
     });
 
@@ -22,6 +24,8 @@ $(document).ready(function(){
     //display modal form for product EDIT ***************************
     $(document).on('click','.open_modal',function(){
         var product_id = $(this).val();
+        $('#textUnique').html("");
+        $('#number').removeClass('is-invalid');
 
         // Populate Data in Edit Modal Form
         $.ajax({
@@ -29,12 +33,14 @@ $(document).ready(function(){
             url: url + '/' + product_id,
             success: function (data) {
                 $('#product_id').val(data.id);
+                $('#number').val(data.number);
                 $('#title').val(data.title);
                 $('#novelID').val(data.novelID);
                 $('#btn-save').val("update");
                 $('#createEditModal').modal('show');
             },
             error: function (data) {
+                console.log(JSON.parse(data.responseText));
                 console.log('Error:', data);
             }
         });
@@ -61,11 +67,17 @@ $(document).ready(function(){
             }
         }, onkeyup: false,
         rules: {
+            number: {
+                required: true,
+            },
             title: {
                 required: true,
             },
         },
         messages: {
+            number: {
+                required: 'Bạn phải nhập trường này',
+            },
             title: {
                 required: 'Bạn phải nhập trường này',
             },
@@ -86,6 +98,7 @@ $(document).ready(function(){
 
         // e.preventDefault();
         var formData = {
+            number: $('#number').val(),
             title: $('#title').val(),
             novelID: $('#novelID').val(),
         }
@@ -106,21 +119,29 @@ $(document).ready(function(){
             data: formData,
             dataType: 'json',
             success: function (data) {
-                var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
-                + data.title + '</td><td>' + $('#novelID option:selected').html();
-                product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
-                product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
-                if (state == "add"){ //if user added a new record
-                    $('#products-list').prepend(product);
-                    // alertify
-                    alertify.success('Thêm thành công');
-                }else{ //if user updated an existing record
-                    $("#product" + product_id).replaceWith( product );
-                    // alertify
-                    alertify.success('Sửa thành công');
+                if (!data) {
+                    $('#number').addClass('is-invalid');
+                    $('#textUnique').html('Chương đã tồn tại');
                 }
-                $('#frmProducts').trigger("reset");
-                $('#createEditModal').modal('hide');
+                else {
+                    var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
+                    + data.number + '</td><td>' + data.title + '</td><td>'
+                    + $('#novelID option:selected').html() + '</td>';
+                    product += '<td><a href="chapter/chapter-details/' + data.id + '" class="btn btn-info mr-1">Xem</a>';
+                    product += '<button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
+                    product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
+                    if (state == "add"){ //if user added a new record
+                        $('#products-list').prepend(product);
+                        // alertify
+                        alertify.success('Thêm thành công');
+                    }else{ //if user updated an existing record
+                        $("#product" + product_id).replaceWith( product );
+                        // alertify
+                        alertify.success('Sửa thành công');
+                    }
+                    $('#frmProducts').trigger("reset");
+                    $('#createEditModal').modal('hide');
+                }
             },
             error: function (data) {
                 console.log('Error:', data);
