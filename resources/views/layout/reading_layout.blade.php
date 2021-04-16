@@ -84,8 +84,8 @@
                                                         <select class="form-control" onchange="changeFZ(this)" id="changeFZid">
                                                             <option value="16">16</option>
                                                             <option value="18">18</option>
-                                                            <option value="20" selected="">20</option>
-                                                            <option value="22">22</option>
+                                                            <option value="20">20</option>
+                                                            <option value="22" selected="">22</option>
                                                             <option value="24">24</option>
                                                             <option value="26">26</option>
                                                             <option value="28">28</option>
@@ -104,8 +104,8 @@
                                                         <select class="form-control" onchange="changeLH(this)" id="changeLHid">
                                                             <option value="1">1</option>
                                                             <option value="1.5">1.5</option>
-                                                            <option value="2">2</option>
-                                                            <option value="2.5" selected="">2.5</option>
+                                                            <option value="2" selected="">2</option>
+                                                            <option value="2.5">2.5</option>
                                                             <option value="3">3</option>
                                                             <option value="3.5">3.5</option>
                                                             <option value="4">4</option>

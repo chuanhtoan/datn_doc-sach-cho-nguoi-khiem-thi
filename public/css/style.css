@@ -2395,9 +2395,15 @@ ol {
 
 #novel-content {
     white-space: pre-line;
-    line-height: 2.5;
-    margin-top: -50px;
-    font-size: 20px;
+    line-height: 2;
+    font-size: 22px;
+}
+
+#novel-content p {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    margin-bottom: 30px;
 }
 
 .small_content {

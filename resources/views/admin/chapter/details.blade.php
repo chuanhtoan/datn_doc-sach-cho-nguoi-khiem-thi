@@ -34,8 +34,6 @@
                     @csrf
                     <input type="hidden" name="class_id" class="class-id" id="class-id">
                     <div class="form-group">
-                        <label for="noiDung">Nội dung:</label>
-                        {{-- <div id="editor">{{!!$chapter->content!!}}</div> --}}
                         <div id="editor">{!!$chapter->content!!}</div>
                         <br>
                         <div style="display: inline-block;float: right">

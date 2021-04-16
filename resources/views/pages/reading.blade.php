@@ -15,7 +15,7 @@
             <div class="col-lg-12">
                 <div class="blog__details__content">
                     <div class="blog__details__text">
-                        <p id="novel-content">{{$chapter->content}}</p>
+                        <div id="novel-content">{!!$chapter->content!!}</div>
                     </div>
                     <div class="blog__details__tags">
                         @foreach ($novel_categories as $novel_category)
