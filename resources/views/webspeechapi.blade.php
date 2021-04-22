@@ -21,7 +21,7 @@
 </head>
 <body>
     <h1>Web Speech API</h1>
-    <p id="OnSpeach">OnSpeach:</p>
+    <p id="OnSpeech">OnSpeach:</p>
     <p id="OnAudio">OnAudio:</p>
     <p id="OnSound">OnSound:</p>
     <p id="OnStart">OnStart:</p>
