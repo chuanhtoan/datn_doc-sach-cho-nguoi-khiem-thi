@@ -114,6 +114,26 @@ class NovelSeeder extends Seeder{
             'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/thumbnail/362x/9df78eab33525d08d6e5fb8d27136e95/8/9/8936037799490.jpg',
             'description'=>'Cuốn sách Những kẻ xuất chúng sẽ giúp bạn tìm ra câu trả lời thông qua các phân tích về xã hội, văn hóa và thế hệ của những nhân vật kiệt xuất như Bill Gates, Beatles và Mozart, bên cạnh những thất bại đáng kinh ngạc của một số người khác (ví dụ: Christopher Langan, người có chỉ số IQ cao hơn Einstein nhưng rốt cuộc lại quay về làm việc trong một trại ngựa). Theo đó, cùng với tài năng và tham vọng, những người thành công đều được thừa hưởng một cơ hội đặt biệt để rèn luyện kỹ năng và cho phép họ vượt lên những người cùng trang lứa.'],
 
+            ['title'=>'Phục Hồi Chức Năng Cho Người Khuyết Tật/Giảm Chức Năng Nhìn','author'=>'NXB Y Học','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://image.slidesharecdn.com/11phuchoichucnangchotregapkhokhanvenhin-140109224251-phpapp01/95/phc-hi-chc-nng-cho-ngi-khuyt-ttgim-chc-nng-nhn-1-638.jpg?cb=1389308456',
+            'description'=>'Sách phục hồi chức năng cho người khuyết tật/giảm chức năng nhìn.'],
+
+            ['title'=>'Trông Đẹp Là Lợi Thế Sống Đẹp Là Bản Lĩnh','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://thuvienhanoi.org.vn/Upload/2021/04/20/z2445112993353_ba9878f589a5f4324e3c9098f3f9da1d_2021Apr20_033748088.jpg',
+            'description'=>'Trông Đẹp Là Lợi Thế Sống Đẹp Là Bản Lĩnh.'],
+
+            ['title'=>'Đời Ngắn, Đừng Khóc, Hãy Tô Son','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://thuvienhanoi.org.vn/Upload/2021/03/29/164322162_243695910818011_4578244187820609936_n_2021Mar29_022634054.jpg',
+            'description'=>'Đời Ngắn, Đừng Khóc, Hãy Tô Son.'],
+
+            ['title'=>'Câu Chuyện Về Cuộc Đời Của Louis Braille','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'http://img.idesign.vn/919x-/2018/08/26/id_sixdots_01.jpg',
+            'description'=>'Quyển sách về cuộc đời vượt khó của nhà phát minh chữ nổi cho người khiếm thị.'],
+
+            ['title'=>'Phương Pháp Dạy Chữ Nổi Cho Thanh Thiếu Niên Và Người Trưởng Thành','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://thuvienhanoi.org.vn/Upload/2020/12/25/132041674_428123078212637_9105829377725687347_n_2020Dec25_023359698.jpg',
+            'description'=>'Phương Pháp Dạy Chữ Nổi Cho Thanh Thiếu Niên Và Người Trưởng Thành.'],
+
         ]);
     }
 }
@@ -166,7 +186,7 @@ class CategorySeeder extends Seeder{
 class Novel_CategorySeeder extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 22; $i++) {
+        for ($i=1; $i <= 27; $i++) {
             DB::table('novel_category')->insert([
                 ['novelID'=>$i,'categoryID'=>rand(1,10)],
                 ['novelID'=>$i,'categoryID'=>rand(11,20)],
@@ -189,6 +209,20 @@ class Chapter extends Seeder{
                 ['novelID'=>$i, 'number'=>1, 'title'=>'Cách Phát Triển Bộ Nhớ',
                 'content'=>'
                 <p><strong>TRÍ NHỚ LÀ GÌ?</strong></p><p>Trí nhớ là khả năng ghi nhận, tồn trữ và hồi tưởng được các thông tin của não người. Nói cách khác, nó giữ lại được mọi kinh nghiệm thông qua quá trình hoạt động của trí não.Thông thường, hoạt động của trí nhớ gồm có ba giai đoạn:</p><p>Tiếp nhận và ghi lại những gì đã tri giác được từ tai, mắt, mũi.</p><p>Lưu trữ những thông tin đã tiếp nhận.</p><p>Nhớ lại những thông tin đã lưu trữ.Con người có nhiều dạng trí nhớ, trong đó có ba dạng phổ biến nhất: trí nhớ thị giác, trí nhớ thính giác và trí nhớ vận động.</p><p>Người nào có trí nhớ thị giác thì thường nhớ rất lâu những gì đã được nhìn thấy.</p><p>Người có trí nhớ thính giác lại nhớ rất tốt những gì đã nghe được.</p><p>Còn người có trí nhớ vận động thì cần phải viết hay đọc đi đọc lại nhiều lần điều gì đấy mới nhớ dai được.</p><p><strong>RỐI LOẠN TRÍ NHỚ.</strong></p><p>Theo Thạc sĩ y khoa Cao Phi Phong, rối loạn trí nhớ gồm có những dạng sau:</p><p>Sự giảm nhớ: dù những việc xảy ra đã lâu hay mới đây, người bị dạng này bị giảm khả năng nhớ lại một cách đáng kể.</p><p>Quên: bao gồm quên tốt cả các sự việc diễn ra trong quá khứ hay quên từng phần quá khứ, quên một số việc đã diễn ra dù mới hay cũ. Người bị rối loạn trí nhớ có thể bị quên thuận chiều, nghĩa là quên những việc vừa xảy ra trong quá khứ gần, vài giờ hoặc vài tuần sau khi bệnh hay bị quên ngược chiều, còn gọi là quên xa, quên những việc xảy ra vài tháng trước khi bệnh. Ngoài ra, rối loạn trí nhớ có thể dẫn tới việc:</p><p>Quên trong cơn: “quên sự việc xảy ra trong con như cơn vắng ý thức”.</p><p>Quên do ghi nhận kém và nhớ lại kém: việc ghi nhận kém dẫn tói cái gọi là quên gần, tức không nhớ những sự việc vừa xảy ra; còn việc nhở lại kém dưa tới sự quèn xa, tức là quên những việc đã xảy ra từ rất lâu.</p><p>Quên tiến triển: sự việc xảy ra gần dây thì quên trước, còn sự việc diễn ra từ lâu thì quên sau. Cối quên này tăng đần theo thời gian của người bệnh.</p><p>Loạn nhớ: nhớ nhầm thời gian diễn ra sự việc trong quá khứ hay nhớ nhầm những việc xảy ra của người khác là của mình.</p><p>Tăng nhớ: nhớ lại những sự việc diễn ra từ rất lâu, không có ý nghĩa gì trong hiện tại hay chỉ nhớ những chi tiết vụn vặn, không ăn khớp với nhau.</p>
+                '],
+            ]);
+        }
+
+        for ($i=23; $i <= 27; $i++) {
+            DB::table('chapter')->insert([
+                ['novelID'=>$i, 'number'=>0, 'title'=>'Giới Thiệu Chung',
+                'content'=>'
+                <p>Nếu không xác định được kế hoạch hay hệ thống hóa tốt một phương thức thủ tục, những điều sẽ được chấp nhận và thực thi, thì không có chính phủ, doanh nghiệp hay cơ quan nào có thể hoạt động và quản lý một cách thành công.</p><p>Để phát triển bộ nhớ bạn phải chấp nhận một hệ thống rồi theo đuổi nó, nghĩa là bạn cần thực hành một hệ thống ký ức hay một thuật gợi nhớ. Điều này tương tự như một người có thị lực kém sử dụng kính đeo mắt, anh ta sẽ nhìn rõ hơn, và bạn có thể dùng công cụ này để cải thiện khả năng nhớ của bạn.</p><p>Bạn sẽ tìm hiểu về một “bộ nguyên tắc", chẳng bao lâu sau khi hiểu và thông thạo bộ này bạn sẽ sai khiến chúng như những người hầu. Tuy nhiên, bạn sẽ không trở thành chủ của chúng nếu không áp dụng chúng bằng hành động cụ thể! Một khi bạn đã sử dụng chúng rồi thì nghệ thuật ghi nhớ sẽ trở thành người hầu biết vâng lời bạn.</p><p><strong>BA BÍ MẬT CỦA BỘ NHỚ MÁY TƯ DUY</strong></p><p>Đã bao nhiêu lần bạn nghe người khác nói “Điều đó nhắc nhở tôi”? Và bao nhiêu lần bạn đã thấy hoặc nghe điều gì đó gợi ý khiến bạn kêu ồ lên? Khi điều này xảy ra chính là lúc ta được nhắc bằng một quá trình gọi là sự liên tưởng không kiểm soát. Từ cái này ta liên tưởng rồi nhớ đến một cái khác, tuy nhiên trong lúc ấy khả năng nhớ của ta có thể không nhiều. Ta buộc phải chiến đấu, dò dẫm và tìm lại ý nghĩ “đã mất” đó.</p><p>Để phát triển khả năng nhớ lại thông tin trong tương lai, bạn cần sử dụng một hệ thống có thể giúp bạn định vị ký ức và kéo nó ra. Điều này được thực hiện bằng sự liên tưởng kiểm soát.</p><p>Bạn có thể tạo ra sự liên tưởng có kiểm soát bằng cách sắp đặt ngăn nắp kho chứa nằm trong não bạn, sắp dặt bằng những hình ảnh cố định đã được khắc sâu trong tâm trí.</p><p>Những ý nghĩ mà bạn nhớ lại đã được gởi hoặc ấn định ở một số nơi cụ thể bằng một cách nào đó và về sau bạn có thể nối kết lại được với chúng. Thực hiện được điều này, có nghĩa là bạn đã thật sự nhìn chăm chú vào ngân hàng ký ức của bạn, với lấy từ một ngăn nào đó trong kho chứa đã được chỉ định rồi nhớ lại dữ liệu trong tập tin.</p>
+                '],
+
+                ['novelID'=>$i, 'number'=>1, 'title'=>'Những Vấn Đề Mà Người Khuyết Tật Và Gia Đình Gặp Phải',
+                'content'=>'
+                <p><strong>Đối với cả trẻ em và người lớn, các vấn đề thường gặp phải:&nbsp;</strong></p><p>Hạn chế di chuyển và định hướng được không gian, vị trí của mình đang ở đâu nếu đến nơi khác với nhà của mình.&nbsp;</p><p>Khó khăn trong việc thực hiện các chức năng sinh hoạt hàng ngày như tắm rửa, vệ sinh cá nhân, ăn uống và các công việc khác.&nbsp;</p><p>Khó khăn trong việc hoà nhập xã hội. 4 Phục hồi chức năng dựa vào cộng đồng / Tài liệu số 11&nbsp;</p><p>Khó khăn giao tiếp với mọi người xung quanh.&nbsp;</p><p>Thay đổi tâm lý, mặc cảm với mọi người xung quanh.&nbsp;</p><p>Đối với trẻ em có khuyết tật/giảm chức năng nhìn, có thể không học hành được hoặc không đi đến trường được. Trẻ có khó khăn khi chơi đùa với các bạn cùng tuổi. Đối với người lớn và trẻ lớn có khuyết tật/giảm chức năng nhìn không có việc làm hoặc không làm việc được và do vậy không có thu nhập cho cuộc sống của họ.</p><p>&nbsp;</p><p><strong>Phát hiện người có khuyết tật/giảm chức năng nhìn:&nbsp;</strong></p><p>Những dấu hiệu để phát hiện trẻ có khuyết tật/giảm chức năng nhìn:&nbsp;</p><p>Mắt, mi mắt đỏ, có mủ hoặc thường xuyên chảy nước mắt.&nbsp;</p><p>Mắt trông mờ, đục hoặc nhăn nheo hoặc có tổn thương đau.&nbsp;</p><p>Một hoặc cả hai bên đồng tử có màu xám hoặc trắng.&nbsp;</p><p>Trẻ 3 tháng tuổi vẫn không nhìn theo đồ chơi hoặc sự vật khi đưa qua mặt trẻ.&nbsp;</p><p>Trẻ 3 tháng tuổi vẫn không đưa tay với đồ chơi ở trước mặt trẻ, trừ khi đồ chơi này phát ra tiếng động hoặc chạm vào trẻ.&nbsp;</p><p>Mắt “lệch”, 2 mắt không di động cùng hướng với nhau.&nbsp;</p><p>Mắt lác.&nbsp;</p><p>Trẻ chậm sử dụng tay, vận động và đi lại so với trẻ khác. Trẻ thường va đụng vào đồ vật hoặc rất vụng về.&nbsp;</p><p>Trẻ không thích thú với tranh ảnh, sách, đồ chơi có màu sắc khi để những thứ này sát mặt.&nbsp;</p><p>Nhìn khó khăn khi trời tối (quáng gà).&nbsp;</p><p>Ở trường trẻ không đọc được chữ ở trên bảng hoặc những chữ nhỏ trong sách. Trẻ bị mệt mỏi, đau đầu khi đọc sách.&nbsp;</p><p>Trẻ có thể bị mù hoặc khuyết tật/giảm chức năng nhìn phối hợp với các dạng khuyết tật khác như bại não, chậm phát triển trí tuệ...&nbsp;</p><p>Đối với người lớn có khuyết tật/giảm chức năng nhìn có thể phát hiện nếu người đó không nhìn thấy một vật từ xa hoặc gần, không nhìn thấy những người xung quanh, không thể làm việc hoặc tham gia các công việc của gia đình và xã hội.</p>
                 '],
             ]);
         }
@@ -222,7 +256,7 @@ class User extends Seeder{
 class Comment extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 22; $i++) {
+        for ($i=1; $i <= 27; $i++) {
             DB::table('comment')->insert([
                 ['novelID'=>$i,'accUsername'=>7,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
                 ['novelID'=>$i,'accUsername'=>2,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
@@ -242,7 +276,7 @@ class FollowList extends Seeder{
             DB::table('follow_list')->insert([
                 ['accUsername'=>$i,'novelID'=>rand(1,7)],
                 ['accUsername'=>$i,'novelID'=>rand(8,16)],
-                ['accUsername'=>$i,'novelID'=>rand(17,22)],
+                ['accUsername'=>$i,'novelID'=>rand(17,27)],
             ]);
         }
     }
@@ -273,6 +307,11 @@ class AnotherTitle extends Seeder{
             ['novelID'=>20,'title'=>'Successful Habits of Self-Made Millionaires'],
             ['novelID'=>21,'title'=>'The Way Of Warren Buffett'],
             ['novelID'=>22,'title'=>'Born To Be Steve Jobs'],
+            ['novelID'=>23,'title'=>'나 혼자만 레벨업'],
+            ['novelID'=>24,'title'=>'나 혼자만 레벨업'],
+            ['novelID'=>25,'title'=>'나 혼자만 레벨업'],
+            ['novelID'=>26,'title'=>'나 혼자만 레벨업'],
+            ['novelID'=>27,'title'=>'나 혼자만 레벨업'],
         ]);
     }
 }
