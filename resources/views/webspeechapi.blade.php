@@ -105,53 +105,7 @@
             // recognition.start()
             // recognition.addEventListener('end', () => recognition.start())
 
-            // Key event
-            let fired = false
-            $(document).on('keydown', function(e) {
-                if (!fired && (e.keyCode === 96 || e.keyCode === 45)) {
-                    fired = true
-                    recognition.start()
-                    // typing()
-                    // enterkey()
-                }
-            }).on('keyup', function(e) {
-                if (e.keyCode === 96 || e.keyCode === 45) {
-                    fired = false
-                    recognition.stop()
-                }
-            });
 
-            const dfMessenger = document.querySelector('df-messenger')
-
-            // Dialogflow speak respone message
-            dfMessenger.addEventListener('df-response-received', function (event) {
-                responsiveVoice.speak(event.detail.response.queryResult.fulfillmentText)
-            })
-
-            // Dialogflow change placeholder
-            var inputField = null
-            dfMessenger.addEventListener('df-messenger-loaded', function (event) {
-                inputField = document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-messenger-user-input').shadowRoot.querySelector('input')
-                inputField.placeholder = "Hỏi gì đi..."
-            })
-
-            // Input Typing
-            function typing() {
-                const text = 'xin chào'
-                inputField.value = text
-            }
-
-            // Input Enter Key Press
-            function enterkey() {
-                const ev = document.createEvent('Events');
-                ev.initEvent('keypress', true, true);
-                ev.keyCode = 13;
-                ev.which = 13;
-                ev.charCode = 13;
-                ev.key = 'Enter';
-                ev.code = 'Enter';
-                inputField.dispatchEvent(ev);
-            }
         }
     </script>
 </body>
