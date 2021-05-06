@@ -1914,6 +1914,7 @@ ol {
 .signup {
     padding-top: 130px;
     padding-bottom: 150px;
+    min-height: calc(100vh - 450px);
 }
 
 .signup .login__form:after {
