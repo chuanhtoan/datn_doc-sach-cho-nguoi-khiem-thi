@@ -30,6 +30,17 @@
 		<link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css" />
 		<link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css" />
 
+        <!-- Custom Dialogflow CSS -->
+        <style>
+            df-messenger {
+                --df-messenger-button-titlebar-color: #E53637;
+                margin-right: auto;
+            }
+            button#widgetIcon .df-chat-icon {
+                object-fit: contain;
+            }
+        </style>
+
         {{-- JQuery --}}
         <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
 	</head>
@@ -220,7 +231,6 @@
 		<script src="{{asset('js/mixitup.min.js')}}"></script>
 		<script src="{{asset('js/jquery.slicknav.js')}}"></script>
 		<script src="{{asset('js/owl.carousel.min.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
 
         <!-- Dialogflow -->
         <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -237,6 +247,8 @@
         <script>
             responsiveVoice.setDefaultVoice("Vietnamese Female");
         </script>
+
+        <script src="{{asset('js/main.js')}}"></script>
 
         <!-- Section Javascript -->
         @yield('js')
