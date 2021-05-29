@@ -235,8 +235,8 @@ if ("webkitSpeechRecognition" in window) {
     //     });
 
     // Always Listen
-    recognition.start();
-    recognition.addEventListener("end", () => recognition.start());
+    // recognition.start();
+    // recognition.addEventListener("end", () => recognition.start());
 
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
@@ -268,7 +268,7 @@ if ("webkitSpeechRecognition" in window) {
     var nghe = false;
     var timKiem = false;
     function checking(mess) {
-        playStartSound();
+        playEndSound();
         const command = removeAccents(mess).toLowerCase();
         console.log("command = " + command);
 
@@ -277,41 +277,41 @@ if ("webkitSpeechRecognition" in window) {
             searching(mess);
             timKiem = false;
         }
-        if (nghe && command != "nghe") {
-            if (timKiem == false && command == "tim kiem") {
-                timKiem = true;
-                nghe = false;
-            } else if (command == "quay ve" || command == "quay lai") {
-                window.history.back();
-                nghe = false;
-            } else if (command == "tro lai") {
-                window.history.forward();
-                nghe = false;
-            } else if (command == "trang chu") {
-                window.location.href = "/";
-                nghe = false;
-            } else if (command == "theo doi") {
-                window.location.href = "/follow";
-                nghe = false;
-            } else if (command == "doc") {
-                responsiveVoice.speak(
-                    document.querySelector("#novel-content").innerText
-                );
-                nghe = false;
-            } else if (command == "dung lai") {
-                responsiveVoice.pause();
-                nghe = false;
-            } else if (command == "tiep tuc") {
-                responsiveVoice.resume();
-                nghe = false;
-            } else {
-                typing(mess);
-                nghe = false;
-            }
+        if (timKiem == false && command == "tim kiem") {
+            timKiem = true;
+            nghe = false;
+        } else if (command == "quay ve" || command == "quay lai") {
+            window.history.back();
+            nghe = false;
+        } else if (command == "tro lai") {
+            window.history.forward();
+            nghe = false;
+        } else if (command == "trang chu") {
+            window.location.href = "/";
+            nghe = false;
+        } else if (command == "theo doi") {
+            window.location.href = "/follow";
+            nghe = false;
+        } else if (command == "doc") {
+            responsiveVoice.speak(
+                document.querySelector("#novel-content").innerText
+            );
+            nghe = false;
+        } else if (command == "dung lai") {
+            responsiveVoice.pause();
+            nghe = false;
+        } else if (command == "tiep tuc") {
+            responsiveVoice.resume();
+            nghe = false;
+        } else {
+            typing(mess);
+            nghe = false;
         }
-        if (command == "nghe") {
-            nghe = true;
-        }
+        // if (nghe && command != "nghe") {
+        // }
+        // if (command == "nghe") {
+        //     nghe = true;
+        // }
     }
 }
 
@@ -370,4 +370,17 @@ function removeAccents(str) {
         str = str.replace(re, char);
     }
     return str;
+}
+
+var wrapper = document.getElementById("counter");
+var counter;
+var count = 0;
+
+function start() {
+    playStartSound();
+    recognition.start();
+}
+function end() {
+    recognition.stop();
+    clearInterval(counter);
 }

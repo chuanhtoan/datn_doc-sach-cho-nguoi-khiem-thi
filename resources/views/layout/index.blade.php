@@ -39,6 +39,25 @@
             button#widgetIcon .df-chat-icon {
                 object-fit: contain;
             }
+			#voiceBtn {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				background-color: red;
+				z-index: 9999;
+				display: none;
+			}
+            @media all and (max-width: 600px) {
+                df-messenger {
+                    display: none;
+                }
+				#voiceBtn {
+					display: block;
+				}
+            }
         </style>
 
         {{-- JQuery --}}
@@ -73,6 +92,10 @@
 			</div>
 		</div>
 		<!-- Search model end -->
+
+		<!-- Voice Button -->
+        <button id="voiceBtn" onmousedown="start()" onmouseup="end()"></button>
+		<!-- Voice Button -->
 
 		<!-- Js Plugins -->
         <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
