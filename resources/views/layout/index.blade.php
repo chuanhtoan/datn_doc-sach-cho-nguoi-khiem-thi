@@ -94,7 +94,7 @@
 		<!-- Search model end -->
 
 		<!-- Voice Button -->
-        <button id="voiceBtn" onmousedown="start()" onmouseup="end()"></button>
+        <a href="#" id="voiceBtn"></a>
 		<!-- Voice Button -->
 
 		<!-- Js Plugins -->

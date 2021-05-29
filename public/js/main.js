@@ -235,8 +235,8 @@ if ("webkitSpeechRecognition" in window) {
     //     });
 
     // Always Listen
-    recognition.start();
-    recognition.addEventListener("end", () => recognition.start());
+    // recognition.start();
+    // recognition.addEventListener("end", () => recognition.start());
 
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
@@ -265,7 +265,6 @@ if ("webkitSpeechRecognition" in window) {
         inputField.placeholder = "Hỏi gì đi...";
     });
 
-    var nghe = false;
     var timKiem = false;
     function checking(mess) {
         playEndSound();
@@ -279,39 +278,29 @@ if ("webkitSpeechRecognition" in window) {
         }
         if (timKiem == false && command == "tim kiem") {
             timKiem = true;
-            nghe = false;
         } else if (command == "quay ve" || command == "quay lai") {
             window.history.back();
-            nghe = false;
         } else if (command == "tro lai") {
             window.history.forward();
-            nghe = false;
         } else if (command == "trang chu") {
             window.location.href = "/";
-            nghe = false;
         } else if (command == "theo doi") {
             window.location.href = "/follow";
-            nghe = false;
         } else if (command == "doc") {
             responsiveVoice.speak(
                 document.querySelector("#novel-content").innerText
             );
-            nghe = false;
+        } else if (command == "noi dung") {
+            responsiveVoice.speak(
+                document.querySelector("#novel-description").innerText
+            );
         } else if (command == "dung lai") {
             responsiveVoice.pause();
-            nghe = false;
         } else if (command == "tiep tuc") {
             responsiveVoice.resume();
-            nghe = false;
         } else {
             typing(mess);
-            nghe = false;
         }
-        // if (nghe && command != "nghe") {
-        // }
-        // if (command == "nghe") {
-        //     nghe = true;
-        // }
     }
 }
 
@@ -372,15 +361,9 @@ function removeAccents(str) {
     return str;
 }
 
-var wrapper = document.getElementById("counter");
-var counter;
-var count = 0;
-
-function start() {
+// Search model
+$("#voiceBtn").on("click", function() {
+    responsiveVoice.pause();
     playStartSound();
     recognition.start();
-}
-function end() {
-    recognition.stop();
-    clearInterval(counter);
-}
+});

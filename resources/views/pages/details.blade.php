@@ -29,7 +29,7 @@
                             </div>
                             <span>1.029 Votes</span>
                         </div> --}}
-                        <p class="mt-4">{{$novel->description}}</p>
+                        <p class="mt-4" id="novel-description">{{$novel->description}}</p>
                         <div class="anime__details__widget">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
