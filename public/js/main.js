@@ -235,8 +235,8 @@ if ("webkitSpeechRecognition" in window) {
     //     });
 
     // Always Listen
-    // recognition.start();
-    // recognition.addEventListener("end", () => recognition.start());
+    recognition.start();
+    recognition.addEventListener("end", () => recognition.start());
 
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
