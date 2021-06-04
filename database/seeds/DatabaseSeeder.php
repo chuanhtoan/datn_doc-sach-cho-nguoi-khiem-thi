@@ -27,7 +27,7 @@ class NovelSeeder extends Seeder{
     {
         DB::table('novel')->insert([
             ['title'=>'Để Có Trí Nhớ Tốt','author'=>'Vương Trung Hiếu','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
-            'cover'=>'https://sachvui.com/cover/2020/de-co-tri-nho-tot.jpg',
+            'cover'=>'https://4.bp.blogspot.com/-bygRnm2vy9Y/Wgq0-QP-NdI/AAAAAAAAIyg/jwQ40_igULItGZG2kW0YKuRdcbwl22iXQCLcBGAs/s400/de-co-tri-nho-tot.jpg',
             'description'=>'Trí nhớ là cái cốt lõi của sự thành công trong học tập cũng như công việc, người có trí nhớ tốt sẽ thuận tiện hơn rất nhiều trong cuộc sống. Tuy nhiên, không phải ai trong chúng ta cũng biết cách làm thế nào để có một trí nhớ tốt?'],
 
             ['title'=>'Tạo Lập Mô Hình Kinh Doanh','author'=>'Alexander Osterwalder & Yves Pigneur','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
