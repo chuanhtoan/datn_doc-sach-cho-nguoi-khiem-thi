@@ -23,7 +23,7 @@
             @endforeach
         </div>
     </div>
-    <div class="product__sidebar__comment">
+    {{-- <div class="product__sidebar__comment">
         <div class="section-title">
             <h5>Bình luận mới</h5>
         </div>
@@ -44,12 +44,11 @@
                             @endforeach
                         </ul>
                         <h5><a href="#">{{$newComment->title}}</a></h5>
-                        {{-- <span><i class="fa fa-eye"></i> 19.141 Viewes</span> --}}
                     </div>
                 </div>
             </a>
         @endforeach
-    </div>
+    </div> --}}
 </div>
 
 @endsection

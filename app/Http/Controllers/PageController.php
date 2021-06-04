@@ -42,7 +42,7 @@ class PageController extends Controller
         }
 
         $novels = Novel::all();
-        $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(6);
+        $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(9);
         $popularNovels = Novel::all()->random(6);
         $recentlyAdds = Novel::all()->random(6);
         $liveActions = Novel::all()->random(6);

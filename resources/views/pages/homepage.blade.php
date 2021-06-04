@@ -78,20 +78,14 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="popular__product">
+
+                {{-- <div class="popular__product">
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-sm-8">
                             <div class="section-title">
                                 <h4>Sách phổ biến</h4>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn"
-                                    >View All <span class="arrow_right"></span
-                                ></a>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="row">
                         @foreach ($popularNovels as $popularNovel)
@@ -100,11 +94,6 @@
                                     <div class="product__item">
                                         <a href="/novel/{{$popularNovel->id}}">
                                             <div class="product__item__pic set-bg" data-setbg="{{$popularNovel->cover}}">
-                                                {{-- <div class="ep">2 / ?</div>
-                                                <div class="comment">
-                                                    <i class="fa fa-comments"></i> 6
-                                                </div> --}}
-                                                {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                             </div>
                                         </a>
                                         <div class="product__item__text">
@@ -132,13 +121,6 @@
                                 <h4>Sách mới cập nhật</h4>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn"
-                                    >View All <span class="arrow_right"></span
-                                ></a>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="row">
                         @foreach ($recentlyAdds as $recentlyAdd)
@@ -146,11 +128,6 @@
                                 <a href="/novel/{{$recentlyAdd->id}}">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg" data-setbg="{{$recentlyAdd->cover}}">
-                                            {{-- <div class="ep">2 / ?</div>
-                                            <div class="comment">
-                                                <i class="fa fa-comments"></i> 6
-                                            </div> --}}
-                                            {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                         </div>
                                         <div class="product__item__text">
                                             <ul>
@@ -177,13 +154,6 @@
                                 <h4>Sách chuyển thể</h4>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn"
-                                    >View All <span class="arrow_right"></span
-                                ></a>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="row">
                         @foreach ($liveActions as $liveAction)
@@ -194,11 +164,6 @@
                                             class="product__item__pic set-bg"
                                             data-setbg="{{$liveAction->cover}}"
                                         >
-                                            {{-- <div class="ep">2 / ?</div>
-                                            <div class="comment">
-                                                <i class="fa fa-comments"></i> 6
-                                            </div> --}}
-                                            {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                         </div>
                                         <div class="product__item__text">
                                             <ul>
@@ -217,7 +182,8 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
+
             </div>
             <div class="col-lg-4 col-md-6 col-sm-8">
                 @include('layout.product-sidebar')
