@@ -43,12 +43,14 @@
 				position: fixed;
 				bottom: 20px;
 				right: 20px;
-				width: 80px;
-				height: 80px;
+				width: 100px;
+				height: 100px;
 				border-radius: 50%;
 				background-color: red;
 				z-index: 9999;
 				display: none;
+                background: #e53637;
+                border: 2px solid white;
 			}
             @media all and (max-width: 600px) {
                 df-messenger {
