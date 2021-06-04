@@ -15,7 +15,7 @@
             @foreach ($topViewsNvs as $topViewsNv)
                 <a href="/novel/{{$topViewsNv->id}}">
                     <div class="product__sidebar__view__item set-bg mix day years" data-setbg="{{$topViewsNv->cover}}">
-                        <div class="ep">2 / ?</div>
+                        {{-- <div class="ep">2 / ?</div> --}}
                         {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                         <h5>{{$topViewsNv->title}}</h5>
                     </div>

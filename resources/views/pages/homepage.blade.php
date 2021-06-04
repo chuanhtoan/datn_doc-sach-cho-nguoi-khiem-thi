@@ -45,13 +45,6 @@
                                 <h4>Sách đề cử</h4>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-4 col-md-4 col-sm-4">
-                            <div class="btn__all">
-                                <a href="#" class="primary-btn"
-                                    >View All <span class="arrow_right"></span
-                                ></a>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="row">
                         @foreach ($trendingNovels as $trendingNovel)
@@ -59,10 +52,10 @@
                                 <div class="product__item">
                                     <a href="/novel/{{$trendingNovel->id}}">
                                         <div class="product__item__pic set-bg" data-setbg="{{$trendingNovel->cover}}">
-                                            <div class="ep">2 / ?</div>
+                                            {{-- <div class="ep">2 / ?</div>
                                             <div class="comment">
                                                 <i class="fa fa-comments"></i> 6
-                                            </div>
+                                            </div> --}}
                                             {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                         </div>
                                     </a>
@@ -76,7 +69,7 @@
                                                 @endforeach
                                             @endforeach
                                         </ul>
-                                        <h5>
+                                        <h5 class="result-title">
                                             <a href="/novel/{{$trendingNovel->id}}">{{$trendingNovel->title}}</a>
                                         </h5>
                                     </div>
@@ -107,10 +100,10 @@
                                     <div class="product__item">
                                         <a href="/novel/{{$popularNovel->id}}">
                                             <div class="product__item__pic set-bg" data-setbg="{{$popularNovel->cover}}">
-                                                <div class="ep">2 / ?</div>
+                                                {{-- <div class="ep">2 / ?</div>
                                                 <div class="comment">
                                                     <i class="fa fa-comments"></i> 6
-                                                </div>
+                                                </div> --}}
                                                 {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                             </div>
                                         </a>
@@ -153,10 +146,10 @@
                                 <a href="/novel/{{$recentlyAdd->id}}">
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg" data-setbg="{{$recentlyAdd->cover}}">
-                                            <div class="ep">2 / ?</div>
+                                            {{-- <div class="ep">2 / ?</div>
                                             <div class="comment">
                                                 <i class="fa fa-comments"></i> 6
-                                            </div>
+                                            </div> --}}
                                             {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                         </div>
                                         <div class="product__item__text">
@@ -201,10 +194,10 @@
                                             class="product__item__pic set-bg"
                                             data-setbg="{{$liveAction->cover}}"
                                         >
-                                            <div class="ep">2 / ?</div>
+                                            {{-- <div class="ep">2 / ?</div>
                                             <div class="comment">
                                                 <i class="fa fa-comments"></i> 6
-                                            </div>
+                                            </div> --}}
                                             {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                         </div>
                                         <div class="product__item__text">

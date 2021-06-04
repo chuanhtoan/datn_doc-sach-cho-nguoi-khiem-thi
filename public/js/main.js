@@ -291,11 +291,40 @@ if ("webkitSpeechRecognition" in window) {
             window.location.href = "/follow";
         } else if (command == "doc") {
             checkCrPage();
-        } else if (command == "noi dung") {
+        } else if (command == "ket qua") {
+            let resultTitle = "";
+            document.querySelectorAll(".result-title").forEach(title => {
+                resultTitle += title.innerText + " , ";
+            });
+            responsiveVoice.speak(resultTitle);
+        }
+        // Group Detail Page
+        else if (command == "noi dung") {
             responsiveVoice.speak(
                 document.querySelector("#novel-description").innerText
             );
-        } else if (command == "dung lai") {
+        } else if (command == "chuong") {
+            if (pathName.startsWith("/novel")) {
+                if (pathName.match(new RegExp("/", "g")).length > 2) {
+                    responsiveVoice.speak(
+                        "có " +
+                            document.querySelectorAll(".chapters__list--item")
+                                .length +
+                            " chương"
+                    );
+                } else {
+                    responsiveVoice.speak(
+                        document.querySelector("#blog-title").innerText
+                    );
+                }
+            }
+        } else if (command == "thong tin") {
+            responsiveVoice.speak(
+                document.querySelector(".anime__details__widget").innerText
+            );
+        }
+        // Group Reading Page
+        else if (command == "dung lai") {
             responsiveVoice.pause();
         } else if (command == "tiep tuc") {
             responsiveVoice.resume();

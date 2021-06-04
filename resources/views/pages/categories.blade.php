@@ -25,11 +25,11 @@
                                         <div class="product__item">
                                             <a href="/novel/{{$novel->id}}">
                                                 <div class="product__item__pic set-bg" data-setbg="{{$novel->cover}}">
-                                                    <div class="ep">2 / ?</div>
+                                                    {{-- <div class="ep">2 / ?</div>
                                                     <div class="comment">
                                                         <i class="fa fa-comments"></i> 11
                                                     </div>
-                                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                                    <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                                 </div>
                                             </a>
                                             <div class="product__item__text">
@@ -42,7 +42,7 @@
                                                         @endforeach
                                                     @endforeach
                                                 </ul>
-                                                <h5><a href="/novel/{{$novel->id}}">{{$novel->title}}</a></h5>
+                                                <h5 class="result-title"><a href="/novel/{{$novel->id}}">{{$novel->title}}</a></h5>
                                             </div>
                                         </div>
                                     </div>

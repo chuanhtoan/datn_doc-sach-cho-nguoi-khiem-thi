@@ -129,7 +129,7 @@
                     @foreach ($novels as $nl)
                         <a href="{{$nl->id}}">
                             <div class="product__sidebar__view__item set-bg" data-setbg="{{$nl->cover}}">
-                                <div class="ep">2 / ?</div>
+                                {{-- <div class="ep">2 / ?</div> --}}
                                 {{-- <div class="view"><i class="fa fa-eye"></i> 9141</div> --}}
                                 <h5>{{$nl->title}}</h5>
                             </div>
