@@ -60,15 +60,15 @@
                                         </div>
                                     </a>
                                     <div class="product__item__text">
-                                        <ul>
-                                            {{-- @foreach ($novel_categories as $nv_ct)
+                                        {{-- <ul>
+                                            @foreach ($novel_categories as $nv_ct)
                                                 @foreach ($categories as $category)
                                                     @if ($nv_ct->novelID == $trendingNovel->id && $nv_ct->categoryID == $category->id)
                                                         <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                     @endif
                                                 @endforeach
-                                            @endforeach --}}
-                                        </ul>
+                                            @endforeach
+                                        </ul> --}}
                                         <h5 class="result-title">
                                             <a href="/novel/{{$trendingNovel->id}}">{{$trendingNovel->title}}</a>
                                         </h5>

@@ -33,7 +33,7 @@
                                                 </div>
                                             </a>
                                             <div class="product__item__text">
-                                                <ul>
+                                                {{-- <ul>
                                                     @foreach ($novel_categories as $nv_ct)
                                                         @foreach ($categories as $category)
                                                             @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
@@ -41,7 +41,7 @@
                                                             @endif
                                                         @endforeach
                                                     @endforeach
-                                                </ul>
+                                                </ul> --}}
                                                 <h5 class="result-title">
                                                     <a href="/novel/{{$novel->id}}">{{$novel->title}}</a>
                                                 </h5>
