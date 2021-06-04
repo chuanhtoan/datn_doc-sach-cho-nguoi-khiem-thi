@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                @foreach ($novel_categories as $nv_ct)
+                                {{-- @foreach ($novel_categories as $nv_ct)
                                     @foreach ($categories as $category)
                                         @if ($nv_ct->novelID == $novel->id && $nv_ct->categoryID == $category->id)
                                             <div class="label mt-2">
@@ -19,7 +19,7 @@
                                             </div>
                                         @endif
                                     @endforeach
-                                @endforeach
+                                @endforeach --}}
                                 <h2>{{$novel->title}}</h2>
                                 <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{$novel->description}}</p>
                                 <a href="novel/{{$novel->id}}"><span>Đọc ngay</span> <i class="fa fa-angle-right"></i></a>
@@ -61,13 +61,13 @@
                                     </a>
                                     <div class="product__item__text">
                                         <ul>
-                                            @foreach ($novel_categories as $nv_ct)
+                                            {{-- @foreach ($novel_categories as $nv_ct)
                                                 @foreach ($categories as $category)
                                                     @if ($nv_ct->novelID == $trendingNovel->id && $nv_ct->categoryID == $category->id)
                                                         <a href="/category/{{$category->id}}"><li>{{$category->name}}</li></a>
                                                     @endif
                                                 @endforeach
-                                            @endforeach
+                                            @endforeach --}}
                                         </ul>
                                         <h5 class="result-title">
                                             <a href="/novel/{{$trendingNovel->id}}">{{$trendingNovel->title}}</a>

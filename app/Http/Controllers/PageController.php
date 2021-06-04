@@ -43,13 +43,7 @@ class PageController extends Controller
 
         $novels = Novel::all();
         $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(9);
-        // $popularNovels = Novel::all()->random(6);
-        // $recentlyAdds = Novel::all()->random(6);
-        // $liveActions = Novel::all()->random(6);
         $novel_categories = Novel_Category::all();
-        // return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
-        // 'popularNovels'=>$popularNovels,'recentlyAdds'=>$recentlyAdds,'liveActions'=>$liveActions,
-        // 'novel_categories'=>$novel_categories,'user'=>$user]);
         return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
         'novel_categories'=>$novel_categories,'user'=>$user]);
     }
