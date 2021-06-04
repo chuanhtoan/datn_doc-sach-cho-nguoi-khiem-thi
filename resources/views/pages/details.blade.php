@@ -16,7 +16,7 @@
                 <div class="col-lg-9">
                     <div class="anime__details__text">
                         <div class="anime__details__title">
-                            <h3>{{$novel->title}}</h3>
+                            <h3 id="anime-title">{{$novel->title}}</h3>
                             <span>{{$another_title->title}}</span>
                         </div>
                         {{-- <div class="anime__details__rating">

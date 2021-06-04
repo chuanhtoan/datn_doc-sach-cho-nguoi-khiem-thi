@@ -278,6 +278,9 @@ if ("webkitSpeechRecognition" in window) {
         }
         if (timKiem == false && command == "tim kiem") {
             timKiem = true;
+            setTimeout(function() {
+                recognition.start();
+            }, 500);
         } else if (command == "quay ve" || command == "quay lai") {
             window.history.back();
         } else if (command == "tro lai") {
@@ -287,9 +290,7 @@ if ("webkitSpeechRecognition" in window) {
         } else if (command == "theo doi") {
             window.location.href = "/follow";
         } else if (command == "doc") {
-            responsiveVoice.speak(
-                document.querySelector("#novel-content").innerText
-            );
+            checkCrPage();
         } else if (command == "noi dung") {
             responsiveVoice.speak(
                 document.querySelector("#novel-description").innerText
@@ -301,6 +302,42 @@ if ("webkitSpeechRecognition" in window) {
         } else {
             typing(mess);
         }
+    }
+}
+
+function checkCrPage() {
+    var pathName = window.location.pathname;
+    if (pathName == "/") {
+        responsiveVoice.speak("bạn đang ở trang chủ");
+    }
+    if (pathName == "/search") {
+        let searchResult = document.querySelectorAll(".product__item").length;
+        responsiveVoice.speak("có " + searchResult + " kết quả tìm kiếm");
+    }
+    if (pathName == "/follow") {
+        let searchResult = document.querySelectorAll(".product__item").length;
+        responsiveVoice.speak("có " + searchResult + " sách đang theo dõi");
+    }
+    if (pathName.startsWith("/category")) {
+        let searchResult = document.querySelectorAll(".product__item").length;
+        responsiveVoice.speak("có " + searchResult + " kết quả tìm kiếm");
+    }
+    if (pathName.startsWith("/novel")) {
+        if (pathName.match(new RegExp("/", "g")).length > 2) {
+            responsiveVoice.speak(
+                document.querySelector("#novel-description").innerText
+            );
+        } else {
+            responsiveVoice.speak(
+                "sách " + document.querySelector("#anime-title").innerText
+            );
+        }
+    }
+    if (pathName == "/login") {
+        responsiveVoice.speak("bạn chưa đăng nhập");
+    }
+    if (pathName == "/about") {
+        responsiveVoice.speak(document.querySelector(".login__form").innerText);
     }
 }
 
