@@ -181,63 +181,6 @@ if ("webkitSpeechRecognition" in window) {
         checking(content);
     };
 
-    // recognition.onerror = function(event) {
-    //     message.textContent = "Đã có lỗi: " + event.error;
-    // };
-
-    // // Test event
-    // recognition.onspeechstart = function() {
-    //     document.querySelector("#OnSpeech").textContent =
-    //         "Speech has been detected";
-    // };
-    // recognition.onspeechend = function() {
-    //     document.querySelector("#OnSpeech").textContent =
-    //         "Speech has stopped being detected";
-    // };
-    // recognition.onaudiostart = function() {
-    //     document.querySelector("#OnAudio").textContent =
-    //         "Audio capturing started";
-    // };
-    // recognition.onaudioend = function() {
-    //     document.querySelector("#OnAudio").textContent =
-    //         "Audio capturing ended";
-    // };
-    // recognition.onsoundstart = function() {
-    //     document.querySelector("#OnSound").textContent =
-    //         "Some sound is being received";
-    // };
-    // recognition.onsoundend = function() {
-    //     document.querySelector("#OnSound").textContent =
-    //         "Sound has stopped being received";
-    // };
-    // recognition.onstart = function() {
-    //     document.querySelector("#OnStart").textContent = "Start listening";
-    // };
-    // recognition.onend = function() {
-    //     document.querySelector("#OnStart").textContent = "End listening";
-    // };
-
-    // // Key event
-    // let fired = false;
-    // $(document)
-    //     .on("keydown", function(e) {
-    //         if (!fired && e.keyCode === 192) {
-    //             fired = true;
-    //             recognition.start();
-    //             // typing()
-    //         }
-    //     })
-    //     .on("keyup", function(e) {
-    //         if (e.keyCode === 192) {
-    //             fired = false;
-    //             recognition.stop();
-    //         }
-    //     });
-
-    // Always Listen
-    // recognition.start();
-    // recognition.addEventListener("end", () => recognition.start());
-
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
 
@@ -281,7 +224,13 @@ if ("webkitSpeechRecognition" in window) {
             setTimeout(function() {
                 recognition.start();
             }, 500);
-        } else if (command == "quay ve" || command == "quay lai") {
+        }
+        // Working
+        else if (command == "the loai") {
+            console.log("the loai");
+        }
+        // Working
+        else if (command == "quay ve" || command == "quay lai") {
             window.history.back();
         } else if (command == "tro lai") {
             window.history.forward();
@@ -303,21 +252,29 @@ if ("webkitSpeechRecognition" in window) {
             responsiveVoice.speak(
                 document.querySelector("#novel-description").innerText
             );
-        } else if (command == "chuong") {
+        } else if (command == "chuong" || command == "truong") {
+            var pathName = window.location.pathname;
             if (pathName.startsWith("/novel")) {
                 if (pathName.match(new RegExp("/", "g")).length > 2) {
+                    responsiveVoice.speak(
+                        document.querySelector("#blog-title").innerText
+                    );
+                } else {
                     responsiveVoice.speak(
                         "có " +
                             document.querySelectorAll(".chapters__list--item")
                                 .length +
                             " chương"
                     );
-                } else {
-                    responsiveVoice.speak(
-                        document.querySelector("#blog-title").innerText
-                    );
                 }
             }
+        } else if (
+            command.startsWith("chuong ") ||
+            command.startsWith("truong ")
+        ) {
+            var chapter = command.split(" ").pop();
+            if (chapter == "khong") chapter = 0;
+            window.location.href = window.location.pathname + "/" + chapter;
         } else if (command == "thong tin") {
             responsiveVoice.speak(
                 document.querySelector(".anime__details__widget").innerText
@@ -354,7 +311,7 @@ function checkCrPage() {
     if (pathName.startsWith("/novel")) {
         if (pathName.match(new RegExp("/", "g")).length > 2) {
             responsiveVoice.speak(
-                document.querySelector("#novel-description").innerText
+                document.querySelector("#novel-content").innerText
             );
         } else {
             responsiveVoice.speak(
@@ -428,7 +385,8 @@ function removeAccents(str) {
 }
 
 // Search model
-$("#voiceBtn").on("click", function() {
+$("#voiceBtn").on("click", function(e) {
+    e.preventDefault();
     responsiveVoice.pause();
     playStartSound();
     recognition.start();
