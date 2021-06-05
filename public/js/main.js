@@ -385,8 +385,7 @@ function removeAccents(str) {
 }
 
 // Search model
-$("#voiceBtn").on("click", function(e) {
-    e.preventDefault();
+$("#voiceBtn").on("click", function() {
     responsiveVoice.pause();
     playStartSound();
     recognition.start();

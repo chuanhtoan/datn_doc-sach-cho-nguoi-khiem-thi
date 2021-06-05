@@ -96,7 +96,7 @@
 		<!-- Search model end -->
 
 		<!-- Voice Button -->
-        <a href="#" id="voiceBtn"></a>
+        <button id="voiceBtn"></button>
 		<!-- Voice Button -->
 
 		<!-- Js Plugins -->
