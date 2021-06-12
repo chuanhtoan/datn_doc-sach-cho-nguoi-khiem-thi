@@ -275,7 +275,6 @@ if ("webkitSpeechRecognition" in window) {
         } else if (command == "doc") {
             checkCrPage();
         } else if (command == "ket qua") {
-            responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
             let resultTitle = "";
             document.querySelectorAll(".result-title").forEach(title => {
                 resultTitle += title.innerText + " , ";
