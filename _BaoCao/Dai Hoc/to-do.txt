@@ -1,4 +1,0 @@
-- Đổi slide header với about us thành hướng dẫn sử dụng
-- Viết lại page about us
-- Viết luồng sử dụng voice (đọc, nội dung,...)
-
