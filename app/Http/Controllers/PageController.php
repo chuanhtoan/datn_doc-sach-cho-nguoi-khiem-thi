@@ -23,10 +23,11 @@ class PageController extends Controller
     {
         $categories = Category::all();
         $topViewsNvs = Novel::all()->random(6);
-        $newComments = Novel::all()->random(6);
         View::share('categories', $categories);
         View::share('topViewsNvs',$topViewsNvs);
-        View::share('newComments',$newComments);
+
+        // $newComments = Novel::all()->random(6);
+        // View::share('newComments',$newComments);
     }
 
     /**

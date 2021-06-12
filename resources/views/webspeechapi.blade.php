@@ -98,6 +98,8 @@
             recognition.start()
             recognition.addEventListener('end', () => recognition.start())
 
+
+
             // Key event
             let fired = false
             $(document).on('keydown', function(e) {

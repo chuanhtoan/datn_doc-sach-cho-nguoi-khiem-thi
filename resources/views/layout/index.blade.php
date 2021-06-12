@@ -124,6 +124,10 @@
             responsiveVoice.setDefaultVoice("Vietnamese Female");
         </script>
 
+		<script>
+			var categories = {!! json_encode($categories->toArray(), JSON_HEX_TAG) !!};
+		</script>
+
         <script src="{{asset('js/main.js')}}"></script>
 
         <!-- Section Javascript -->

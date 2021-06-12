@@ -208,29 +208,63 @@ if ("webkitSpeechRecognition" in window) {
         inputField.placeholder = "Hỏi gì đi...";
     });
 
-    var timKiem = false;
+    // Commands
+    let timKiem = false;
+    let theLoai = false;
+    let chon = false;
     function checking(mess) {
         playEndSound();
         const command = removeAccents(mess).toLowerCase();
         console.log("command = " + command);
 
+        // Resume speak command
+        if (command == "tiep tuc") {
+            responsiveVoice.resume();
+        } else {
+            responsiveVoice.cancel();
+        }
+
+        // Search by Name
         if (timKiem) {
-            console.log("searching: " + mess);
-            searching(mess);
+            console.log("searching: " + command);
+            searching(command);
             timKiem = false;
         }
+        // Search by Category
+        if (theLoai) {
+            console.log("category: " + command);
+            cateSearch(command);
+            theLoai = false;
+        }
+        // Choose book result
+        if (chon) {
+            console.log("choose: " + command);
+            choose(command);
+            chon = false;
+        }
+
         if (timKiem == false && command == "tim kiem") {
             timKiem = true;
             setTimeout(function() {
                 recognition.start();
             }, 500);
-        }
-        // Working
-        else if (command == "the loai") {
-            console.log("the loai");
-        }
-        // Working
-        else if (command == "quay ve" || command == "quay lai") {
+        } else if (theLoai == false && command == "the loai") {
+            theLoai = true;
+            setTimeout(function() {
+                recognition.start();
+            }, 500);
+        } else if (chon == false && command == "chon") {
+            // Doc ket qua
+            responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
+
+            // Chon
+            chon = true;
+            setTimeout(function() {
+                recognition.start();
+            }, 500);
+
+        // Others
+        } else if (command == "quay ve" || command == "quay lai") {
             window.history.back();
         } else if (command == "tro lai") {
             window.history.forward();
@@ -241,6 +275,7 @@ if ("webkitSpeechRecognition" in window) {
         } else if (command == "doc") {
             checkCrPage();
         } else if (command == "ket qua") {
+            responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
             let resultTitle = "";
             document.querySelectorAll(".result-title").forEach(title => {
                 resultTitle += title.innerText + " , ";
@@ -274,23 +309,22 @@ if ("webkitSpeechRecognition" in window) {
         ) {
             var chapter = command.split(" ").pop();
             if (chapter == "khong") chapter = 0;
-            window.location.href = window.location.pathname + "/" + chapter;
+            if (chapter <= document.querySelectorAll(".chapters__list--item").length && novel >= 0)
+                window.location.href = window.location.pathname + "/" + chapter;
+            else
+                responsiveVoice.speak('Chương không tồn tại')
         } else if (command == "thong tin") {
             responsiveVoice.speak(
                 document.querySelector(".anime__details__widget").innerText
             );
-        }
         // Group Reading Page
-        else if (command == "dung lai") {
-            responsiveVoice.pause();
-        } else if (command == "tiep tuc") {
-            responsiveVoice.resume();
         } else {
             typing(mess);
         }
     }
 }
 
+// Command "doc"
 function checkCrPage() {
     var pathName = window.location.pathname;
     if (pathName == "/") {
@@ -341,11 +375,28 @@ function typing(mess) {
     inputField.dispatchEvent(ev);
 }
 
-function searching(mess) {
+function searching(name) {
     // Input Typing
-    document.querySelector("#search").value = mess;
+    document.querySelector("#search").value = name;
     // Input Enter Key Press
     document.querySelector(".search-model-form").submit();
+}
+
+function cateSearch(cate) {
+    let cateResult = categories.find(category => removeAccents(category.name).toLowerCase() == cate);
+    if (cateResult) {
+        window.location.href = "/category/" + cateResult.id;
+    } else {
+        responsiveVoice.speak('Thể loại không tồn tại');
+    }
+}
+
+function choose(novel) {
+    const resultArr = document.querySelectorAll(".result-title a");
+    if (novel <= resultArr.length && novel > 0)
+        resultArr[novel].click();
+    else
+        responsiveVoice.speak('Sách không tồn tại');
 }
 
 function playStartSound() {
