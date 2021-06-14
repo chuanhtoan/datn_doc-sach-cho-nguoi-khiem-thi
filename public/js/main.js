@@ -304,19 +304,19 @@ function checking(mess) {
             document.querySelector("#novel-description").innerText
         );
     } else if (command == "chuong" || command == "truong") {
-        // if (pathName.startsWith("/novel")) {
-        // }
-        if (pathName.match(new RegExp("/", "g")).length > 2) {
-            responsiveVoice.speak(
-                document.querySelector("#blog-title").innerText
-            );
-        } else {
-            responsiveVoice.speak(
-                "có " +
-                    document.querySelectorAll(".chapters__list--item")
-                        .length +
-                    " chương"
-            );
+        if (pathName.startsWith("/novel")) {
+            if (pathName.match(new RegExp("/", "g")).length > 2) {
+                responsiveVoice.speak(
+                    document.querySelector("#blog-title").innerText
+                );
+            } else {
+                responsiveVoice.speak(
+                    "có " +
+                        document.querySelectorAll(".chapters__list--item")
+                            .length +
+                        " chương"
+                );
+            }
         }
     } else if (command.startsWith("chuong ") || command.startsWith("truong ")) {
         let chapter = command.split(" ").pop();
@@ -326,14 +326,16 @@ function checking(mess) {
         else
             responsiveVoice.speak('Chương không tồn tại')
     } else if (command == "doc") {
-        if (pathName.match(new RegExp("/", "g")).length > 2) {
-            responsiveVoice.speak(
-                document.querySelector("#novel-content").innerText
-            );
-        } else {
-            responsiveVoice.speak(
-                "sách " + document.querySelector("#anime-title").innerText
-            );
+        if (pathName.startsWith("/novel")) {
+            if (pathName.match(new RegExp("/", "g")).length > 2) {
+                responsiveVoice.speak(
+                    document.querySelector("#novel-content").innerText
+                );
+            } else {
+                responsiveVoice.speak(
+                    "sách " + document.querySelector("#anime-title").innerText
+                );
+            }
         }
     // Chat with Bot
     } else {
