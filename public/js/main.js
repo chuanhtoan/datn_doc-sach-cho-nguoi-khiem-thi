@@ -181,6 +181,11 @@ if ("webkitSpeechRecognition" in window) {
         checking(content);
     };
 
+    // Working (end with empty result)
+    recognition.onend = function() {
+        console.log('Speech recognition service disconnected');
+    }
+
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
 
@@ -217,6 +222,7 @@ const endSound = new Audio("/sounds/beep4.wav");
 let timKiem = false;
 let theLoai = false;
 let chon = false;
+const pathName = window.location.pathname;
 function checking(mess) {
     endSound.play();
     const command = removeAccents(mess).toLowerCase();
@@ -225,6 +231,7 @@ function checking(mess) {
     // Resume speak command
     if (command == "tiep tuc") {
         responsiveVoice.resume();
+        return 0;
     } else {
         responsiveVoice.cancel();
     }
@@ -268,7 +275,6 @@ function checking(mess) {
         setTimeout(function() {
             recognition.start();
         }, 500);
-
     // Others
     } else if (command == "quay ve" || command == "quay lai") {
         window.history.back();
@@ -278,35 +284,39 @@ function checking(mess) {
         window.location.href = "/";
     } else if (command == "theo doi") {
         window.location.href = "/follow";
-    } else if (command == "doc") {
-        checkCrPage();
     } else if (command == "ket qua") {
+        // Doc ket qua
+        responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
+
+        // Doc ten sach
         let resultTitle = "";
         document.querySelectorAll(".result-title").forEach(title => {
             resultTitle += title.innerText + " , ";
         });
         responsiveVoice.speak(resultTitle);
-    }
     // Group Detail Page
-    else if (command == "noi dung") {
+    } else if (command == "thong tin") {
+        let result = document.querySelector("#anime-title").innerText;
+        result += ', ' + document.querySelector(".anime__details__widget").innerText;
+        responsiveVoice.speak(result);
+    } else if (command == "noi dung") {
         responsiveVoice.speak(
             document.querySelector("#novel-description").innerText
         );
     } else if (command == "chuong" || command == "truong") {
-        var pathName = window.location.pathname;
-        if (pathName.startsWith("/novel")) {
-            if (pathName.match(new RegExp("/", "g")).length > 2) {
-                responsiveVoice.speak(
-                    document.querySelector("#blog-title").innerText
-                );
-            } else {
-                responsiveVoice.speak(
-                    "có " +
-                        document.querySelectorAll(".chapters__list--item")
-                            .length +
-                        " chương"
-                );
-            }
+        // if (pathName.startsWith("/novel")) {
+        // }
+        if (pathName.match(new RegExp("/", "g")).length > 2) {
+            responsiveVoice.speak(
+                document.querySelector("#blog-title").innerText
+            );
+        } else {
+            responsiveVoice.speak(
+                "có " +
+                    document.querySelectorAll(".chapters__list--item")
+                        .length +
+                    " chương"
+            );
         }
     } else if (command.startsWith("chuong ") || command.startsWith("truong ")) {
         let chapter = command.split(" ").pop();
@@ -315,10 +325,16 @@ function checking(mess) {
             window.location.href = window.location.pathname + "/" + chapter;
         else
             responsiveVoice.speak('Chương không tồn tại')
-    } else if (command == "thong tin") {
-        responsiveVoice.speak(
-            document.querySelector(".anime__details__widget").innerText
-        );
+    } else if (command == "doc") {
+        if (pathName.match(new RegExp("/", "g")).length > 2) {
+            responsiveVoice.speak(
+                document.querySelector("#novel-content").innerText
+            );
+        } else {
+            responsiveVoice.speak(
+                "sách " + document.querySelector("#anime-title").innerText
+            );
+        }
     // Chat with Bot
     } else {
         typing(mess);
@@ -329,33 +345,22 @@ function checking(mess) {
 function checkCrPage() {
     var pathName = window.location.pathname;
     if (pathName == "/") {
-        responsiveVoice.speak("bạn đang ở trang chủ");
-    }
-    if (pathName == "/search") {
-        let searchResult = document.querySelectorAll(".product__item").length;
-        responsiveVoice.speak("có " + searchResult + " kết quả tìm kiếm");
+        responsiveVoice.speak("Trang chủ");
     }
     if (pathName == "/follow") {
-        let searchResult = document.querySelectorAll(".product__item").length;
-        responsiveVoice.speak("có " + searchResult + " sách đang theo dõi");
+        responsiveVoice.speak("Theo dõi");
+    }
+    if (pathName.startsWith('/novel')) {
+        responsiveVoice.speak("Chi tiết");
+    }
+    if (pathName == "/search") {
+        responsiveVoice.speak("Tìm kiếm");
     }
     if (pathName.startsWith("/category")) {
-        let searchResult = document.querySelectorAll(".product__item").length;
-        responsiveVoice.speak("có " + searchResult + " kết quả tìm kiếm");
-    }
-    if (pathName.startsWith("/novel")) {
-        if (pathName.match(new RegExp("/", "g")).length > 2) {
-            responsiveVoice.speak(
-                document.querySelector("#novel-content").innerText
-            );
-        } else {
-            responsiveVoice.speak(
-                "sách " + document.querySelector("#anime-title").innerText
-            );
-        }
+        responsiveVoice.speak("Thể loại");
     }
     if (pathName == "/login") {
-        responsiveVoice.speak("bạn chưa đăng nhập");
+        responsiveVoice.speak("Bạn chưa đăng nhập");
     }
     if (pathName == "/about") {
         responsiveVoice.speak(document.querySelector(".login__form").innerText);
@@ -471,6 +476,7 @@ function removeAccents(str) {
 // Search model
 $("#voiceBtn").on("click", function() {
     responsiveVoice.pause();
+    checkCrPage();
     startSound.play();
     recognition.start();
 });
