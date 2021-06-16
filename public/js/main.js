@@ -165,6 +165,18 @@ function changeFF(x) {
 }
 
 //---------------------------------------------- DIALOGFLOW -----------------------------------------------------------------
+
+// Variables
+let timKiem = false;
+let theLoai = false;
+let chon = false;
+const pathName = window.location.pathname;
+
+// Sounds
+const startSound = new Audio("/sounds/beep3.wav");
+const endSound = new Audio("/sounds/beep4.wav");
+
+// Speech Recognition
 if ("webkitSpeechRecognition" in window) {
     var message = document.querySelector("#message");
 
@@ -181,9 +193,16 @@ if ("webkitSpeechRecognition" in window) {
         checking(content);
     };
 
-    // Working (end with empty result)
+    recognition.onerror = function(event) {
+        timKiem = false
+        theLoai = false
+        chon = false
+        message.textContent = 'Đã có lỗi: ' + event.error
+    }
+
     recognition.onend = function() {
-        console.log('Speech recognition service disconnected');
+        endSound.play();
+        document.querySelector('#OnStart').textContent = 'End listening';
     }
 
     const dfMessenger = document.querySelector("df-messenger");
@@ -214,15 +233,7 @@ if ("webkitSpeechRecognition" in window) {
     });
 }
 
-// Sounds
-const startSound = new Audio("/sounds/beep3.wav");
-const endSound = new Audio("/sounds/beep4.wav");
-
 // Commands
-let timKiem = false;
-let theLoai = false;
-let chon = false;
-const pathName = window.location.pathname;
 function checking(mess) {
     endSound.play();
     const command = removeAccents(mess).toLowerCase();
@@ -343,7 +354,8 @@ function checking(mess) {
     }
 }
 
-// Command "doc"
+// Functions
+// Voice Button Click
 function checkCrPage() {
     var pathName = window.location.pathname;
     if (pathName == "/") {
@@ -369,6 +381,7 @@ function checkCrPage() {
     }
 }
 
+// Chat with Bot
 function typing(mess) {
     // Input Typing
     inputField.value = mess;
@@ -383,6 +396,7 @@ function typing(mess) {
     inputField.dispatchEvent(ev);
 }
 
+// Search by Name
 function searching(name) {
     // Input Typing
     document.querySelector("#search").value = name;
@@ -390,6 +404,7 @@ function searching(name) {
     document.querySelector(".search-model-form").submit();
 }
 
+// Search by Category
 function cateSearch(cate) {
     let cateResult = categories.find(category => removeAccents(category.name).toLowerCase() == cate);
     if (cateResult) {
@@ -399,6 +414,7 @@ function cateSearch(cate) {
     }
 }
 
+// Choose in Search Results
 function choose(novel) {
     const resultArr = document.querySelectorAll(".result-title a");
     if (novel <= resultArr.length && novel > 0)
@@ -475,7 +491,7 @@ function removeAccents(str) {
     return str;
 }
 
-// Search model
+// Voice Button
 $("#voiceBtn").on("click", function() {
     responsiveVoice.pause();
     checkCrPage();
