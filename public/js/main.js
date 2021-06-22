@@ -202,7 +202,6 @@ if ("webkitSpeechRecognition" in window) {
 
     recognition.onend = function() {
         endSound.play();
-        document.querySelector('#OnStart').textContent = 'End listening';
     }
 
     const dfMessenger = document.querySelector("df-messenger");
@@ -296,13 +295,14 @@ function checking(mess) {
     } else if (command == "theo doi") {
         window.location.href = "/follow";
     } else if (command == "ket qua") {
-        // Doc ket qua
-        responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
+        // Dem ket qua
+        let count = 0;
 
         // Doc ten sach
         let resultTitle = "";
+        resultTitle += ("có " + document.querySelectorAll(".result-title").length + " sách") + " , ";
         document.querySelectorAll(".result-title").forEach(title => {
-            resultTitle += title.innerText + " , ";
+            resultTitle += ++count + " , " + title.innerText + " , ";
         });
         responsiveVoice.speak(resultTitle);
     // Group Detail Page
