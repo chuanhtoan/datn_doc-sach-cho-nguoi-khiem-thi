@@ -56,7 +56,7 @@ class CategoryController extends Controller
         // Kiem tra unique
         $this->validate($request,
         [
-            'name' => [\Illuminate\Validation\Rule::unique('Category')],
+            'name' => [\Illuminate\Validation\Rule::unique('category')],
         ],
         [
             'name.unique' => 'Thể loại đã tồn tại',
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         // Kiem tra unique
         $this->validate($request,
         [
-            'name' => [\Illuminate\Validation\Rule::unique('Category')->ignore($id)],
+            'name' => [\Illuminate\Validation\Rule::unique('category')->ignore($id)],
         ],
         [
             'name.unique' => 'Thể loại đã tồn tại',

@@ -91,7 +91,7 @@ class NovelController extends Controller
         // Kiem tra unique
         $this->validate($request,
         [
-            'title' => [\Illuminate\Validation\Rule::unique('Novel')],
+            'title' => [\Illuminate\Validation\Rule::unique('novel')],
         ],
         [
             'title.unique' => 'Sách đã tồn tại',
