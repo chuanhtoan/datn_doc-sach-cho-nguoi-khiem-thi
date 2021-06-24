@@ -252,8 +252,8 @@ $(document).ready(function(){
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
-                $('#title').addClass('is-invalid');
-                $('#textUnique').html(JSON.parse(data.responseText).errors.title[0]);
+                // $('#title').addClass('is-invalid');
+                // $('#textUnique').html(JSON.parse(data.responseText).errors.title[0]);
                 JSON.parse(data.responseText).errors;
                 console.log('Error:', data);
             }
