@@ -26,6 +26,40 @@
                             @endforeach
                         @endforeach
                     </div>
+                    <div class="blog__details__btns">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                @if ($prevChap)
+                                    <div class="blog__details__btns__item pre__btn">
+                                        <h5>
+                                            <a href="/novel/{{$novel->id}}/{{$prevChap->number}}">
+                                                @php $str = $prevChap->title @endphp
+                                                @if (strlen($str) >= 40)
+                                                    @php $str = substr($str, 0, 40) . "..." @endphp
+                                                @endif
+                                                <span class="arrow_left"></span> {{$str}}
+                                            </a>
+                                        </h5>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-lg-6">
+                                @if ($nextChap)
+                                    <div class="blog__details__btns__item next__btn">
+                                        <h5>
+                                            <a href="/novel/{{$novel->id}}/{{$nextChap->number}}">
+                                                @php $str = $nextChap->title @endphp
+                                                @if (strlen($str) >= 40)
+                                                    @php $str = substr($str, 0, 40) . "..." @endphp
+                                                @endif
+                                                {{$str}} <span class="arrow_right"></span>
+                                            </a>
+                                        </h5>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                     <div class="anime__details__review">
                         <div class="section-title">
                             <h5>Bình luận</h5>

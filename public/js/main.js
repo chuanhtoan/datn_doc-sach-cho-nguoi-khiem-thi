@@ -194,15 +194,15 @@ if ("webkitSpeechRecognition" in window) {
     };
 
     recognition.onerror = function(event) {
-        timKiem = false
-        theLoai = false
-        chon = false
-        message.textContent = 'Đã có lỗi: ' + event.error
-    }
+        timKiem = false;
+        theLoai = false;
+        chon = false;
+        message.textContent = "Đã có lỗi: " + event.error;
+    };
 
     recognition.onend = function() {
         endSound.play();
-    }
+    };
 
     const dfMessenger = document.querySelector("df-messenger");
     let test = false;
@@ -278,14 +278,16 @@ function checking(mess) {
         }, 500);
     } else if (command == "chon") {
         // Doc ket qua
-        responsiveVoice.speak("có " + document.querySelectorAll(".result-title").length + " sách");
+        responsiveVoice.speak(
+            "có " + document.querySelectorAll(".result-title").length + " sách"
+        );
 
         // Chon
         chon = true;
         setTimeout(function() {
             recognition.start();
         }, 500);
-    // Others
+        // Others
     } else if (command == "quay ve" || command == "quay lai") {
         window.history.back();
     } else if (command == "tro lai") {
@@ -300,15 +302,20 @@ function checking(mess) {
 
         // Doc ten sach
         let resultTitle = "";
-        resultTitle += ("có " + document.querySelectorAll(".result-title").length + " sách") + " , ";
+        resultTitle +=
+            "có " +
+            document.querySelectorAll(".result-title").length +
+            " sách" +
+            " , ";
         document.querySelectorAll(".result-title").forEach(title => {
             resultTitle += ++count + " , " + title.innerText + " , ";
         });
         responsiveVoice.speak(resultTitle);
-    // Group Detail Page
+        // Group Detail Page
     } else if (command == "thong tin") {
         let result = document.querySelector("#anime-title").innerText;
-        result += ', ' + document.querySelector(".anime__details__widget").innerText;
+        result +=
+            ", " + document.querySelector(".anime__details__widget").innerText;
         responsiveVoice.speak(result);
     } else if (command == "noi dung") {
         responsiveVoice.speak(
@@ -332,10 +339,13 @@ function checking(mess) {
     } else if (command.startsWith("chuong ") || command.startsWith("truong ")) {
         let chapter = command.split(" ").pop();
         if (chapter == "khong") chapter = 0;
-        if (chapter < document.querySelectorAll(".chapters__list--item").length && chapter >= 0)
+        if (
+            chapter <
+                document.querySelectorAll(".chapters__list--item").length &&
+            chapter >= 0
+        )
             window.location.href = window.location.pathname + "/" + chapter;
-        else
-            responsiveVoice.speak('Chương không tồn tại')
+        else responsiveVoice.speak("Chương không tồn tại");
     } else if (command == "doc") {
         if (pathName.startsWith("/novel")) {
             if (pathName.match(new RegExp("/", "g")).length > 2) {
@@ -348,7 +358,7 @@ function checking(mess) {
                 );
             }
         }
-    // Chat with Bot
+        // Chat with Bot
     } else {
         typing(mess);
     }
@@ -364,7 +374,7 @@ function checkCrPage() {
     if (pathName == "/follow") {
         responsiveVoice.speak("Theo dõi");
     }
-    if (pathName.startsWith('/novel')) {
+    if (pathName.startsWith("/novel")) {
         responsiveVoice.speak("Chi tiết");
     }
     if (pathName == "/search") {
@@ -406,62 +416,62 @@ function searching(name) {
 
 // Search by Category
 function cateSearch(cate) {
-    let cateResult = categories.find(category => removeAccents(category.name).toLowerCase() == cate);
+    let cateResult = categories.find(
+        category => removeAccents(category.name).toLowerCase() == cate
+    );
     if (cateResult) {
         window.location.href = "/category/" + cateResult.id;
     } else {
-        responsiveVoice.speak('Thể loại không tồn tại');
+        responsiveVoice.speak("Thể loại không tồn tại");
     }
 }
 
 // Choose in Search Results
 function choose(novel) {
     const resultArr = document.querySelectorAll(".result-title a");
-    if (novel <= resultArr.length && novel > 0)
-        resultArr[novel].click();
-    else
-        responsiveVoice.speak('Sách không tồn tại');
+    if (novel <= resultArr.length && novel > 0) resultArr[novel].click();
+    else responsiveVoice.speak("Sách không tồn tại");
 }
 
 // String to number
 function toNum(str) {
-    console.log(str)
+    console.log(str);
     switch (str) {
-        case 'khong':
-            return 0
-            break
-        case 'mot':
-            return 1
-            break
-        case 'hai':
-            return 2
-            break
-        case 'ba':
-            return 3
-            break
-        case 'bon':
-            return 4
-            break
-        case 'nam':
-            return 5
-            break
-        case 'sau':
-            return 6
-            break
-        case 'bay':
-            return 7
-            break
-        case 'tam':
-            return 8
-            break
-        case 'chin':
-            return 9
-            break
-        case 'muoi':
-            return 10
-            break
+        case "khong":
+            return 0;
+            break;
+        case "mot":
+            return 1;
+            break;
+        case "hai":
+            return 2;
+            break;
+        case "ba":
+            return 3;
+            break;
+        case "bon":
+            return 4;
+            break;
+        case "nam":
+            return 5;
+            break;
+        case "sau":
+            return 6;
+            break;
+        case "bay":
+            return 7;
+            break;
+        case "tam":
+            return 8;
+            break;
+        case "chin":
+            return 9;
+            break;
+        case "muoi":
+            return 10;
+            break;
         default:
-            return str
+            return str;
     }
 }
 

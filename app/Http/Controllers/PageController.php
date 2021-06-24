@@ -103,9 +103,19 @@ class PageController extends Controller
         $novel_categories = DB::table('novel_category')->where('novelID',$novelID)->get();
         $comments = DB::table('comment')->where('novelID',$novelID)->get();
         $accounts = User::all();
+
+        // Next - Prev Chapter
+        $nextChap = DB::table('chapter')
+            ->where('novelID',$novelID)
+            ->where('number',$chapterNum + 1)->first();
+        $prevChap = DB::table('chapter')
+            ->where('novelID',$novelID)
+            ->where('number',$chapterNum - 1)->first();
+
         return view('pages.reading',['chapter'=>$chapter,'novel'=>$novel,
         'novel_categories'=>$novel_categories,'comments'=>$comments,
-        'accounts'=>$accounts,'user'=>$user,'logged'=>$logged]);
+        'accounts'=>$accounts,'user'=>$user,'logged'=>$logged,
+        'nextChap'=>$nextChap,'prevChap'=>$prevChap]);
     }
 
     public function write($novelID, $chapterNum)
