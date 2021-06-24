@@ -29,11 +29,6 @@
         <div class="card">
             <div class="py-4">
 
-                {{-- Create Button --}}
-                {{-- <div class="btn_add">
-                    <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
-                </div> --}}
-
                 {{-- table --}}
                 <div class="table-responsive">
                     <table id="data-table" class="table table-striped table-bordered" style="width:100%">
@@ -54,7 +49,12 @@
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->name}}</td>
                                     <td><img style="max-width: 100px;" src="{{$item->avatar}}" alt="avatar"></td>
-                                    <td>@if ($item->type) Admin @else Người dùng @endif</td>
+                                    <td>
+                                        @if ($item->type == 2) Quản lý
+                                        @elseif ($item->type == 1) Nhân viên
+                                        @else Người dùng
+                                        @endif
+                                    </td>
                                     <td>
                                         <div style="display: inline-block">
                                             <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
@@ -87,15 +87,16 @@
                     <input type="hidden" name="class_id" class="class-id" id="class-id">
                     <div class="form-group">
                         <label for="name">Tên Hiển Thị:</label>
-                        <input type="text" name="name" id="name" class="form-control required" placeholder="Tên thể loại">
+                        <input type="text" name="name" id="name" class="form-control required" placeholder="Tên hiển thị">
                         <br>
                         <label for="avatar">Hình Đại Diện:</label>
-                        <input type="text" name="avatar" id="avatar" class="form-control required" placeholder="Tên thể loại">
+                        <input type="text" name="avatar" id="avatar" class="form-control required" placeholder="Hình đại diện">
                         <br>
                         <label for="type">Loại Tài Khoản:</label>
                         <select name="type" id="type" class="form-control">
                             <option value="0">Người dùng</option>
-                            <option value="1">Admin</option>
+                            <option value="1">Nhân viên</option>
+                            <option value="2">Quản lý</option>
                         </select>
                         <br>
                     </div>

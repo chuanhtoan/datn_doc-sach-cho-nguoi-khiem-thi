@@ -14,8 +14,6 @@ $(document).ready(function(){
     $('#btn_add').click(function(){
         $('#btn-save').val("add");
         $('#frmProducts').trigger("reset");
-        // $('#textUnique').html("");
-        // $('#name').removeClass('is-invalid');
         $('#createEditModal').modal('show');
     });
 
@@ -24,8 +22,6 @@ $(document).ready(function(){
     //display modal form for product EDIT ***************************
     $(document).on('click','.open_modal',function(){
         var product_id = $(this).val();
-        // $('#textUnique').html("");
-        // $('#name').removeClass('is-invalid');
 
         // Populate Data in Edit Modal Form
         $.ajax({
@@ -142,8 +138,6 @@ $(document).ready(function(){
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
-                // $('#name').addClass('is-invalid');
-                // $('#textUnique').html(JSON.parse(data.responseText).errors.name[0]);
                 console.log('Error:', data);
             }
         });

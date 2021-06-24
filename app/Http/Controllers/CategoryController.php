@@ -23,7 +23,7 @@ class CategoryController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $categories = Category::all();
             return view('admin.category.index',['items'=>$categories,'user'=>$user]);

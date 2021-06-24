@@ -233,7 +233,11 @@ class User extends Seeder{
     public function run()
     {
         DB::table('users')->insert([
-            ['email'=>'admin','password'=>'admin','name'=>'admin','type'=>1,
+            ['email'=>'admin','password'=>'admin','name'=>'quanly','type'=>2,
+            'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
+            ['email'=>'admin1','password'=>'admin','name'=>'nhanvien1','type'=>1,
+            'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
+            ['email'=>'admin2','password'=>'admin','name'=>'nhanvien2','type'=>1,
             'avatar'=>'https://i1.wp.com/gocsuckhoe.com/wp-content/uploads/2020/09/avatar-facebook.jpg?w=632&ssl=1'],
         ]);
         DB::table('users')->insert([
@@ -307,11 +311,11 @@ class AnotherTitle extends Seeder{
             ['novelID'=>20,'title'=>'Successful Habits of Self-Made Millionaires'],
             ['novelID'=>21,'title'=>'The Way Of Warren Buffett'],
             ['novelID'=>22,'title'=>'Born To Be Steve Jobs'],
-            ['novelID'=>23,'title'=>'나 혼자만 레벨업'],
-            ['novelID'=>24,'title'=>'나 혼자만 레벨업'],
-            ['novelID'=>25,'title'=>'나 혼자만 레벨업'],
-            ['novelID'=>26,'title'=>'나 혼자만 레벨업'],
-            ['novelID'=>27,'title'=>'나 혼자만 레벨업'],
+            ['novelID'=>23,'title'=>'Rehabilitation for the Disabled/Visual Impairment'],
+            ['novelID'=>24,'title'=>'Looking Beautiful Is An Advantage, Living Beautiful Is A Skill'],
+            ['novelID'=>25,'title'=>'Life is Short, Dont Cry, Be Happy'],
+            ['novelID'=>26,'title'=>'The Life Story of Louis Braille'],
+            ['novelID'=>27,'title'=>'Braille Teaching Method for Teens and Adults'],
         ]);
     }
 }

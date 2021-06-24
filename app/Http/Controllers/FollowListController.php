@@ -23,7 +23,7 @@ class FollowListController extends Controller
              $user = Auth::user();
          }
 
-         if($user && $user->type == 1)
+         if($user && $user->type >= 1)
          {
              $products = FollowList::all();
              return view('admin.follow.index',['items'=>$products,'user'=>$user]);

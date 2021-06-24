@@ -24,7 +24,7 @@ class AnotherTitleController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $items = AnotherTitle::all();
             $novels = Novel::all();
@@ -59,7 +59,7 @@ class AnotherTitleController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $novels = Novel::all();
             $novel = Novel::find($id);

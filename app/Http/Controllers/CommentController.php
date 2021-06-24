@@ -24,7 +24,7 @@ class CommentController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $products = Comment::all();
             return view('admin.comment.index',['items'=>$products,'user'=>$user]);
@@ -46,7 +46,7 @@ class CommentController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $novel = Novel::find($id);
             $products = DB::table('comment')->where('novelID',$id)->get();

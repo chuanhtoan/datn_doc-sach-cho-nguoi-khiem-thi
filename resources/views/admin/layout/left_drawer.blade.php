@@ -64,12 +64,14 @@
                             <span class="drawer-menu-text"> Bình Luận</span>
                         </a>
                     </li>
-                    <li class="drawer-menu-item ">
-                        <a href="/admin/user">
-                            <i class="material-icons">account_circle</i>
-                            <span class="drawer-menu-text"> Tài Khoản</span>
-                        </a>
-                    </li>
+                    @if ($user->type >= 2)
+                        <li class="drawer-menu-item ">
+                            <a href="/admin/user">
+                                <i class="material-icons">account_circle</i>
+                                <span class="drawer-menu-text"> Tài Khoản</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </nav>
         </div>

@@ -55,7 +55,7 @@ class NovelController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $items = Novel::all();
             $novel_categories = Novel_Category::all();

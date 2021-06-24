@@ -22,7 +22,7 @@ class UserController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 2)
         {
             $products = User::all();
             return view('admin.user.index',['items'=>$products,'user'=>$user]);

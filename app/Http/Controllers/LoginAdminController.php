@@ -23,7 +23,7 @@ class LoginAdminController extends Controller
             'password' => $request->password,
         ])->first();
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             Auth::login($user);
             return redirect('/admin');

@@ -24,7 +24,7 @@ class ChapterController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $items = Chapter::all();
             $novels = Novel::all();
@@ -59,7 +59,7 @@ class ChapterController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $novels = Novel::all();
             $novel = Novel::find($id);
@@ -169,7 +169,7 @@ class ChapterController extends Controller
             $user = Auth::user();
         }
 
-        if($user && $user->type == 1)
+        if($user && $user->type >= 1)
         {
             $chapter = Chapter::find($product_id);
             $novel = Novel::find($chapter->novelID);
