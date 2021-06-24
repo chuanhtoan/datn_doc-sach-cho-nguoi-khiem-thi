@@ -116,9 +116,8 @@ $(document).ready(function(){
             dataType: 'json',
             success: function (data) {
                 var dataType = 'Người dùng';
-                if (data.type == 1) {
-                    dataType = 'Admin';
-                }
+                if (data.type == 1) dataType = 'Nhân viên';
+                if (data.type > 1) dataType = 'Quản lý';
                 var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
                 + data.email + '</td><td>' + data.name
                 + '</td><td><img style="max-width: 100px;" src="' + data.avatar + '" alt="avatar">'

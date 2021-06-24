@@ -238,7 +238,10 @@ $(document).ready(function(){
                 + data.type + '</td><td>' + data.publishYear + '</td><td>'
                 + data.language + '</td><td>' + data.rating + '</td>';
                 product += '<td><button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
-                product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
+                product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button>';
+                product += ' <a href="anothertitle/novel/' + data.id + '" class="btn btn-info btn-anothertitle">Tiêu Đề Khác</a>';
+                product += ' <a href="chapter/novel/' + data.id + '" class="btn btn-dark btn-chapter" value="' + data.id + '">Chương</a>';
+                product += ' <a href="comment/novel/' + data.id + '" class="btn btn-success btn-comment" value="' + data.id + '">Bình Luận</a></td></tr>';
                 if (state == "add"){ //if user added a new record
                     $('#products-list').prepend(product);
                     // alertify
@@ -254,7 +257,6 @@ $(document).ready(function(){
             error: function (data) {
                 $('#title').addClass('is-invalid');
                 $('#textUnique').html(JSON.parse(data.responseText).errors.title[0]);
-                // JSON.parse(data.responseText).errors;
                 // console.log('Error:', data);
             }
         });
