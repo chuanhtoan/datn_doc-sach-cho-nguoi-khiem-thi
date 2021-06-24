@@ -134,8 +134,8 @@ $(document).ready(function(){
                 $('#createEditModal').modal('hide');
             },
             error: function (data) {
-                $('#name').addClass('is-invalid');
-                $('#textUnique').html(JSON.parse(data.responseText).errors.name[0]);
+                // $('#name').addClass('is-invalid');
+                // $('#textUnique').html(JSON.parse(data.responseText).errors.name[0]);
                 console.log('Error:', data);
             }
         });
