@@ -127,7 +127,7 @@ class NovelSeeder extends Seeder{
             'description'=>'Đời Ngắn, Đừng Khóc, Hãy Tô Son.'],
 
             ['title'=>'Câu Chuyện Về Cuộc Đời Của Louis Braille','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
-            'cover'=>'http://img.idesign.vn/919x-/2018/08/26/id_sixdots_01.jpg',
+            'cover'=>'https://images-na.ssl-images-amazon.com/images/I/91DmkF3MDEL.jpg',
             'description'=>'Quyển sách về cuộc đời vượt khó của nhà phát minh chữ nổi cho người khiếm thị.'],
 
             ['title'=>'Phương Pháp Dạy Chữ Nổi Cho Thanh Thiếu Niên Và Người Trưởng Thành','author'=>'Louis Braille','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
