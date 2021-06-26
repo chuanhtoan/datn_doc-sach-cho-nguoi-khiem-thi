@@ -321,7 +321,9 @@ function checking(mess) {
         responsiveVoice.speak(
             document.querySelector("#novel-description").innerText
         );
-    } else if (command == "chuong truoc") {
+    }
+    // <- Working
+    else if (command == "chuong truoc") {
         let preBtn = document.querySelector(".pre__btn a");
         if (preBtn == undefined) {
             responsiveVoice.speak("Không có chương trước");
@@ -335,7 +337,9 @@ function checking(mess) {
         } else {
             nextBtn.click();
         }
-    } else if (command == "chuong" || command == "truong") {
+    }
+    // Working ->
+    else if (command == "chuong" || command == "truong") {
         if (pathName.startsWith("/novel")) {
             if (pathName.match(new RegExp("/", "g")).length > 2) {
                 responsiveVoice.speak(
@@ -389,7 +393,12 @@ function checkCrPage() {
         responsiveVoice.speak("Theo dõi");
     }
     if (pathName.startsWith("/novel")) {
-        responsiveVoice.speak("Chi tiết");
+        let chapter = pathName.split("/").pop();
+        if (pathName.match(new RegExp("/", "g")).length > 2) {
+            responsiveVoice.speak("Chương " + chapter);
+        } else {
+            responsiveVoice.speak("Chi tiết");
+        }
     }
     if (pathName == "/search") {
         responsiveVoice.speak("Tìm kiếm");
