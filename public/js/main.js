@@ -321,6 +321,20 @@ function checking(mess) {
         responsiveVoice.speak(
             document.querySelector("#novel-description").innerText
         );
+    } else if (command == "chuong truoc") {
+        let preBtn = document.querySelector(".pre__btn a");
+        if (preBtn == undefined) {
+            responsiveVoice.speak("Không có chương trước");
+        } else {
+            preBtn.click();
+        }
+    } else if (command == "chuong sau") {
+        let nextBtn = document.querySelector(".next__btn a");
+        if (nextBtn == undefined) {
+            responsiveVoice.speak("Không có chương sau");
+        } else {
+            nextBtn.click();
+        }
     } else if (command == "chuong" || command == "truong") {
         if (pathName.startsWith("/novel")) {
             if (pathName.match(new RegExp("/", "g")).length > 2) {
