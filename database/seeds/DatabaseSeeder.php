@@ -271,12 +271,12 @@ class Comment extends Seeder{
     {
         for ($i=1; $i <= 30; $i++) {
             DB::table('comment')->insert([
-                ['novelID'=>$i,'accUsername'=>7,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
-                ['novelID'=>$i,'accUsername'=>2,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
-                ['novelID'=>$i,'accUsername'=>3,'content'=>'Lâu quá ad ơi, 252 – 259 vẫn chưa thấy đâu :(('],
-                ['novelID'=>$i,'accUsername'=>4,'content'=>'Tác phẩm thật sự đã mang đến cho mình một góc nhìn rất mới mẻ về thành công'],
+                ['novelID'=>$i,'accUsername'=>9,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
+                ['novelID'=>$i,'accUsername'=>6,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
+                ['novelID'=>$i,'accUsername'=>8,'content'=>'Lâu quá ad ơi, 252 – 259 vẫn chưa thấy đâu :(('],
+                ['novelID'=>$i,'accUsername'=>7,'content'=>'Tác phẩm thật sự đã mang đến cho mình một góc nhìn rất mới mẻ về thành công'],
                 ['novelID'=>$i,'accUsername'=>5,'content'=>'Phải nói là quyển sách này đã cho mình một cái nhìn đầy đánh giá'],
-                ['novelID'=>$i,'accUsername'=>6,'content'=>'Trời ơi cuốn này siêu hay luôn ý. Lâu lắm rồi tớ mới có cảm giác đọc sách mà gật đầu liên tục như đi quẩy vậy.'],
+                ['novelID'=>$i,'accUsername'=>4,'content'=>'Trời ơi cuốn này siêu hay luôn ý. Lâu lắm rồi tớ mới có cảm giác đọc sách mà gật đầu liên tục như đi quẩy vậy.'],
             ]);
         }
     }
