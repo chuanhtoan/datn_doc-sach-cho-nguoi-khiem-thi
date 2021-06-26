@@ -26,6 +26,18 @@ class NovelSeeder extends Seeder{
     public function run()
     {
         DB::table('novel')->insert([
+            ['title'=>'Cuộc Đời Là Do Bạn Quyết','author'=>'Nguyễn Minh Phương','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://newshop.vn/public/uploads/products/17577/cuoc-doi-la-do-ban-quyet-dinh.jpg',
+            'description'=>'Cuốn sách CUỘC ĐỜI LÀ DO BẠN QUYẾT dạy cách thiết lập tầm nhìn cho tương lai, loại bỏ những rào cản trong tiềm thức, tạo ra một cuộc sống tràn đầy sức khỏe, thành công, niềm vui và hạnh phúc - một cuộc sống mà bạn xứng đáng có được.'],
+
+            ['title'=>'Góc Nhìn Diệu Kỳ Của Cuộc Sống','author'=>'John Perkins','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://salt.tikicdn.com/cache/w444/media/catalog/product/h/_/h_t_gi_ng_t_m_h_n_14_1.jpg',
+            'description'=>'Mỗi câu chuyện, như một sắc màu, lại chuyển tải một thông điệp khác nhau, cho chúng ta cơ hội chiêm nghiệm những cung bậc và sắc màu đa dạng của cuộc sống. Dù là bài ca về tình đôi lứa, nghĩa vợ chồng hay khúc hát về tình mẫu tử, thì những câu chuyện nhỏ này cũng gửi gắm đến ta thông điệp về ý nghĩa và sức mạnh của tình yêu thương.'],
+
+            ['title'=>'Sống Hết Mình Cho Ngày Hôm Nay','author'=>'Taketoshi Ozawa','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://cdn0.fahasa.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/s/o/song_het_minh_cho_ngay_hom_nay___tang_kem_bookmark_1_2018_12_29_00_40_06.jpg',
+            'description'=>'Mỗi câu chuyện, như một sắc màu, lại chuyển tải một thông điệp khác nhau, cho chúng ta cơ hội chiêm nghiệm những cung bậc và sắc màu đa dạng của cuộc sống. Dù là bài ca về tình đôi lứa, nghĩa vợ chồng hay khúc hát về tình mẫu tử, thì những câu chuyện nhỏ này cũng gửi gắm đến ta thông điệp về ý nghĩa và sức mạnh của tình yêu thương.'],
+
             ['title'=>'Để Có Trí Nhớ Tốt','author'=>'Vương Trung Hiếu','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
             'cover'=>'https://4.bp.blogspot.com/-bygRnm2vy9Y/Wgq0-QP-NdI/AAAAAAAAIyg/jwQ40_igULItGZG2kW0YKuRdcbwl22iXQCLcBGAs/s400/de-co-tri-nho-tot.jpg',
             'description'=>'Trí nhớ là cái cốt lõi của sự thành công trong học tập cũng như công việc, người có trí nhớ tốt sẽ thuận tiện hơn rất nhiều trong cuộc sống. Tuy nhiên, không phải ai trong chúng ta cũng biết cách làm thế nào để có một trí nhớ tốt?'],
@@ -186,7 +198,7 @@ class CategorySeeder extends Seeder{
 class Novel_CategorySeeder extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 27; $i++) {
+        for ($i=1; $i <= 30; $i++) {
             DB::table('novel_category')->insert([
                 ['novelID'=>$i,'categoryID'=>rand(1,10)],
                 ['novelID'=>$i,'categoryID'=>rand(11,20)],
@@ -199,30 +211,27 @@ class Novel_CategorySeeder extends Seeder{
 class Chapter extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 22; $i++) {
+        for ($i=1; $i <= 30; $i++) {
+            $count = 0;
             DB::table('chapter')->insert([
-                ['novelID'=>$i, 'number'=>0, 'title'=>'Đôi Điều Về Trí Nhớ',
+                ['novelID'=>$i, 'number'=>$count++, 'title'=>'Giới Thiệu Chung',
                 'content'=>'
                 <p>Nếu không xác định được kế hoạch hay hệ thống hóa tốt một phương thức thủ tục, những điều sẽ được chấp nhận và thực thi, thì không có chính phủ, doanh nghiệp hay cơ quan nào có thể hoạt động và quản lý một cách thành công.</p><p>Để phát triển bộ nhớ bạn phải chấp nhận một hệ thống rồi theo đuổi nó, nghĩa là bạn cần thực hành một hệ thống ký ức hay một thuật gợi nhớ. Điều này tương tự như một người có thị lực kém sử dụng kính đeo mắt, anh ta sẽ nhìn rõ hơn, và bạn có thể dùng công cụ này để cải thiện khả năng nhớ của bạn.</p><p>Bạn sẽ tìm hiểu về một “bộ nguyên tắc", chẳng bao lâu sau khi hiểu và thông thạo bộ này bạn sẽ sai khiến chúng như những người hầu. Tuy nhiên, bạn sẽ không trở thành chủ của chúng nếu không áp dụng chúng bằng hành động cụ thể! Một khi bạn đã sử dụng chúng rồi thì nghệ thuật ghi nhớ sẽ trở thành người hầu biết vâng lời bạn.</p><p><strong>BA BÍ MẬT CỦA BỘ NHỚ MÁY TƯ DUY</strong></p><p>Đã bao nhiêu lần bạn nghe người khác nói “Điều đó nhắc nhở tôi”? Và bao nhiêu lần bạn đã thấy hoặc nghe điều gì đó gợi ý khiến bạn kêu ồ lên? Khi điều này xảy ra chính là lúc ta được nhắc bằng một quá trình gọi là sự liên tưởng không kiểm soát. Từ cái này ta liên tưởng rồi nhớ đến một cái khác, tuy nhiên trong lúc ấy khả năng nhớ của ta có thể không nhiều. Ta buộc phải chiến đấu, dò dẫm và tìm lại ý nghĩ “đã mất” đó.</p><p>Để phát triển khả năng nhớ lại thông tin trong tương lai, bạn cần sử dụng một hệ thống có thể giúp bạn định vị ký ức và kéo nó ra. Điều này được thực hiện bằng sự liên tưởng kiểm soát.</p><p>Bạn có thể tạo ra sự liên tưởng có kiểm soát bằng cách sắp đặt ngăn nắp kho chứa nằm trong não bạn, sắp dặt bằng những hình ảnh cố định đã được khắc sâu trong tâm trí.</p><p>Những ý nghĩ mà bạn nhớ lại đã được gởi hoặc ấn định ở một số nơi cụ thể bằng một cách nào đó và về sau bạn có thể nối kết lại được với chúng. Thực hiện được điều này, có nghĩa là bạn đã thật sự nhìn chăm chú vào ngân hàng ký ức của bạn, với lấy từ một ngăn nào đó trong kho chứa đã được chỉ định rồi nhớ lại dữ liệu trong tập tin.</p>
                 '],
 
-                ['novelID'=>$i, 'number'=>1, 'title'=>'Cách Phát Triển Bộ Nhớ',
-                'content'=>'
-                <p><strong>TRÍ NHỚ LÀ GÌ?</strong></p><p>Trí nhớ là khả năng ghi nhận, tồn trữ và hồi tưởng được các thông tin của não người. Nói cách khác, nó giữ lại được mọi kinh nghiệm thông qua quá trình hoạt động của trí não.Thông thường, hoạt động của trí nhớ gồm có ba giai đoạn:</p><p>Tiếp nhận và ghi lại những gì đã tri giác được từ tai, mắt, mũi.</p><p>Lưu trữ những thông tin đã tiếp nhận.</p><p>Nhớ lại những thông tin đã lưu trữ.Con người có nhiều dạng trí nhớ, trong đó có ba dạng phổ biến nhất: trí nhớ thị giác, trí nhớ thính giác và trí nhớ vận động.</p><p>Người nào có trí nhớ thị giác thì thường nhớ rất lâu những gì đã được nhìn thấy.</p><p>Người có trí nhớ thính giác lại nhớ rất tốt những gì đã nghe được.</p><p>Còn người có trí nhớ vận động thì cần phải viết hay đọc đi đọc lại nhiều lần điều gì đấy mới nhớ dai được.</p><p><strong>RỐI LOẠN TRÍ NHỚ.</strong></p><p>Theo Thạc sĩ y khoa Cao Phi Phong, rối loạn trí nhớ gồm có những dạng sau:</p><p>Sự giảm nhớ: dù những việc xảy ra đã lâu hay mới đây, người bị dạng này bị giảm khả năng nhớ lại một cách đáng kể.</p><p>Quên: bao gồm quên tốt cả các sự việc diễn ra trong quá khứ hay quên từng phần quá khứ, quên một số việc đã diễn ra dù mới hay cũ. Người bị rối loạn trí nhớ có thể bị quên thuận chiều, nghĩa là quên những việc vừa xảy ra trong quá khứ gần, vài giờ hoặc vài tuần sau khi bệnh hay bị quên ngược chiều, còn gọi là quên xa, quên những việc xảy ra vài tháng trước khi bệnh. Ngoài ra, rối loạn trí nhớ có thể dẫn tới việc:</p><p>Quên trong cơn: “quên sự việc xảy ra trong con như cơn vắng ý thức”.</p><p>Quên do ghi nhận kém và nhớ lại kém: việc ghi nhận kém dẫn tói cái gọi là quên gần, tức không nhớ những sự việc vừa xảy ra; còn việc nhở lại kém dưa tới sự quèn xa, tức là quên những việc đã xảy ra từ rất lâu.</p><p>Quên tiến triển: sự việc xảy ra gần dây thì quên trước, còn sự việc diễn ra từ lâu thì quên sau. Cối quên này tăng đần theo thời gian của người bệnh.</p><p>Loạn nhớ: nhớ nhầm thời gian diễn ra sự việc trong quá khứ hay nhớ nhầm những việc xảy ra của người khác là của mình.</p><p>Tăng nhớ: nhớ lại những sự việc diễn ra từ rất lâu, không có ý nghĩa gì trong hiện tại hay chỉ nhớ những chi tiết vụn vặn, không ăn khớp với nhau.</p>
-                '],
-            ]);
-        }
-
-        for ($i=23; $i <= 27; $i++) {
-            DB::table('chapter')->insert([
-                ['novelID'=>$i, 'number'=>0, 'title'=>'Giới Thiệu Chung',
-                'content'=>'
-                <p>Nếu không xác định được kế hoạch hay hệ thống hóa tốt một phương thức thủ tục, những điều sẽ được chấp nhận và thực thi, thì không có chính phủ, doanh nghiệp hay cơ quan nào có thể hoạt động và quản lý một cách thành công.</p><p>Để phát triển bộ nhớ bạn phải chấp nhận một hệ thống rồi theo đuổi nó, nghĩa là bạn cần thực hành một hệ thống ký ức hay một thuật gợi nhớ. Điều này tương tự như một người có thị lực kém sử dụng kính đeo mắt, anh ta sẽ nhìn rõ hơn, và bạn có thể dùng công cụ này để cải thiện khả năng nhớ của bạn.</p><p>Bạn sẽ tìm hiểu về một “bộ nguyên tắc", chẳng bao lâu sau khi hiểu và thông thạo bộ này bạn sẽ sai khiến chúng như những người hầu. Tuy nhiên, bạn sẽ không trở thành chủ của chúng nếu không áp dụng chúng bằng hành động cụ thể! Một khi bạn đã sử dụng chúng rồi thì nghệ thuật ghi nhớ sẽ trở thành người hầu biết vâng lời bạn.</p><p><strong>BA BÍ MẬT CỦA BỘ NHỚ MÁY TƯ DUY</strong></p><p>Đã bao nhiêu lần bạn nghe người khác nói “Điều đó nhắc nhở tôi”? Và bao nhiêu lần bạn đã thấy hoặc nghe điều gì đó gợi ý khiến bạn kêu ồ lên? Khi điều này xảy ra chính là lúc ta được nhắc bằng một quá trình gọi là sự liên tưởng không kiểm soát. Từ cái này ta liên tưởng rồi nhớ đến một cái khác, tuy nhiên trong lúc ấy khả năng nhớ của ta có thể không nhiều. Ta buộc phải chiến đấu, dò dẫm và tìm lại ý nghĩ “đã mất” đó.</p><p>Để phát triển khả năng nhớ lại thông tin trong tương lai, bạn cần sử dụng một hệ thống có thể giúp bạn định vị ký ức và kéo nó ra. Điều này được thực hiện bằng sự liên tưởng kiểm soát.</p><p>Bạn có thể tạo ra sự liên tưởng có kiểm soát bằng cách sắp đặt ngăn nắp kho chứa nằm trong não bạn, sắp dặt bằng những hình ảnh cố định đã được khắc sâu trong tâm trí.</p><p>Những ý nghĩ mà bạn nhớ lại đã được gởi hoặc ấn định ở một số nơi cụ thể bằng một cách nào đó và về sau bạn có thể nối kết lại được với chúng. Thực hiện được điều này, có nghĩa là bạn đã thật sự nhìn chăm chú vào ngân hàng ký ức của bạn, với lấy từ một ngăn nào đó trong kho chứa đã được chỉ định rồi nhớ lại dữ liệu trong tập tin.</p>
-                '],
-
-                ['novelID'=>$i, 'number'=>1, 'title'=>'Những Vấn Đề Mà Người Khuyết Tật Và Gia Đình Gặp Phải',
+                ['novelID'=>$i, 'number'=>$count++, 'title'=>'Những Vấn Đề Mà Người Khuyết Tật Và Gia Đình Gặp Phải',
                 'content'=>'
                 <p><strong>Đối với cả trẻ em và người lớn, các vấn đề thường gặp phải:&nbsp;</strong></p><p>Hạn chế di chuyển và định hướng được không gian, vị trí của mình đang ở đâu nếu đến nơi khác với nhà của mình.&nbsp;</p><p>Khó khăn trong việc thực hiện các chức năng sinh hoạt hàng ngày như tắm rửa, vệ sinh cá nhân, ăn uống và các công việc khác.&nbsp;</p><p>Khó khăn trong việc hoà nhập xã hội. 4 Phục hồi chức năng dựa vào cộng đồng / Tài liệu số 11&nbsp;</p><p>Khó khăn giao tiếp với mọi người xung quanh.&nbsp;</p><p>Thay đổi tâm lý, mặc cảm với mọi người xung quanh.&nbsp;</p><p>Đối với trẻ em có khuyết tật/giảm chức năng nhìn, có thể không học hành được hoặc không đi đến trường được. Trẻ có khó khăn khi chơi đùa với các bạn cùng tuổi. Đối với người lớn và trẻ lớn có khuyết tật/giảm chức năng nhìn không có việc làm hoặc không làm việc được và do vậy không có thu nhập cho cuộc sống của họ.</p><p>&nbsp;</p><p><strong>Phát hiện người có khuyết tật/giảm chức năng nhìn:&nbsp;</strong></p><p>Những dấu hiệu để phát hiện trẻ có khuyết tật/giảm chức năng nhìn:&nbsp;</p><p>Mắt, mi mắt đỏ, có mủ hoặc thường xuyên chảy nước mắt.&nbsp;</p><p>Mắt trông mờ, đục hoặc nhăn nheo hoặc có tổn thương đau.&nbsp;</p><p>Một hoặc cả hai bên đồng tử có màu xám hoặc trắng.&nbsp;</p><p>Trẻ 3 tháng tuổi vẫn không nhìn theo đồ chơi hoặc sự vật khi đưa qua mặt trẻ.&nbsp;</p><p>Trẻ 3 tháng tuổi vẫn không đưa tay với đồ chơi ở trước mặt trẻ, trừ khi đồ chơi này phát ra tiếng động hoặc chạm vào trẻ.&nbsp;</p><p>Mắt “lệch”, 2 mắt không di động cùng hướng với nhau.&nbsp;</p><p>Mắt lác.&nbsp;</p><p>Trẻ chậm sử dụng tay, vận động và đi lại so với trẻ khác. Trẻ thường va đụng vào đồ vật hoặc rất vụng về.&nbsp;</p><p>Trẻ không thích thú với tranh ảnh, sách, đồ chơi có màu sắc khi để những thứ này sát mặt.&nbsp;</p><p>Nhìn khó khăn khi trời tối (quáng gà).&nbsp;</p><p>Ở trường trẻ không đọc được chữ ở trên bảng hoặc những chữ nhỏ trong sách. Trẻ bị mệt mỏi, đau đầu khi đọc sách.&nbsp;</p><p>Trẻ có thể bị mù hoặc khuyết tật/giảm chức năng nhìn phối hợp với các dạng khuyết tật khác như bại não, chậm phát triển trí tuệ...&nbsp;</p><p>Đối với người lớn có khuyết tật/giảm chức năng nhìn có thể phát hiện nếu người đó không nhìn thấy một vật từ xa hoặc gần, không nhìn thấy những người xung quanh, không thể làm việc hoặc tham gia các công việc của gia đình và xã hội.</p>
+                '],
+
+                ['novelID'=>$i, 'number'=>$count++, 'title'=>'Đôi Điều Về Trí Nhớ',
+                'content'=>'
+                <p>Nếu không xác định được kế hoạch hay hệ thống hóa tốt một phương thức thủ tục, những điều sẽ được chấp nhận và thực thi, thì không có chính phủ, doanh nghiệp hay cơ quan nào có thể hoạt động và quản lý một cách thành công.</p><p>Để phát triển bộ nhớ bạn phải chấp nhận một hệ thống rồi theo đuổi nó, nghĩa là bạn cần thực hành một hệ thống ký ức hay một thuật gợi nhớ. Điều này tương tự như một người có thị lực kém sử dụng kính đeo mắt, anh ta sẽ nhìn rõ hơn, và bạn có thể dùng công cụ này để cải thiện khả năng nhớ của bạn.</p><p>Bạn sẽ tìm hiểu về một “bộ nguyên tắc", chẳng bao lâu sau khi hiểu và thông thạo bộ này bạn sẽ sai khiến chúng như những người hầu. Tuy nhiên, bạn sẽ không trở thành chủ của chúng nếu không áp dụng chúng bằng hành động cụ thể! Một khi bạn đã sử dụng chúng rồi thì nghệ thuật ghi nhớ sẽ trở thành người hầu biết vâng lời bạn.</p><p><strong>BA BÍ MẬT CỦA BỘ NHỚ MÁY TƯ DUY</strong></p><p>Đã bao nhiêu lần bạn nghe người khác nói “Điều đó nhắc nhở tôi”? Và bao nhiêu lần bạn đã thấy hoặc nghe điều gì đó gợi ý khiến bạn kêu ồ lên? Khi điều này xảy ra chính là lúc ta được nhắc bằng một quá trình gọi là sự liên tưởng không kiểm soát. Từ cái này ta liên tưởng rồi nhớ đến một cái khác, tuy nhiên trong lúc ấy khả năng nhớ của ta có thể không nhiều. Ta buộc phải chiến đấu, dò dẫm và tìm lại ý nghĩ “đã mất” đó.</p><p>Để phát triển khả năng nhớ lại thông tin trong tương lai, bạn cần sử dụng một hệ thống có thể giúp bạn định vị ký ức và kéo nó ra. Điều này được thực hiện bằng sự liên tưởng kiểm soát.</p><p>Bạn có thể tạo ra sự liên tưởng có kiểm soát bằng cách sắp đặt ngăn nắp kho chứa nằm trong não bạn, sắp dặt bằng những hình ảnh cố định đã được khắc sâu trong tâm trí.</p><p>Những ý nghĩ mà bạn nhớ lại đã được gởi hoặc ấn định ở một số nơi cụ thể bằng một cách nào đó và về sau bạn có thể nối kết lại được với chúng. Thực hiện được điều này, có nghĩa là bạn đã thật sự nhìn chăm chú vào ngân hàng ký ức của bạn, với lấy từ một ngăn nào đó trong kho chứa đã được chỉ định rồi nhớ lại dữ liệu trong tập tin.</p>
+                '],
+
+                ['novelID'=>$i, 'number'=>$count++, 'title'=>'Cách Phát Triển Bộ Nhớ',
+                'content'=>'
+                <p><strong>TRÍ NHỚ LÀ GÌ?</strong></p><p>Trí nhớ là khả năng ghi nhận, tồn trữ và hồi tưởng được các thông tin của não người. Nói cách khác, nó giữ lại được mọi kinh nghiệm thông qua quá trình hoạt động của trí não.Thông thường, hoạt động của trí nhớ gồm có ba giai đoạn:</p><p>Tiếp nhận và ghi lại những gì đã tri giác được từ tai, mắt, mũi.</p><p>Lưu trữ những thông tin đã tiếp nhận.</p><p>Nhớ lại những thông tin đã lưu trữ.Con người có nhiều dạng trí nhớ, trong đó có ba dạng phổ biến nhất: trí nhớ thị giác, trí nhớ thính giác và trí nhớ vận động.</p><p>Người nào có trí nhớ thị giác thì thường nhớ rất lâu những gì đã được nhìn thấy.</p><p>Người có trí nhớ thính giác lại nhớ rất tốt những gì đã nghe được.</p><p>Còn người có trí nhớ vận động thì cần phải viết hay đọc đi đọc lại nhiều lần điều gì đấy mới nhớ dai được.</p><p><strong>RỐI LOẠN TRÍ NHỚ.</strong></p><p>Theo Thạc sĩ y khoa Cao Phi Phong, rối loạn trí nhớ gồm có những dạng sau:</p><p>Sự giảm nhớ: dù những việc xảy ra đã lâu hay mới đây, người bị dạng này bị giảm khả năng nhớ lại một cách đáng kể.</p><p>Quên: bao gồm quên tốt cả các sự việc diễn ra trong quá khứ hay quên từng phần quá khứ, quên một số việc đã diễn ra dù mới hay cũ. Người bị rối loạn trí nhớ có thể bị quên thuận chiều, nghĩa là quên những việc vừa xảy ra trong quá khứ gần, vài giờ hoặc vài tuần sau khi bệnh hay bị quên ngược chiều, còn gọi là quên xa, quên những việc xảy ra vài tháng trước khi bệnh. Ngoài ra, rối loạn trí nhớ có thể dẫn tới việc:</p><p>Quên trong cơn: “quên sự việc xảy ra trong con như cơn vắng ý thức”.</p><p>Quên do ghi nhận kém và nhớ lại kém: việc ghi nhận kém dẫn tói cái gọi là quên gần, tức không nhớ những sự việc vừa xảy ra; còn việc nhở lại kém dưa tới sự quèn xa, tức là quên những việc đã xảy ra từ rất lâu.</p><p>Quên tiến triển: sự việc xảy ra gần dây thì quên trước, còn sự việc diễn ra từ lâu thì quên sau. Cối quên này tăng đần theo thời gian của người bệnh.</p><p>Loạn nhớ: nhớ nhầm thời gian diễn ra sự việc trong quá khứ hay nhớ nhầm những việc xảy ra của người khác là của mình.</p><p>Tăng nhớ: nhớ lại những sự việc diễn ra từ rất lâu, không có ý nghĩa gì trong hiện tại hay chỉ nhớ những chi tiết vụn vặn, không ăn khớp với nhau.</p>
                 '],
             ]);
         }
@@ -260,7 +269,7 @@ class User extends Seeder{
 class Comment extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 27; $i++) {
+        for ($i=1; $i <= 30; $i++) {
             DB::table('comment')->insert([
                 ['novelID'=>$i,'accUsername'=>7,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
                 ['novelID'=>$i,'accUsername'=>2,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
@@ -276,11 +285,11 @@ class Comment extends Seeder{
 class FollowList extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 7; $i++) {
+        for ($i=1; $i <= 9; $i++) {
             DB::table('follow_list')->insert([
-                ['accUsername'=>$i,'novelID'=>rand(1,7)],
-                ['accUsername'=>$i,'novelID'=>rand(8,16)],
-                ['accUsername'=>$i,'novelID'=>rand(17,27)],
+                ['accUsername'=>$i,'novelID'=>rand(1,10)],
+                ['accUsername'=>$i,'novelID'=>rand(11,20)],
+                ['accUsername'=>$i,'novelID'=>rand(21,30)],
             ]);
         }
     }
@@ -290,32 +299,35 @@ class AnotherTitle extends Seeder{
     public function run()
     {
         DB::table('another_title')->insert([
-            ['novelID'=>1,'title'=>'To Have Good Memory'],
-            ['novelID'=>2,'title'=>'Business Model Creation'],
-            ['novelID'=>3,'title'=>'New Confession Of An Economic Assassin'],
-            ['novelID'=>4,'title'=>'The Giants In The Business World'],
-            ['novelID'=>5,'title'=>'If I Know When I Have 20'],
-            ['novelID'=>6,'title'=>'Outliers'],
-            ['novelID'=>7,'title'=>'36 Design In Modern Business'],
-            ['novelID'=>8,'title'=>'Think & Grow Rich'],
-            ['novelID'=>9,'title'=>'Golden Rule Of Napoleon Hill'],
-            ['novelID'=>10,'title'=>'Steeped Heart'],
-            ['novelID'=>11,'title'=>'Disney Wars'],
-            ['novelID'=>12,'title'=>'From Good To Great'],
-            ['novelID'=>14,'title'=>'A to Z Marketing Insights'],
-            ['novelID'=>15,'title'=>'Securities Investment And Trading Secrets'],
-            ['novelID'=>16,'title'=>"It's never failed! All Challenges"],
-            ['novelID'=>17,'title'=>'W. Buffett Investment Strategy'],
-            ['novelID'=>18,'title'=>"Phan Thien An's Secret"],
-            ['novelID'=>19,'title'=>'Great Lessons From Warren Buffett'],
-            ['novelID'=>20,'title'=>'Successful Habits of Self-Made Millionaires'],
-            ['novelID'=>21,'title'=>'The Way Of Warren Buffett'],
-            ['novelID'=>22,'title'=>'Born To Be Steve Jobs'],
-            ['novelID'=>23,'title'=>'Rehabilitation for the Disabled/Visual Impairment'],
-            ['novelID'=>24,'title'=>'Looking Beautiful Is An Advantage, Living Beautiful Is A Skill'],
-            ['novelID'=>25,'title'=>'Life is Short, Dont Cry, Be Happy'],
-            ['novelID'=>26,'title'=>'The Life Story of Louis Braille'],
-            ['novelID'=>27,'title'=>'Braille Teaching Method for Teens and Adults'],
+            ['novelID'=>1,'title'=>'Life Is Your Choice'],
+            ['novelID'=>2,'title'=>'Magical Perspective of Life'],
+            ['novelID'=>3,'title'=>'Live To The Full For Today'],
+            ['novelID'=>4,'title'=>'To Have Good Memory'],
+            ['novelID'=>5,'title'=>'Business Model Creation'],
+            ['novelID'=>6,'title'=>'New Confession Of An Economic Assassin'],
+            ['novelID'=>7,'title'=>'The Giants In The Business World'],
+            ['novelID'=>8,'title'=>'If I Know When I Have 20'],
+            ['novelID'=>9,'title'=>'Outliers'],
+            ['novelID'=>10,'title'=>'36 Design In Modern Business'],
+            ['novelID'=>11,'title'=>'Think & Grow Rich'],
+            ['novelID'=>12,'title'=>'Golden Rule Of Napoleon Hill'],
+            ['novelID'=>14,'title'=>'Steeped Heart'],
+            ['novelID'=>15,'title'=>'Disney Wars'],
+            ['novelID'=>16,'title'=>'From Good To Great'],
+            ['novelID'=>17,'title'=>'A to Z Marketing Insights'],
+            ['novelID'=>18,'title'=>'Securities Investment And Trading Secrets'],
+            ['novelID'=>19,'title'=>"It's never failed! All Challenges"],
+            ['novelID'=>20,'title'=>'W. Buffett Investment Strategy'],
+            ['novelID'=>21,'title'=>"Phan Thien An's Secret"],
+            ['novelID'=>22,'title'=>'Great Lessons From Warren Buffett'],
+            ['novelID'=>23,'title'=>'Successful Habits of Self-Made Millionaires'],
+            ['novelID'=>24,'title'=>'The Way Of Warren Buffett'],
+            ['novelID'=>25,'title'=>'Born To Be Steve Jobs'],
+            ['novelID'=>26,'title'=>'Rehabilitation for the Disabled/Visual Impairment'],
+            ['novelID'=>27,'title'=>'Looking Beautiful Is An Advantage, Living Beautiful Is A Skill'],
+            ['novelID'=>28,'title'=>'Life is Short, Dont Cry, Be Happy'],
+            ['novelID'=>29,'title'=>'The Life Story of Louis Braille'],
+            ['novelID'=>30,'title'=>'Braille Teaching Method for Teens and Adults'],
         ]);
     }
 }

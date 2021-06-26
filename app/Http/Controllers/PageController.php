@@ -22,9 +22,9 @@ class PageController extends Controller
     public function __construct()
     {
         $categories = Category::all();
-        $topViewsNvs = Novel::all()->random(6);
+        $latestNvs = Novel::orderBy('id', 'DESC')->paginate(6);
         View::share('categories', $categories);
-        View::share('topViewsNvs',$topViewsNvs);
+        View::share('latestNvs',$latestNvs);
     }
 
     /**
@@ -40,7 +40,7 @@ class PageController extends Controller
         }
 
         $novels = Novel::all();
-        $trendingNovels = Novel::orderBy('id', 'DESC')->paginate(9);
+        $trendingNovels = Novel::all()->random(9);
         $novel_categories = Novel_Category::all();
         return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
         'novel_categories'=>$novel_categories,'user'=>$user]);

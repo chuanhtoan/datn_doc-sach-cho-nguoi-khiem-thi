@@ -346,12 +346,17 @@ function checking(mess) {
                     document.querySelector("#blog-title").innerText
                 );
             } else {
-                responsiveVoice.speak(
-                    "có " +
-                        document.querySelectorAll(".chapters__list--item")
-                            .length +
-                        " chương"
+                let chapsEle = document.querySelectorAll(
+                    ".chapters__list--item"
                 );
+                let ctResult = "có " + chapsEle.length + " chương";
+                chapsEle.forEach(ele => {
+                    ctResult += " , " + ele.innerText;
+                });
+                responsiveVoice.speak(ctResult);
+                document.querySelectorAll(".chapters__list--item");
+                ctResult += document.querySelector;
+                responsiveVoice.speak();
             }
         }
     } else if (command.startsWith("chuong ") || command.startsWith("truong ")) {
@@ -458,7 +463,6 @@ function choose(novel) {
 
 // String to number
 function toNum(str) {
-    console.log(str);
     switch (str) {
         case "khong":
             return 0;
