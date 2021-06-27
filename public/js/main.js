@@ -383,15 +383,7 @@ function checking(mess) {
         command.startsWith("phim ") ||
         command.startsWith("xem ")
     ) {
-        let chapter = toNum(command.split(" ").pop());
-        if (
-            chapter > 0 &&
-            chapter <= document.querySelectorAll(".chapters__list--item").length
-        ) {
-            window.location.href = window.location.pathname + "/" + chapter;
-        } else {
-            responsiveVoice.speak("Chương không tồn tại");
-        }
+        // test
     } else if (command == "doc") {
         responsiveVoice.speak(
             document.querySelector("#novel-content").innerText
