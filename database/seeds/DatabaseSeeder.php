@@ -212,7 +212,7 @@ class Chapter extends Seeder{
     public function run()
     {
         for ($i=1; $i <= 30; $i++) {
-            $count = 0;
+            $count = 1;
             DB::table('chapter')->insert([
                 ['novelID'=>$i, 'number'=>$count++, 'title'=>'Giới Thiệu Chung',
                 'content'=>'
