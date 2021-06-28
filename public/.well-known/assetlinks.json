@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "io.gonative.android.story",
+            "sha256_cert_fingerprints": [
+                "D5:1F:C5:43:5F:4D:20:02:FB:DF:1A:88:95:85:C2:3E:04:33:82:C5:0B:72:3D:D4:0C:01:16:65:80:9E:A3:65"
+            ]
+        }
+    }
+]
