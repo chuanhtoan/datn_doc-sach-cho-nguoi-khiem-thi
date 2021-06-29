@@ -34,7 +34,7 @@
                     <table id="data-table" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>STT</th>
                                 <th>Tên Đăng Nhập</th>
                                 <th>Tên Hiển Thị</th>
                                 <th>Hình Đại Diện</th>
@@ -43,9 +43,10 @@
                             </tr>
                         </thead>
                         <tbody id="products-list" name="products-list">
+                            @php $count = 1 @endphp
                             @foreach($items as $item)
                                 <tr id="product{{$item->id}}" class="active">
-                                    <td>{{$item->id}}</td>
+                                    <td>{{$count++}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->name}}</td>
                                     <td><img style="max-width: 100px;" src="{{$item->avatar}}" alt="avatar"></td>
