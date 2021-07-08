@@ -115,19 +115,23 @@ function changeBG(x) {
     document.querySelector(".blog-details").style.background = x.value;
     document.querySelector(".blog__details__title h2").style.color = textColor;
     document.querySelector(".blog__details__title h6").style.color = textColor;
-    document.querySelector("#novel-content").style.color = textColor;
+    document.querySelectorAll("#novel-content p").forEach(item => {
+        item.style.color = textColor;
+    });
     document.querySelector(
         ".anime__details__review h5"
     ).style.color = textColor;
-    document.querySelector(".anime__details__form h5").style.color = textColor;
+    // document.querySelector(".anime__details__form h5").style.color = textColor;
     document.querySelectorAll(".blog__details__tags a").forEach(item => {
-        item.style.background = textColor;
+        item.style.color = textColor;
     });
 
-    document.querySelectorAll(".blog__details__btns__item a").forEach(item => {
-        item.style.color = "#b7b7b7";
-        item.style.background = "rgba(255, 255, 255, 0.1)";
-    });
+    document
+        .querySelectorAll(".blog__details__btns__item h5 a")
+        .forEach(item => {
+            item.style.color = textColor;
+            // item.style.background = "rgba(255, 255, 255, 0.1)";
+        });
 }
 
 function changeFZ(x) {

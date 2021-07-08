@@ -39,7 +39,7 @@ class PageController extends Controller
             $user = Auth::user();
         }
 
-        $novels = Novel::all();
+        $novels = Novel::orderBy('id', 'ASC')->paginate(9);
         $trendingNovels = Novel::all()->random(9);
         $novel_categories = Novel_Category::all();
         return view('pages.homepage',['novels'=>$novels,'trendingNovels'=>$trendingNovels,
