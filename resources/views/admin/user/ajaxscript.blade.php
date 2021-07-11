@@ -15,6 +15,9 @@ $(document).ready(function(){
         $('#btn-save').val("add");
         $('#frmProducts').trigger("reset");
         $('#createEditModal').modal('show');
+
+        // Enable username
+        $("#username").prop('disabled', false);
     });
 
 
@@ -29,11 +32,15 @@ $(document).ready(function(){
             url: url + '/' + product_id,
             success: function (data) {
                 $('#product_id').val(data.id);
+                $('#username').val(data.email);
                 $('#name').val(data.name);
                 $('#avatar').val(data.avatar);
                 $('#type').val(data.type);
                 $('#btn-save').val("update");
                 $('#createEditModal').modal('show');
+
+                // Disable username
+                $("#username").prop('disabled', true);
             },
             error: function (data) {
                 console.log('Error:', data);

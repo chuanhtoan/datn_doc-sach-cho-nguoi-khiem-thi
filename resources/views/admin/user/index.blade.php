@@ -29,6 +29,11 @@
         <div class="card">
             <div class="py-4">
 
+                {{-- Create Button --}}
+                <div class="btn_add">
+                    <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
+                </div>
+
                 {{-- table --}}
                 <div class="table-responsive">
                     <table id="data-table" class="table table-striped table-bordered" style="width:100%">
@@ -87,6 +92,9 @@
                 <form id="frmProducts" name="frmProducts" class="form-horizontal classFormUpdate validate-form" novalidate="">
                     <input type="hidden" name="class_id" class="class-id" id="class-id">
                     <div class="form-group">
+                        <label for="name">Tên Tài Khoản:</label>
+                        <input type="text" name="username" id="username" class="form-control required" placeholder="Tên tài khoản">
+                        <br>
                         <label for="name">Tên Hiển Thị:</label>
                         <input type="text" name="name" id="name" class="form-control required" placeholder="Tên hiển thị">
                         <br>
