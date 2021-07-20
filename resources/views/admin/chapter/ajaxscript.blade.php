@@ -127,7 +127,7 @@ $(document).ready(function(){
                     var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
                     + data.number + '</td><td>' + data.title + '</td><td>'
                     + $('#novelID option:selected').html() + '</td>';
-                    product += '<td><a href="chapter/chapter-details/' + data.id + '" class="btn btn-info mr-1">Xem</a>';
+                    product += '<td><a href="/admin/chapter/chapter-details/' + data.id + '" class="btn btn-info mr-1">Xem</a>';
                     product += '<button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
                     product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
                     if (state == "add"){ //if user added a new record

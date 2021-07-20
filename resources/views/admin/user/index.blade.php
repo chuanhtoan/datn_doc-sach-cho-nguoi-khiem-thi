@@ -29,11 +29,6 @@
         <div class="card">
             <div class="py-4">
 
-                {{-- Create Button --}}
-                <div class="btn_add">
-                    <button id="btn_add" name="btn_add" class="btn btn-success btn-detail">Thêm</button>
-                </div>
-
                 {{-- table --}}
                 <div class="table-responsive">
                     <table id="data-table" class="table table-striped table-bordered" style="width:100%">

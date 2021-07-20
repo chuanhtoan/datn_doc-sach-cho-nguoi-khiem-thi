@@ -55,7 +55,7 @@
                                     <td>{{App\Model\Novel::find($item->novelID)->title}}</td>
                                     <td>
                                         <div style="display: inline-block">
-                                            <a href="chapter/chapter-details/{{$item->id}}" class="btn btn-info">Xem</a>
+                                            <a href="/admin/chapter/chapter-details/{{$item->id}}" class="btn btn-info">Xem</a>
                                             <button class="btn btn-warning btn-detail open_modal" value="{{$item->id}}">Sửa</button>
                                             <button class="btn btn-danger delete-product" value="{{$item->id}}">Xóa</button>
                                         </div>
