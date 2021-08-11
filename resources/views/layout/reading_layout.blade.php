@@ -52,6 +52,14 @@
                 background: #e53637;
                 border: 2px solid white;
 			}
+            #listenBtn {
+                width: auto;
+                background-color: #e53637;
+                color: white;
+            }
+            #listenBtn::after {
+                display: none;
+            }
             @media all and (max-width: 600px) {
                 df-messenger {
                     display: none;
@@ -162,6 +170,12 @@
                                                             <option value="Oswald">Oswald</option>
                                                             <option value="sans-serif">Sans Serif</option>
                                                         </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group form-group-sm d-flex align-items-center justify-content-between mt-2">
+                                                    <label class="col-sm-2 col-md-5 control-label mt-3" for="changeFFid">Nghe sách: </label>
+                                                    <div class="col-sm-5 col-md-7">
+                                                        <button id="listenBtn" class="nice-select form-control">Nghe</button>
                                                     </div>
                                                 </div>
                                             </form>
