@@ -42,15 +42,16 @@
             #voiceBtn {
 				position: fixed;
 				bottom: 20px;
-				right: 20px;
-				width: 100px;
-				height: 100px;
+				left: 20px;
+                right: auto;
+				width: 50px;
+				height: 50px;
 				border-radius: 50%;
 				background-color: red;
 				z-index: 9999;
-				display: none;
                 background: #e53637;
                 border: 2px solid white;
+				/* display: none; */
 			}
             #listenBtn {
                 width: auto;
@@ -65,7 +66,11 @@
                     display: none;
                 }
 				#voiceBtn {
-					display: block;
+                    width: 100px;
+					height: 100px;
+                    left: auto;
+                    right: 20px;
+					/* display: block; */
 				}
             }
         </style>
