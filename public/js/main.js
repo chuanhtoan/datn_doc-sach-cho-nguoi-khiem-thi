@@ -571,9 +571,3 @@ $("#voiceBtn").on("click", function() {
     startSound.play();
     recognition.start();
 });
-
-// Listen Button
-$("#listenBtn").on("click", function(e) {
-    e.preventDefault();
-    responsiveVoice.speak(document.querySelector("#novel-content").innerText);
-});

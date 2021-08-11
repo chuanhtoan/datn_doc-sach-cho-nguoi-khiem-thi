@@ -290,6 +290,12 @@
         <script src="https://code.responsivevoice.org/responsivevoice.js?key=CCtXSEMa"></script>
         <script>
             responsiveVoice.setDefaultVoice("Vietnamese Female");
+
+            // Listen Button
+            $("#listenBtn").on("click", function(e) {
+                e.preventDefault();
+                responsiveVoice.speak(document.querySelector("#novel-content").innerText);
+            });
         </script>
 
         <script src="{{asset('js/main.js')}}"></script>
