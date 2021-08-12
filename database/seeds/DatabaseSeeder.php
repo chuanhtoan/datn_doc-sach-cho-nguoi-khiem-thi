@@ -26,6 +26,14 @@ class NovelSeeder extends Seeder{
     public function run()
     {
         DB::table('novel')->insert([
+            ['title'=>'Bác Sĩ Tốt Nhất Là Chính Mình','author'=>'Hồng Chiêu Quang','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://www.nxbtre.com.vn/Images/Book/nxbtre_full_25442019_034453.jpg',
+            'description'=>'Nếu bạn nghèo khó, không đủ sức mua thuốc men giá đất, hãy đọc quyển sách này! Nếu bạn giàu có nhưng lại kém sức khỏe và kém vui, hãy đọc quyển sách này! Chỉ cần trích 4 giở ít ỏi đọc kỷ quyển sách này, nó sẽ mang lại 36.000 ngày thu hoạch quí giá cho cả cuộc đời bạn!'],
+
+            ['title'=>'Bạn Đắt Giá Bao Nhiêu','author'=>'Vãn Tình','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
+            'cover'=>'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535385655l/40017002._SX318_.jpg',
+            'description'=>'Chúng ta cứ nghĩ thỏa hiệp đôi chút, nhượng bộ đôi chút thì thế giới này sẽ cho ta một góc nhỏ nhoi, nhưng cuối cùng ngoài việc đánh mất ngày càng nhiều thứ thì chúng ta chẳng nhận lại được gì, chỉ có những oán hận là tích tụ theo những tháng năm.'],
+
             ['title'=>'Cuộc Đời Là Do Bạn Quyết','author'=>'Nguyễn Minh Phương','status'=>'Đã hoàn thành','type'=>'Sách self-help','publishYear'=>'2018','language'=>'Tiếng Việt','rating'=>'G',
             'cover'=>'https://newshop.vn/public/uploads/products/17577/cuoc-doi-la-do-ban-quyet-dinh.jpg',
             'description'=>'Cuốn sách CUỘC ĐỜI LÀ DO BẠN QUYẾT dạy cách thiết lập tầm nhìn cho tương lai, loại bỏ những rào cản trong tiềm thức, tạo ra một cuộc sống tràn đầy sức khỏe, thành công, niềm vui và hạnh phúc - một cuộc sống mà bạn xứng đáng có được.'],
@@ -198,7 +206,7 @@ class CategorySeeder extends Seeder{
 class Novel_CategorySeeder extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 30; $i++) {
+        for ($i=1; $i <= 32; $i++) {
             DB::table('novel_category')->insert([
                 ['novelID'=>$i,'categoryID'=>rand(1,10)],
                 ['novelID'=>$i,'categoryID'=>rand(11,20)],
@@ -211,7 +219,7 @@ class Novel_CategorySeeder extends Seeder{
 class Chapter extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 30; $i++) {
+        for ($i=3; $i <= 32; $i++) {
             $count = 1;
             DB::table('chapter')->insert([
                 ['novelID'=>$i, 'number'=>$count++, 'title'=>'Giới Thiệu Chung',
@@ -235,6 +243,40 @@ class Chapter extends Seeder{
                 '],
             ]);
         }
+
+        DB::table('chapter')->insert([
+            ['novelID'=>1, 'number'=>1, 'title'=>'Quan niệm',
+            'content'=>'
+            <p>Theo nguyên lý sinh học, con người có thể sông tới 120 tuổi. Nhưng trên thực tế, con người đâ mắc bệnh, tàn tật rồi tử vong trước thời gian đó. Vậy thì thật ra người ta có thể thọ đến bao nhiêu tuổi? Theo định nghĩa của Tổ chức Y tế thế giới, giai đoạn trung niên phải là trước tuổi 65, từ 65-74 là người cao tuổi trẻ, còn 75-90 tuổi mới chính thức là người già, 90 tuổi đến 120 tuổi mới là người cao tuổi già.&nbsp;</p><p>Theo nguyên lý của sinh học, tuổi thọ của động vật có vú gấp 5-6 lần so với giai đoạn sinh trưởng của chúng. Nếu giai đoạn sinh trưởng của con người đưỢc tính từ thời điểm mọc chiếc răng sau cùng (từ 20-25 tuổi), thì tuổi thọ ngắn nhất phải là 100 tuổi, dài nhất là 150 tuổi, nên tuổi thọ bình quân được công nhận phải là 120 tuổi. Trong suốt quá trình 120 năm đó, nếu chúng ta có thể giữ gìn sức khỏe, đạt tới tiêu chuẩn trước 70 tuổi không có bệnh tật, 80, 90 tuổi vẫn khỏe mạnh, thì sống tới 100 tuổi sẽ chẳng 11 còn là ước mơ hão huyền, vì đó là qui luật sinh học bình thường.&nbsp;</p><p>Nhưng khi nhìn lại thực tế cuộc sống, tuổi thọ bình quân chỉ dạt tới 70, nghĩa là sống ít hơn 50 tuổi so với qui luật thường. Còn đáng lẽ phải sống khỏe mạnh tới 70-90 tuổi, con người lại sớm đau yếu lúc bước vào ngưỡng cửa 40, mắc chứng bệnh nhồi máu cơ tim lúc 50, chết khi mới hơn 60, cũng là sớm có bệnh hơn 50 năm với qui luật bình thường. Sớm mắc bệnh, sớm tàn tật, sớm tử vong đã trở thành hiện tượng phổ biến ữong xã hội thời nay.&nbsp;</p><p>Xưa kia, người ta thường quan niệm rằng: Người giàu có ăn không ngồi rồi, sức khỏe mới yếu, thật ra, thiếu hiểu biết về chăm sóc sức khỏe ban đầu mới là nguyên nhân chính dân tới sức khỏe yếu. So sánh giữa người da trắng và da đen sinh sống ở Mỹ, người da ưắng kinh tế khá, đời sông vật chất hơn hẳn người da đen, tỉ lệ mắc chứng bệnh cao huyết áp, nhồi máu cơ tim và img thư cũng ít hơn nhiều so với người da đen. Vì vậy tuổi thọ cũng cao hơn.&nbsp;</p><p>Giới trí thức ở Mỹ có địa vị cao, thu nhập cao, tỉ lệ mắc bệnh cũng thấp hơn so với giới công nhân thợ thuyền. Nguyên do là giới trí thức ở Mỹ có nền giáo dục về sức khỏe, kiến thức vệ sinh, ý thức bảo vệ sức khỏe cao hơn. Theo số liệu thống kê của tôi, nhiều học sinh tiểu học ở Bắc Kinh đã mắc chứng bệnh cao huyết áp, học sinh trung học đã bị chứng xơ cứng động mạch.&nbsp;</p><p>Khi kinh tế phát ữiển, đời sống 12 vật chất ngày càng cải thiện, lẽ ra con người phải sông tốtt, sống khỏe hơn nữa mới đúng, nhưng tại sao có nhiều người lại chết sớm hơn?</p>',
+            'audio'=>'https://drive.google.com/file/d/1uunyQUBY-03aAzWNilMbeoMfyuQoz9Zk/view?usp=sharing'],
+
+            ['novelID'=>1, 'number'=>2, 'title'=>'Nhiều người không chết do bệnh tật mà chết vì ngu dốt',
+            'content'=>'
+            <p>Xin kể với các bạn một chuyện thật 100%. Có một người đàn ông chỉ vì khuân số cải trắng trị giá 12 đồng (nhân dân tệ) lên lầu, mà dẫn tới hậu quả phải tốn 6 vạn đổng tiền thuốc 13 men, suýt chút thì bỏ mạng! Nếu trước dó ông ta có kiến thức về sức khỏe, biết ràng một con người xưa nay ít làm việc nặng đột nhiên quá gượng sức sẽ có hậu quả thảm hại ra sao, thì sẽ chẳng bao giờ mắc sai lầm tương tự. Hiện nay có những căn bệnh nào uy hiếp tới tính mạng của chúng ta?&nbsp;</p><p>Theo thống kê, chứng bệnh tim mạch đứng đầu bảng, vào năm 2000 trên toàn thế giới có tới 20 triệu người chết vì căn bệnh này, chiếm 1/3 tổng số người tử vong.&nbsp;</p><p>Tổng giám đốc của Tổ chức Y tế thế giới đã phát biểu: Chỉ cần áp dụng tốt biện pháp dự phòng sẽ giúp giảm hơn phân nửa số tử vong. Có nghĩa là có một nửa trường hỢp tử vong đáng lý có thể ngăn chặn. Nên các chuyên gia cho rằng: Nhiều người không chết vì tật bệnh mà là chết vì dốt kiến thức y học. Muôn không chết bởi ngu dốt, chết bởi thiếu hiểu biết, hãy ngăn chặn những căn bệnh ngay từ ban đầu.&nbsp;</p><p>Xin đơn cử một ví dụ: Một ông cụ đang mang trên mình chứng nhồi máu cơ tim, cần tránh mọi sự căng thẳng, gắng gượng quá sức. Vậy mà do thiếu hiểu biết, có lần thu dọn nhà cửa, thay vì chỉ nên khuân một lần 2 đến 3 quyển sách, ông đã khuân một lần cả chồng sách, gắng gưỢng quá sức, tim đột nhiên ngừng đập. Tuy cấp cứu kịp thời, tim đập trở lại, nhưng do thiếu oxy nên bị nhũn não, ưở thành người thực vật, nằm bất động trên giường bệnh.&nbsp;</p><p>Nếu ông cụ có kiến thức y học dự phòng, biết người lớn tuổi tuyệt đối không nên lao động quá sức thì đã chẳng xảy ra cơ sự. Trong thời kỳ kinh tế còn bao cấp, một người đàn ông sống ở Bắc Kinh mua rất nhiều cải ữắng về nhà, không ngờ hôm sau có tuyết rơi, do lo cải ữắng đặt ở ngoài sân bị tuyết làm hư 14 hỏng, nên đã gắng sức khuân chiing lên lầu ba, cứ nhiều lần lên xuống để vác cho hết 50kg cải.&nbsp;</p><p>Do ngày thường ít lao động chân tay, nên ông ta thở hổn hển, rồi ho dữ dội, cuối cùng ho ra máu, đành phải đưa di cấp cứu. Chúng tôi tới kiểm tra, mới biết ông ấy đang bị nhồi máu cơ tim (myocardial iníarction) câp tính, suy tim trái cấp tính, phải tiêm ngay một mũi thuốc đặc trị. Thưa các bạn, giá Ig vàng ở Trung Quốc lúc đó mới 100 tệ, 0,lg chỉ 10 tệ, thế mà mũi tiêm đó đáng giá 15000 tệ, may mà còn công hiệu, để làm tan khối máu, phải tốn tất cả 6 vạn tệ, ông mới lành bệnh.&nbsp;</p><p>Sau này làm thử một bài toán, 50kg cải trắng chỉ đáng giá 12 tệ, ông ta vì hà tiện 12 tệ mà dẫn tới hậu quả phải tốn 6 vạn tệ, suýt chút mất mạng, thật chẳng đáng chút nào! Nếu xưa nay ông ấy có hiểu biết về y học dự phòng, thì chẳng xảy ra điều đáng tiếc này!</p>',
+            'audio'=>'https://drive.google.com/file/d/1Xl_tYVhl305JY0jknnmX_jE85JfAfQj4/view?usp=sharing'],
+
+            ['novelID'=>1, 'number'=>3, 'title'=>'Điều trị mắc tiền chẳng bằng dự phòng từ ban đầu',
+            'content'=>'
+            <p>Tôi chợt nghĩ, ông chủ này thật thông minh, vì công nhân viên của ông suốt một năm qua chưa nghỉ bệnh, giúp ông tiết kiệm biết bao nhiêu là chi phí thuốc men, nay chỉ thưởng cho họ một ít quà, nếu so với giá trị lao động của họ sáng tạo ra thì thật chẳng đáng là bao!&nbsp;</p><p>Tuy nhiên, để động viên công nhân viên yêu thích thể thao, ông cũng bỏ ra khá nhiều kinh phí để xây hồ bơi, sân chơi tennis, phòng tập thể dục trong công ty.&nbsp;</p><p>Sau khi về Bắc Kinh, tôi thấy nhiều chủ tịch công đoàn, lãnh đạo đơn vị đều sắp xếp thời gian thăm những công nhân viên bị bệnh nặng, càng bệnh nặng, càng nhiều người tới hỏi thăm, chỉ có người khỏe chẳng ai màng tới.&nbsp;</p><p>Nói như vậy, không có nghĩa là không nên hỏi han người bệnh, song người khỏe càng đáng được khích lệ động viên để mọi người đều côí gắng sông thật khỏe mạnh, vui tươi.&nbsp;</p><p>Qua đó cho thây Trung Quôíc xưa nay chỉ chú trọng việc điều trị bệnh, bệnh viện chúng tôi mỗi lần có cán bộ nằm viện tốn ít nhất cũng vài ngàn tệ, nghĩa là có khi nhà nước phải tốn hàng trăm vạn tệ cho công tác điều trị, nhưng lại không chịu tốn một xu cho công tác dự phòng. Theo kết luận nghiên cứu của các chuyên gia: chỉ cần tốn 1 đô la cho công tác dự phòng bệnh tim mạch, sẽ tiết kiệm được 8,59 đô la chi phí điều ứị về sau.&nbsp;</p><p>Đồng thời tiết kiệm khoảng 100 đô la chi phí cấp cứu, Bản thân tôi cũng làm thông kê điều tra ở một vùng nông thôn, có một hộ nông dân thu nhập hàng năm khoảng 20 vạn tệ, khá giàu có, chỉ tiền lì xì cho con cháu nhân dịp xuân về cũng tốn hơn vài ngàn tệ, song khi tới điều tra về vệ sinh môi trường, mới tá hỏa ra cả nhà 7 người chỉ dùng chimg một bàn chải đánh răng, vì họ cho rằng đánh răng là chuyện thừa, có cũng được, không cũng chẳng sao, cả nhà họ có tới 4 người mắc chứng bệnh cao huyết áp.&nbsp;</p><p>Thật ra, giữ vệ sinh răng miệng có khả năng giúp giảm bớt rất nhiều chứng bệnh, như xơ cứng động mạch, bệnh tim.&nbsp;</p><p>Ở phương Tây, vấn đề vệ sinh răng miệng là việc quan ữọng hàng đầu, Tổ chức Y tế thế giới cũng luôn nhấn mạnh tác dụng của việc vệ sinh răng miệng. Tóm lại, việc thay đổi quan niệm là điều cấp bách, nhằm chuyển biến nhận thức từ ưị bệnh sang phòng bệnh.</p>',
+            'audio'=>'https://drive.google.com/file/d/10y3Ndgjy2E4WjPvQ54XY7l0MhwzAv6WM/view?usp=sharing'],
+        ]);
+
+        DB::table('chapter')->insert([
+            ['novelID'=>2, 'number'=>1, 'title'=>'Sự Thỏa Hiệp Có Làm Bạn Hạnh Phúc ?',
+            'content'=>'
+            <p>Cô bạn S của tôi rất mê sườn xám, mỗi lần họp mặt lại thấy mặc một bộ sườn xám khác nhau. Cô ấy bảo rằng, kiếp này giấc mộng lớn nhất là mở tiệm sườm xám ngày ngày mặc sườn xám để đón khách.&nbsp;</p><p>Chúng tôi đều ủng hộ ý tưởng ấy,cho rằng chắc chắn S sẽ kinh doanh tốt, bởi vì cô ấy yêu sườn xám đến thế cơ mà.&nbsp;</p><p>Dưới sự ủng hộ của chúng tôi, S quyết định bất chấp tất cả để mở tiệm, đời này cô ấy chỉ có một ước muốn nhỏ nhoi như vậy, không làm được thì chẳng mất chốc mà già.&nbsp;</p><p>Thế là S bắt đầu tìm kiếm địa điểm mở tiệm, nguồn nhập hàng, bận tới tối tăm mặt mũi.Tới khi họp mặt, chúng tôi hỏi bao giờ thì tiệm sườn xám khai trương, chắc chắn sẽ tới ủng hộ.&nbsp;</p><p>S đang trò chuyện vui vẻ, nghe chúng tôi hỏi vậy thì bỗng ủ rũ chán nản, cô ấy than, không mở tiệm được, nói rồi thở dài buồn bãChúng tôi vội hỏi, rốt cuộc cô ấy gặp khó khăn gì, nói ra xem chúng tôi có giúp được không.</p><p>S do dự một thoáng rồi đáp, chồng cô ấy không đồng ý, cho rằng công việc hiện tại của cô vừa ổn định vừa vẻ vang, thu nhập cũng tốt, lại tiện chăm sóc cha mẹ con cái.&nbsp;</p><p>Nếu mở tiệm thì thời kì đầu, tiền vốn và thời gian bỏ ra cho nó sẽ cực kì lớn, hơn nữa S lại chưa có kinh nghiệm kinh doanh, nên chồng không tin tưởng năng lực của cô.&nbsp;</p><p>Anh ta nghĩ ý tưởng này quá bốc đồng, còn bảo thêm cha mẹ đôi bên cùng tạo áp lực, cha mẹ cũng khuyên cô đừng liều lĩnh, đang yên đang lành tự nhiên mở tiệm làm gì !&nbsp;</p><p>Nếu tiệm làm ăn chẳng ra sao mà tình cảm vợ chồng còn bị ảnh hưởng thì đúng là mất nhiều hơn được.</p><p>Dưới sự phản đối của tất cả mọi người, S do dự, dù rằng cô ấy rất yêu sườn xám, dù rằng giấc mộng ấp ủ bao lâu nay là mở một tiệm sườn xám, nhưng cô ấy cũng đành từ bỏ ý tưởng này.</p><p>Chúng tôi đều thở dài, chẳng biết nói gì thêm, dù sao đó là cuộc đời cô ấy, là lựa chọn của cô ấy, chúng ta nên tôn trọng thì hơn.Trên đường về, S tự giễu : " Tớ tưởng tớ chỉ thỏa thiệp một lần, ai ngờ tớ lại thỏa hiệp cả đời.&nbsp;</p><p>Tôi quen S rất nhiều năm, cô ấy vừa hiền lành vừa tốt tính, chẳng tranh chấp với ai bao giờ, gặp chuyện gì cũng nghĩ cho người ta trước.Khi học đại học.</p><p>S muốn học ngành Âm nhạc nhưng trong mắt cha mẹ cô ấy thì đó không phải nghề tử tế, học cũng chẳng làm gì. Họ buộc S phải chọn học ngành Tài Chính vì cô của S là giám đốc một chi nhánh ngân hàng.&nbsp;</p><p>S rất buồn nhưng cuối cùng vẫn vâng lời cha mẹ, chọn học ngành Tài Chính mà cô ấy chẳng hề yêu thích.</p>',
+            'audio'=>'https://drive.google.com/file/d/11wqPCMVEQs1U4uirIkTRupjaPoF4SdAi/view?usp=sharing'],
+
+            ['novelID'=>2, 'number'=>2, 'title'=>'Không Cần Trở Thành Một Cô Gái Được Tất Cả Mọi Người Yêu Quý',
+            'content'=>'
+            <p>Tôi có một cô bạn thân rất tốt, tạm gọi cô ấy là Đương Đương nhé. Hồi mới quen nhau, cô ấy vừa độc miệng vừa sắc sảo, chỉ cần biết tôi và ông xã cãi nhau là cô ấy đã muốn cho tôi một bạt tai, rồi kéo tai tôi ra mà hét: "Buồn phiền vì một người đàn ông, sao cậu kém cỏi thế hả, không thích thì lấy người khác chứ sao !"</p><p>Ban đầu tôi cũng không chịu nổi nhưng về sau thân hơn tôi mới quen dần với cách biểu đạt mạnh bạo của cô ấy. Đến giờ thì tôi cực kỳ yêu quý Đương Đương. Vì cô ấy sống quá phóng khoáng luôn tràn đầy sức sống, có thể thẳng thắn cự tuyệt một người, cũng có thể lạnh lùng đáp trả ác ý của người khác, hoàn toàn sống theo ý nguyện của mình. Song tôi cũng rất lo lắng, có lần tôi hỏi Đương Đương rằng nếu sống tùy ý như vậy, không sợ đắc tội với người khác sao ?</p><p>Đương Đương lườm tôi đầy khinh bỉ " Thế cậu thấy tớ có thiếu bạn bè không ?"</p><p>Tôi ngẫm nghĩ lại thì bỗng nhận ra, cô ấy còn nhiều bạn hơn khối người, đầy cô gái dịu dàng chu đáo hơn cả Đương Đương, còn chẳng được yêu quý bằng cô ấy.</p><p>Hồi ấy Đương Đương chưa nghỉ việc, ở bộ phận co ấy có một cô gái tên là Tiêu Lỵ vào làm. Tính tình của Tiêu Lỵ hoàn toàn trái ngược với Đương Đương- Tiêu Lỵ vừa dịu dàng vừa nhiệt tình, lại vừa tốt bụng. Lần đầu tôi tới thăm Đương Đương, Tiêu Lỵ hết pha trà rồi lại lấy đồ ăn vặt cho tôi, có lúc Đương Đương đi vệ sinh, Tiêu Lỵ sẽ ân cần trò chuyện với tôi, sợ tôi ở một mình thì rất buồn chán, tới trưa cô ấy lại nhiệt tình gọi cơm cho tôi. Tôi thầm cảm thán trong lòng đúng là một cô gái hiền lành ấm áp ! Tôi cũng chẳng che giấu sự quý mến của tôi với Tiêu Lỵ, thẳng thắn hỏi Đương Đương "Cậu có thấy cô gái như vậy sẽ được rất nhiều người quý mến không ? Nếu là đàn ông thì nhất định tớ phải cưới cô ấy "</p><p>Ý ngầm ở đây là Đương Đương nên dịu dàng hơn, Đương Đương tức tối lườm tôi một cái, rồi bảo trong bộ phận chẳng mấy ai thích Tiêu Lỵ cả. Câu trả lời này khiến tôi rất hoang mang, một cô gái tốt bụng như thế, sao lại bị ghét được ?</p><p>Buổi chiều tôi ngồi lướt web trong văn phòng Đương Đương, Tiêu Lỵ quay lại phòng nghỉ, ôm theo một túi hoa quả, phát cho từng người trong phòng làm việc. Nhưng cô ấy chỉ nhận được hai chữ cảm ơn lạnh lùng từ người khác, có người còn chỉ ờ một tiếng, chỉ vào một chỗ nào đó trên bàn làn việc, ý bảo hãy đặt ở đó, còn có người thẳng thắn bảo không cần. Đi hết một vòng nhưng cô gái này thậm chí không nhận được một câu cảm ơn chân thành. Cô ấy lẳng lặng về vị trí của mình, bắt đầu xử lí công việc, bấy giờ có người đồng nghiệp nhận được một cuộc điện thoại, vội xách túi lên: "Tiêu Lỵ, tôi có việc phải ra ngoài một chút, cô giao thứ này cho phòng Tài chính giúp tôi nhé !"</p><p>Tiêu Lỵ lập tức nhiệt tình đồng ý, tỏ vẻ chắc chắn sẽ làm tốt, người kia cười rồi cảm ơn, nhưng sao tôi nghe cái tiếng cảm ơn ấy giả tạo vô cùng. Tiêu Lỵ ngừng giải quyết công việc của mình, vội vã mang văn kiện lên phòng Tài Chính.</p><p>Hai tiếng sau, đồng nghiệp kia quay về, thuận miệng hỏi, Tiêu Lỵ liền nói cô ấy đã giao văn kiện cho ai đó ở trong phòng Tài Chính.</p><p>Người đồng nghiệp kia nghe vậy thì tái mặt " Cô giao cho cô ta làm gì, phải giao cho Tiểu Thẩm mới đúng, biết thế không nhờ cô, đúng là giúp cho xong chuyện."</p><p>Tiêu Lỵ không ngừng xin lỗi, cố gắng giải thích với người kia, nhưng người kia chỉ giận dữ lườm Tiêu Lỵ một cái rồi lầm bầm tức tối đi đến phòng Tài Chính.</p>',
+            'audio'=>'https://drive.google.com/file/d/1153lJq0GwwW25Pz-kiLjv5PUT4sK5N_8/view?usp=sharing'],
+
+            ['novelID'=>2, 'number'=>3, 'title'=>'Người Có Nội Tâm Mạnh Mẽ Mới Là Người Chiến Thắng Cuối Cùng',
+            'content'=>'
+            <p>H- bạn tôi là người phụ nữ của công việc, bình thường chúng tôi rất ít khi gặp nhau. Đợt này tôi đi công tác ở thành phố của H nên quyết định tới thăm cô ấy một chuyến.Khi tới tòa nhà văn phòng nơi H làm việc tôi phát hiện tầng hai toà nhà đang treo biển cho thuê. Tôi sửng sốt nhưng cũng không mấy bất ngờ, thầm nghĩ:&nbsp;</p><p>Cuối cùng cô ấy cũng thắng.Văn phòng của H nằm ở tầng ba, khi tôi bước vào, cô ấy đang ngồi trước tường kính của văn phòng làm việc, vừa uống cà phê vừa thưởng thức dòng xe đi lại như mắc cửi bên ngoài.&nbsp;</p><p>Tôi nghi ngờ phút này chắc chắn cô ấy rất vui vẻ.Tôi đưa tay chào: "Cuối cùng kẻ đó cũng thua rồi ?" H mỉm cười đầy tự tin "Chỉ là chuyện sớm muộn"Ân toán tình cừu giữa H và bà chủ công ty ở tầng hai chắc chắn có thể viết thành một bộ tiểu thuyết đấu đá thương trường.H không phải người thành phố này, cô ấy dựng nghiệp tất cả với hai bàn tay trắng. H là người rất có đầu óc kinh doanh, thương hiệu của cô ấy mau chóng trở thành nhất nhì trong thành phố.&nbsp;</p><p>Trong lúc cô ấy định mạnh tay mở rộng kinh doanh thì một thương hiệu đẳng cấp bỗng muốn cạnh tranh, đối phương cũng giống cô ấy, là một "nữ cường nhân".Chiến tranh giữa hai người phụ nữ không bao giờ có mùi thuốc súng nhưng lại là thứ tàn khốc nhất.Đầu tiên, đối phương chuyển trụ sở tới tầng dưới công ty của H, trang trí cực kì phô trương.&nbsp;</p><p>Cấp dưới của H ngày ngày nhìn họ làm vậy thì khá mất bình tĩnh, có người còn nói với H " Tổng giám đốc H, tôi nghĩ chúng ta nên làm một bảng hiệu nổi bật hơn rồi đặt ở một nơi thật bắt mắt, để đánh tan nhuệ khí của bọn họ."H bác bỏ đề nghị này, lý do đơn giản, làm một bảng hiệu nổi bật hơn thì có ích gì ?&nbsp;</p><p>Chỉ kích thích đối phương làm một bảng hiệu ngày càng nổi bật hơn mà thôi, có khi cuối cùng ở tầng một chỉ có bảng hiệu hai công ty này là nổi bật nhất, người tinh ý liếc qua là biết hai công ty đang so bì hạ bệ nhau. Bởi vậy không nhất thiết phải tỏ ra chi li hẹp hòi như thế.Một thời gian sau, đối phương trang hoàng xong, chính thức đi vào làm việc, trận chiến giữa hai công ty chính thức mở màn. Đầu tiên, đối phương tăng lương cho mọi nhân viên của họ, cao hơn lương công ty của H kha khá, hai công ty một ở tầng trên một ở tầng dưới, vốn chẳng giấu nổi nhau chuyện gì, huống chi đối phương còn chủ động để lộ cho phía H biết.</p>',
+            'audio'=>'https://drive.google.com/file/d/14IawoclAGxaiNPbKKr5Nz50J1Zn5EHk_/view?usp=sharing'],
+        ]);
     }
 }
 
@@ -269,7 +311,7 @@ class User extends Seeder{
 class Comment extends Seeder{
     public function run()
     {
-        for ($i=1; $i <= 30; $i++) {
+        for ($i=1; $i <= 32; $i++) {
             DB::table('comment')->insert([
                 ['novelID'=>$i,'accUsername'=>9,'content'=>'Mọi người chỉ em cách vào đọc được cả cuốn với. Cảm ơn ạ!'],
                 ['novelID'=>$i,'accUsername'=>6,'content'=>'Cuốn sách cho bạn đọc mốc góc nhìn mới về những người thành công trong các lĩnh vực khác nhau.'],
@@ -289,7 +331,7 @@ class FollowList extends Seeder{
             DB::table('follow_list')->insert([
                 ['accUsername'=>$i,'novelID'=>rand(1,10)],
                 ['accUsername'=>$i,'novelID'=>rand(11,20)],
-                ['accUsername'=>$i,'novelID'=>rand(21,30)],
+                ['accUsername'=>$i,'novelID'=>rand(21,32)],
             ]);
         }
     }
@@ -299,36 +341,38 @@ class AnotherTitle extends Seeder{
     public function run()
     {
         DB::table('another_title')->insert([
-            ['novelID'=>1,'title'=>'Life Is Your Choice'],
-            ['novelID'=>2,'title'=>'Magical Perspective of Life'],
-            ['novelID'=>3,'title'=>'Live To The Full For Today'],
-            ['novelID'=>4,'title'=>'To Have Good Memory'],
-            ['novelID'=>5,'title'=>'Business Model Creation'],
-            ['novelID'=>6,'title'=>'New Confession Of An Economic Assassin'],
-            ['novelID'=>7,'title'=>'The Giants In The Business World'],
-            ['novelID'=>8,'title'=>'If I Know When I Have 20'],
-            ['novelID'=>9,'title'=>'Outliers'],
-            ['novelID'=>10,'title'=>'36 Design In Modern Business'],
-            ['novelID'=>11,'title'=>'Think & Grow Rich'],
-            ['novelID'=>12,'title'=>'Golden Rule Of Napoleon Hill'],
-            ['novelID'=>13,'title'=>'Steeped Heart'],
-            ['novelID'=>14,'title'=>'Disney Wars'],
-            ['novelID'=>15,'title'=>'From Good To Great'],
-            ['novelID'=>16,'title'=>'Ngày Đòi Nợ'],
-            ['novelID'=>17,'title'=>'A to Z Marketing Insights'],
-            ['novelID'=>18,'title'=>'Securities Investment And Trading Secrets'],
-            ['novelID'=>19,'title'=>"It's never failed! All Challenges"],
-            ['novelID'=>20,'title'=>'W. Buffett Investment Strategy'],
-            ['novelID'=>21,'title'=>"Phan Thien An's Secret"],
-            ['novelID'=>22,'title'=>'Great Lessons From Warren Buffett'],
-            ['novelID'=>23,'title'=>'Successful Habits of Self-Made Millionaires'],
-            ['novelID'=>24,'title'=>'The Way Of Warren Buffett'],
-            ['novelID'=>25,'title'=>'Born To Be Steve Jobs'],
-            ['novelID'=>26,'title'=>'Rehabilitation for the Disabled/Visual Impairment'],
-            ['novelID'=>27,'title'=>'Looking Beautiful Is An Advantage, Living Beautiful Is A Skill'],
-            ['novelID'=>28,'title'=>'Life is Short, Dont Cry, Be Happy'],
-            ['novelID'=>29,'title'=>'The Life Story of Louis Braille'],
-            ['novelID'=>30,'title'=>'Braille Teaching Method for Teens and Adults'],
+            ['novelID'=>1,'title'=>'The best doctor is yourself'],
+            ['novelID'=>2,'title'=>'How Much Are You Expensive'],
+            ['novelID'=>3,'title'=>'Life Is Your Choice'],
+            ['novelID'=>4,'title'=>'Magical Perspective of Life'],
+            ['novelID'=>5,'title'=>'Live To The Full For Today'],
+            ['novelID'=>6,'title'=>'To Have Good Memory'],
+            ['novelID'=>7,'title'=>'Business Model Creation'],
+            ['novelID'=>8,'title'=>'New Confession Of An Economic Assassin'],
+            ['novelID'=>9,'title'=>'The Giants In The Business World'],
+            ['novelID'=>10,'title'=>'If I Know When I Have 20'],
+            ['novelID'=>11,'title'=>'Outliers'],
+            ['novelID'=>12,'title'=>'36 Design In Modern Business'],
+            ['novelID'=>13,'title'=>'Think & Grow Rich'],
+            ['novelID'=>14,'title'=>'Golden Rule Of Napoleon Hill'],
+            ['novelID'=>15,'title'=>'Steeped Heart'],
+            ['novelID'=>16,'title'=>'Disney Wars'],
+            ['novelID'=>17,'title'=>'From Good To Great'],
+            ['novelID'=>18,'title'=>'Ngày Đòi Nợ'],
+            ['novelID'=>19,'title'=>'A to Z Marketing Insights'],
+            ['novelID'=>20,'title'=>'Securities Investment And Trading Secrets'],
+            ['novelID'=>21,'title'=>"It's never failed! All Challenges"],
+            ['novelID'=>22,'title'=>'W. Buffett Investment Strategy'],
+            ['novelID'=>23,'title'=>"Phan Thien An's Secret"],
+            ['novelID'=>24,'title'=>'Great Lessons From Warren Buffett'],
+            ['novelID'=>25,'title'=>'Successful Habits of Self-Made Millionaires'],
+            ['novelID'=>26,'title'=>'The Way Of Warren Buffett'],
+            ['novelID'=>27,'title'=>'Born To Be Steve Jobs'],
+            ['novelID'=>28,'title'=>'Rehabilitation for the Disabled/Visual Impairment'],
+            ['novelID'=>29,'title'=>'Looking Beautiful Is An Advantage, Living Beautiful Is A Skill'],
+            ['novelID'=>30,'title'=>'Life is Short, Dont Cry, Be Happy'],
+            ['novelID'=>31,'title'=>'The Life Story of Louis Braille'],
+            ['novelID'=>32,'title'=>'Braille Teaching Method for Teens and Adults'],
         ]);
     }
 }

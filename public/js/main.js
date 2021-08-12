@@ -173,6 +173,7 @@ let theLoai = false;
 let chon = false;
 let chuong = false;
 const pathName = window.location.pathname;
+const audioBook = document.getElementById("myAudio");
 
 // Sounds
 const startSound = new Audio("/sounds/beep3.wav");
@@ -243,7 +244,11 @@ function checking(mess) {
 
     // Resume speak command
     if (command == "tiep tuc") {
-        responsiveVoice.resume();
+        if (audioBook) {
+            audioBook.play();
+        } else {
+            responsiveVoice.resume();
+        }
         return 0;
     } else {
         responsiveVoice.cancel();
@@ -388,9 +393,13 @@ function checking(mess) {
             responsiveVoice.speak("Chương không tồn tại");
         }
     } else if (command == "doc") {
-        responsiveVoice.speak(
-            document.querySelector("#novel-content").innerText
-        );
+        if (audioBook) {
+            audioBook.play();
+        } else {
+            responsiveVoice.speak(
+                document.querySelector("#novel-content").innerText
+            );
+        }
     } else {
         // Chat with Bot
         typing(mess);
@@ -566,6 +575,7 @@ function removeAccents(str) {
 
 // Voice Button
 $("#voiceBtn").on("click", function() {
+    if (audioBook) audioBook.pause();
     responsiveVoice.pause();
     checkCrPage();
     startSound.play();

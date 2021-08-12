@@ -98,6 +98,15 @@
 </section>
 <!-- Blog Details Section End -->
 
+{{-- Audio --}}
+@if ($chapter->audio)
+    <audio style="display: none" id="myAudio" controls="controls">
+        @php $audioUrl = explode("/",$chapter->audio)[5] @endphp
+        <source src="https://docs.google.com/uc?export=download&id={{$audioUrl}}">
+    </audio>
+@endif
+{{-- End Audio --}}
+
 @endsection
 
 @section('js')

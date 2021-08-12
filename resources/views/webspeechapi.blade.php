@@ -50,6 +50,10 @@
     <p id="test">Chưa nghe</p>
     <p id="message">Kết quả:</p>
 
+    <audio id="myAudio" controls="controls">
+        <source src="https://docs.google.com/uc?export=download&id=1HYn8nSRGwL10Hz11CxD9psL1BibD2EwC">
+    </audio>
+
     <!-- Voice Button -->
     <button id="voiceBtn"></button>
     <!-- Voice Button -->
@@ -421,6 +425,16 @@
             startSound.play();
             recognition.start();
         });
+
+        var x = document.getElementById("myAudio");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+        }
     </script>
 </body>
 </html>
