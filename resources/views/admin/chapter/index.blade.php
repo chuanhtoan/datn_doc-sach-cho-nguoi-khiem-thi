@@ -10,6 +10,9 @@
             margin-top: 1px;
             margin-bottom: 7px;
         }
+        /* #myAudio {
+            max-width: 20px;
+        } */
     </style>
 
 @endsection
@@ -43,7 +46,8 @@
                                 <th>Số</th>
                                 <th style="min-width: 100px">Tiêu Đề Chương</th>
                                 <th>Sách</th>
-                                <th style="min-width: 110px;">Thao Tác</th>
+                                <th style="max-width: 150px">Audio</th>
+                                <th style="min-width: 160px">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody id="products-list" name="products-list">
@@ -53,6 +57,16 @@
                                     <td>{{$item->number}}</td>
                                     <td>{{$item->title}}</td>
                                     <td>{{App\Model\Novel::find($item->novelID)->title}}</td>
+                                    <td>
+                                        {{-- Audio --}}
+                                        @if ($item->audio)
+                                            <audio id="myAudio" controls="controls">
+                                                @php $audioUrl = explode("/",$item->audio)[5] @endphp
+                                                <source src="https://docs.google.com/uc?export=download&id={{$audioUrl}}">
+                                            </audio>
+                                        @endif
+                                        {{-- End Audio --}}
+                                    </td>
                                     <td>
                                         <div style="display: inline-block">
                                             <a href="/admin/chapter/chapter-details/{{$item->id}}" class="btn btn-info">Xem</a>
@@ -91,6 +105,9 @@
                         <br>
                         <label for="title">Tiêu Đề:</label>
                         <input type="text" name="title" id="title" class="form-control required" placeholder="Tiêu đề">
+                        <br>
+                        <label for="title">Audio Link:</label>
+                        <input type="text" name="audio" id="audio" class="form-control" placeholder="Đường dẫn file audio">
                         <br>
                         <label for="novelID">Sách:</label>
                         <select name="novelID" id="novelID" class="form-control">

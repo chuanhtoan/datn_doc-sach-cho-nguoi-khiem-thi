@@ -123,6 +123,7 @@ class ChapterController extends Controller
             $product = Chapter::find($id);
             $product->number = $request->number;
             $product->title = $request->title;
+            $product->audio = $request->audio;
             $product->novelID = $request->novelID;
             $product->save();
             return response()->json($product);

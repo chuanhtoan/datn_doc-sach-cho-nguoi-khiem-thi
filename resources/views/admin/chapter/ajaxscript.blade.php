@@ -35,6 +35,7 @@ $(document).ready(function(){
                 $('#product_id').val(data.id);
                 $('#number').val(data.number);
                 $('#title').val(data.title);
+                $('#audio').val(data.audio);
                 $('#novelID').val(data.novelID);
                 $('#btn-save').val("update");
                 $('#createEditModal').modal('show');
@@ -100,6 +101,7 @@ $(document).ready(function(){
         var formData = {
             number: $('#number').val(),
             title: $('#title').val(),
+            audio: $('#audio').val(),
             novelID: $('#novelID').val(),
         }
 
@@ -119,6 +121,14 @@ $(document).ready(function(){
             data: formData,
             dataType: 'json',
             success: function (data) {
+                // audio tag
+                var audioTag = '';
+                if (data.audio) {
+                    audioTag = `<audio id="myAudio" controls="controls">
+                                    <source src="https://docs.google.com/uc?export=download&id=${data.audio.split('/')[5]}">
+                                </audio>`;
+                }
+
                 if (!data) {
                     $('#number').addClass('is-invalid');
                     $('#textUnique').html('Chương đã tồn tại');
@@ -126,7 +136,8 @@ $(document).ready(function(){
                 else {
                     var product = '<tr id="product' + data.id + '"><td>' + data.id + '</td><td>'
                     + data.number + '</td><td>' + data.title + '</td><td>'
-                    + $('#novelID option:selected').html() + '</td>';
+                    + $('#novelID option:selected').html() + '</td><td>'
+                    + audioTag + '</td>';
                     product += '<td><a href="/admin/chapter/chapter-details/' + data.id + '" class="btn btn-info mr-1">Xem</a>';
                     product += '<button class="btn btn-warning btn-detail open_modal" value="' + data.id + '">Sửa</button>';
                     product += ' <button class="btn btn-danger delete-product" value="' + data.id + '">Xóa</button></td></tr>';
