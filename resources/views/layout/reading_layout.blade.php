@@ -294,7 +294,7 @@
             // Listen Button
             $("#listenBtn").on("click", function(e) {
                 e.preventDefault();
-                responsiveVoice.speak(document.querySelector("#novel-content").innerText);
+                checking("doc");
             });
         </script>
 

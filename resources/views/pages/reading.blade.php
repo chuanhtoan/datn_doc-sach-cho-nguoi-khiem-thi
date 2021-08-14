@@ -12,6 +12,14 @@
                     <h2 id="blog-title">{{$novel->title}} {{'-'}} Chương {{$chapter->number}} @if ($chapter->title!=null) {{'-'}} @endif {{$chapter->title}}</h2>
                 </div>
             </div>
+            {{-- Audio --}}
+            @if ($chapter->audio)
+                <audio id="myAudio" controls="controls">
+                    @php $audioUrl = explode("/",$chapter->audio)[5] @endphp
+                    <source src="https://docs.google.com/uc?export=download&id={{$audioUrl}}">
+                </audio>
+            @endif
+            {{-- End Audio --}}
             <div class="col-lg-12">
                 <div class="blog__details__content">
                     <div class="blog__details__text">
@@ -97,15 +105,6 @@
     </div>
 </section>
 <!-- Blog Details Section End -->
-
-{{-- Audio --}}
-@if ($chapter->audio)
-    <audio style="display: none" id="myAudio" controls="controls">
-        @php $audioUrl = explode("/",$chapter->audio)[5] @endphp
-        <source src="https://docs.google.com/uc?export=download&id={{$audioUrl}}">
-    </audio>
-@endif
-{{-- End Audio --}}
 
 @endsection
 
